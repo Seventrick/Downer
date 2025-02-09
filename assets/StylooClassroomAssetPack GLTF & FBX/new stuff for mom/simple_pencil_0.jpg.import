@@ -1,0 +1,37 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://cb10w7jiuippp"
+path="res://.godot/imported/simple_pencil_0.jpg-c26f8f1df93b7883268d7a69887c88e6.ctex"
+metadata={
+"vram_texture": false
+}
+generator_parameters={
+"md5": "c29c9a288e3d73448dc24d5dce72a363"
+}
+
+[deps]
+
+source_file="res://assets/StylooClassroomAssetPack GLTF & FBX/new stuff for mom/simple_pencil_0.jpg"
+dest_files=["res://.godot/imported/simple_pencil_0.jpg-c26f8f1df93b7883268d7a69887c88e6.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1

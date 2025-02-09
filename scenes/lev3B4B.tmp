@@ -1,0 +1,209 @@
+[gd_scene load_steps=25 format=3 uid="uid://ciluhcuv5mx6r"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_mhie4"]
+[ext_resource type="PackedScene" uid="uid://d1m0i4tjyxoy8" path="res://scenes/player.tscn" id="1_qvtwt"]
+[ext_resource type="PackedScene" uid="uid://ba2i2wwf41i1j" path="res://dialogue/mainDialogueBalloon.tscn" id="2_0od2y"]
+[ext_resource type="PackedScene" uid="uid://bh7fvnh6qc55x" path="res://scenes/eye_ui.tscn" id="2_47ji6"]
+[ext_resource type="PackedScene" uid="uid://dv3roeahxoy5c" path="res://scenes/orb pickup.tscn" id="3_8rue0"]
+[ext_resource type="Texture2D" uid="uid://cur8x5srqphm0" path="res://assets/white ring.png" id="3_a06kw"]
+[ext_resource type="Shader" path="res://shaders2/glitch.gdshader" id="3_bokcb"]
+[ext_resource type="Texture2D" uid="uid://uyemse1dmnsv" path="res://assets/reticle_red.png" id="4_cjkg6"]
+[ext_resource type="Texture2D" uid="uid://ckoukpcralllq" path="res://assets/reticle.png" id="4_ik08h"]
+[ext_resource type="PackedScene" uid="uid://bbmg1ilvaf0c3" path="res://scenes/recharge.tscn" id="5_v8efp"]
+[ext_resource type="PackedScene" uid="uid://d2w5c2h235yb1" path="res://scenes/screwdriver.tscn" id="6_0i17b"]
+[ext_resource type="PackedScene" uid="uid://bhmxohy5kpk3h" path="res://scenes/safe zone.tscn" id="7_lijt8"]
+[ext_resource type="PackedScene" uid="uid://5cmhxaqrwwl2" path="res://scenes/firework box.tscn" id="8_f0yt0"]
+[ext_resource type="PackedScene" uid="uid://cajsurwtjwfbx" path="res://scenes/classroom.tscn" id="10_fqhth"]
+[ext_resource type="PackedScene" uid="uid://blv6n6bcamb52" path="res://scenes/matchbox.tscn" id="14_tmj7y"]
+[ext_resource type="PackedScene" uid="uid://cgusmq7mhjgg5" path="res://scenes/bird_flying.tscn" id="15_r4xv4"]
+[ext_resource type="PackedScene" uid="uid://chpgpw130l38n" path="res://scenes/cutscene_manager.tscn" id="15_vbo45"]
+[ext_resource type="PackedScene" uid="uid://ihrx7hp7voac" path="res://scenes/orb fall.tscn" id="17_67xy2"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_icvyn"]
+
+[sub_resource type="Sky" id="Sky_6hopl"]
+sky_material = SubResource("PhysicalSkyMaterial_icvyn")
+
+[sub_resource type="Environment" id="Environment_1nq1v"]
+background_mode = 1
+background_color = Color(1, 0.433333, 0, 1)
+sky = SubResource("Sky_6hopl")
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+volumetric_fog_density = 0.0169
+volumetric_fog_albedo = Color(1, 0.433333, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5fs0k"]
+render_priority = 0
+shader = ExtResource("3_bokcb")
+shader_parameter/albedo = null
+shader_parameter/specular = 19.94
+shader_parameter/metallic = null
+shader_parameter/alpha_scissor_threshold = 0.0
+shader_parameter/roughness = 0.0
+shader_parameter/point_size = 0.0
+shader_parameter/uv1_scale = null
+shader_parameter/uv1_offset = null
+shader_parameter/uv2_scale = null
+shader_parameter/uv2_offset = null
+shader_parameter/speed = 5.0
+shader_parameter/frequency_uniform = 30.0
+shader_parameter/is_breath = false
+shader_parameter/breath_speed = 0.368
+shader_parameter/breath_freq = 0.021
+
+[sub_resource type="SphereMesh" id="SphereMesh_5lchi"]
+material = SubResource("ShaderMaterial_5fs0k")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0qgsr"]
+radius = 4.0
+
+[node name="level" type="Node3D"]
+script = ExtResource("1_mhie4")
+balloon = ExtResource("2_0od2y")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, -0.012408, 0.518458, 0.855013, -0.499846, 0.737361, -0.454371, 11.7183, 9.65861, -58.9253)
+visible = false
+light_color = Color(1, 0.433333, 0, 1)
+light_energy = 8.725
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1nq1v")
+
+[node name="EyeUI" parent="." instance=ExtResource("2_47ji6")]
+z_index = 2
+
+[node name="rechargeBar" type="TextureProgressBar" parent="."]
+z_index = 1
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+pivot_offset = Vector2(16, 16)
+fill_mode = 4
+texture_progress = ExtResource("3_a06kw")
+
+[node name="redReticle" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(960, 540)
+texture = ExtResource("4_cjkg6")
+
+[node name="reticle" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(960, 540)
+texture = ExtResource("4_ik08h")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+visible = false
+
+[node name="BoxContainer" type="BoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -20.0
+offset_right = 70.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InteractLabel" type="Label" parent="CanvasLayer/BoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Press E to interact"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 6
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(320, 180)
+render_target_update_mode = 4
+
+[node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_qvtwt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7031, 1.63069, 11.4638)
+
+[node name="sphere" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.82682, 2.05528, 14.9568)
+layers = 3
+mesh = SubResource("SphereMesh_5lchi")
+skeleton = NodePath("../..")
+
+[node name="OrbPickup" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_8rue0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.20988, 1.41058, 2.01149)
+visible = false
+
+[node name="Recharge" parent="SubViewportContainer/SubViewport" instance=ExtResource("5_v8efp")]
+transform = Transform3D(0.827992, 0, 0.56074, 0, 1, 0, -0.56074, 0, 0.827992, -15.3155, -0.0334914, -11.3663)
+visible = false
+collision_layer = 3
+
+[node name="screwdriver" parent="SubViewportContainer/SubViewport" instance=ExtResource("6_0i17b")]
+transform = Transform3D(-0.0884011, 0.0168885, 0.000138541, -3.79067e-11, 0.000738271, -0.089997, -0.016889, -0.0883982, -0.000725156, -48.8985, 0.812624, -2.64672)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/screwdriver"]
+transform = Transform3D(11.1111, 6.19888e-06, -1.67638e-08, 0, 11.1111, -4.47035e-08, -3.72529e-09, -2.98023e-08, 11.1111, -0.0699463, 2.13206, -0.960154)
+omni_range = 0.458723
+
+[node name="FireworkBox" parent="SubViewportContainer/SubViewport" instance=ExtResource("8_f0yt0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.7825, 0, -23.0359)
+
+[node name="classroom" parent="SubViewportContainer/SubViewport" instance=ExtResource("10_fqhth")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="Light" type="OmniLight3D" parent="SubViewportContainer/SubViewport"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8953, 0.356693, -24.2287)
+light_energy = 30.0
+
+[node name="safe zone" parent="SubViewportContainer/SubViewport/Light" instance=ExtResource("7_lijt8")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Light/safe zone"]
+shape = SubResource("SphereShape3D_0qgsr")
+
+[node name="matchbox" parent="SubViewportContainer/SubViewport" instance=ExtResource("14_tmj7y")]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 12.9545, 1.36205, 10.24)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/matchbox"]
+transform = Transform3D(11.1111, 6.19888e-06, -1.67638e-08, 0, 11.1111, -4.47035e-08, -3.72529e-09, -2.98023e-08, 11.1111, -0.0699463, 2.13206, -0.960154)
+omni_range = 0.458723
+
+[node name="birdFlying" parent="SubViewportContainer/SubViewport" instance=ExtResource("15_r4xv4")]
+transform = Transform3D(0.787946, -0.444985, 0.425593, 0, 0.691185, 0.722678, -0.615744, -0.569431, 0.544617, 2.28407, 3.21064, 9.93923)
+
+[node name="OrbPickup2" parent="SubViewportContainer/SubViewport" instance=ExtResource("17_67xy2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.19563, 3.33807, 1.95454)
+visible = false
+
+[node name="CutsceneManager" parent="." instance=ExtResource("15_vbo45")]
+
+[editable path="EyeUI"]
+[editable path="SubViewportContainer/SubViewport/Player"]
+[editable path="SubViewportContainer/SubViewport/Player/Head/Camera3D/Orb"]

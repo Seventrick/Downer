@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2w5c2h235yb1"]
+
+[ext_resource type="PackedScene" uid="uid://crbjdyb1fht6s" path="res://assets/screwdriver.gltf" id="1_g1uwa"]
+[ext_resource type="Script" path="res://scripts/screwdriver.gd" id="1_oo3bc"]
+[ext_resource type="Resource" uid="uid://u4rh7wbu6tq0" path="res://item/items/screwdriver.tres" id="2_y6w61"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ve2if"]
+size = Vector3(1, 7.9, 1)
+
+[node name="screwdriver" type="StaticBody3D" groups=["interactable", "items"]]
+script = ExtResource("1_oo3bc")
+item_data = ExtResource("2_y6w61")
+
+[node name="blockbench_export" parent="." instance=ExtResource("1_g1uwa")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+shape = SubResource("BoxShape3D_ve2if")

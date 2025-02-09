@@ -1,0 +1,44 @@
+~ first
+Downer: [p align=center]I was in the school play.
+=> END
+
+~ second
+Downer: [p align=center]I was one of the background people.
+=> END
+
+~ third
+DOWNER: [p align=center]I think the only thing I really had to do was sit in the back with the other kids and react to what was happening.
+=> END
+
+~ fourth
+DOWNER: [p align=center]It was 202 Beagles, and we were the puppies.
+=> END
+
+~ fifth
+do readyStage()
+DOWNER: [p align=center]We were all supposed to sit in our assigned spots during the performance.
+DOWNER: [p align=center]But this girl who sat next to me…
+DOWNER: [p align=center]She was…
+set PlayerState.lineReady = true
+=> END
+
+~ janstonScene
+DOWNER: [p align=center]I probably could’ve just asked him if I could sit somewhere else later, but the idea of asking just made me sick.
+do wait(2)
+set PlayerState.movementLock = false
+set PlayerState.controlLock = true
+set PlayerState.janstonTime = true
+do janstonTransformationStart()
+do wait(3)
+set PlayerState.backAway = true
+do wait(2)
+set PlayerState.backAway = false
+set PlayerState.janstonTime = false
+do runOffStage()
+do wait(4)
+do janstonTransformation()
+do wait(1)
+do startChase()
+set PlayerState.controlLock = false
+
+=> END

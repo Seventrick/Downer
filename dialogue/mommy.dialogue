@@ -1,0 +1,28 @@
+~ chatWithMom
+set PlayerState.momChat = true
+set PlayerState.controlLock = true
+[p align=center]Mom: Mornin' hon, how'd you sleep?
+[p align=center]Downer: Poorly. It's the same dream again.
+[p align=center]Mom: Oh no, was it about the play?
+[p align=center]Mom: What happened?
+- Monster attack
+- I was eaten alive
+- Couldn't speak up
+
+=> quizWithMom
+
+~ quizWithMom
+[p align=center]Mom: That's not how I remember it.
+[p align=center]Mom: I could've sworn you had some help.
+- Monster attack => quizWithMom
+- I was eaten alive => quizWithMom
+- Couldn't speak up => quizWithMom
+- My friend helped
+[p align=center]Downer: Oh yeah! my friend was there!
+set PlayerState.controlLock = false
+do loadNextScene()
+=> END
+
+~ iLoveYou
+[p align=center]Mom: I love you, sweetie.
+=> END

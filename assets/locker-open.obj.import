@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bb80ygomc5j7v"
+path="res://.godot/imported/locker-open.obj-bc04ce1797b97299fff480d981012d62.mesh"
+
+[deps]
+
+files=["res://.godot/imported/locker-open.obj-bc04ce1797b97299fff480d981012d62.mesh"]
+
+source_file="res://assets/locker-open.obj"
+dest_files=["res://.godot/imported/locker-open.obj-bc04ce1797b97299fff480d981012d62.mesh", "res://.godot/imported/locker-open.obj-bc04ce1797b97299fff480d981012d62.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

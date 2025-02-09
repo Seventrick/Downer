@@ -1,0 +1,231 @@
+[gd_scene load_steps=17 format=3 uid="uid://du831ffkl6p4p"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_kd72r"]
+[ext_resource type="Script" path="res://scripts/save_data.gd" id="2_l6jwe"]
+[ext_resource type="PackedScene" uid="uid://ba2i2wwf41i1j" path="res://dialogue/mainDialogueBalloon.tscn" id="3_o3h8i"]
+[ext_resource type="PackedScene" uid="uid://bh7fvnh6qc55x" path="res://scenes/eye_ui.tscn" id="4_qol4e"]
+[ext_resource type="Texture2D" uid="uid://cur8x5srqphm0" path="res://assets/white ring.png" id="5_83yrq"]
+[ext_resource type="Texture2D" uid="uid://uyemse1dmnsv" path="res://assets/reticle_red.png" id="6_w162d"]
+[ext_resource type="Texture2D" uid="uid://ckoukpcralllq" path="res://assets/reticle.png" id="7_4wbov"]
+[ext_resource type="Script" path="res://inventory/inventory_interface.gd" id="8_4wdff"]
+[ext_resource type="PackedScene" uid="uid://crj2bm1x567ll" path="res://inventory/inventory.tscn" id="9_6eer6"]
+[ext_resource type="PackedScene" uid="uid://bu2ohw8lhs6fw" path="res://inventory/collectible_inventory.tscn" id="10_hlv7a"]
+[ext_resource type="PackedScene" uid="uid://dch2eiosifr1b" path="res://enode/ENOde.tscn" id="11_2xbol"]
+[ext_resource type="PackedScene" uid="uid://d1m0i4tjyxoy8" path="res://scenes/player.tscn" id="12_j2ce4"]
+
+[sub_resource type="Resource" id="Resource_2d0ok"]
+script = ExtResource("2_l6jwe")
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_icvyn"]
+
+[sub_resource type="Sky" id="Sky_6hopl"]
+sky_material = SubResource("PhysicalSkyMaterial_icvyn")
+
+[sub_resource type="Environment" id="Environment_1nq1v"]
+background_mode = 1
+background_color = Color(1, 0.433333, 0, 1)
+sky = SubResource("Sky_6hopl")
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+volumetric_fog_density = 0.0169
+volumetric_fog_albedo = Color(1, 0.433333, 0, 1)
+
+[node name="mainOld" type="Node3D"]
+transform = Transform3D(0.999983, -0.00319816, 0.00483952, 0.00336122, 0.999414, -0.0340702, -0.00472772, 0.0340859, 0.999408, 0, 0, 0)
+script = ExtResource("1_kd72r")
+save_data = SubResource("Resource_2d0ok")
+balloon = ExtResource("3_o3h8i")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, -0.012408, 0.518458, 0.855013, -0.499846, 0.737361, -0.454371, 11.7183, 9.65861, -58.9253)
+visible = false
+light_color = Color(1, 0.433333, 0, 1)
+light_energy = 8.725
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1nq1v")
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="EyeUI" parent="UI" instance=ExtResource("4_qol4e")]
+visible = false
+z_index = 2
+
+[node name="rechargeBar" type="TextureProgressBar" parent="UI"]
+z_index = 1
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+pivot_offset = Vector2(16, 16)
+fill_mode = 4
+texture_progress = ExtResource("5_83yrq")
+metadata/_edit_use_anchors_ = true
+
+[node name="redReticle" type="Sprite2D" parent="UI"]
+visible = false
+z_index = 1
+texture_filter = 1
+position = Vector2(960, 540)
+texture = ExtResource("6_w162d")
+
+[node name="reticle" type="Sprite2D" parent="UI"]
+visible = false
+z_index = 1
+texture_filter = 1
+position = Vector2(960, 540)
+texture = ExtResource("7_4wbov")
+
+[node name="InventoryInterface" type="Control" parent="UI"]
+visible = false
+z_index = 1
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -290.0
+offset_right = -350.0
+offset_bottom = -290.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("8_4wdff")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/InventoryInterface"]
+layout_mode = 1
+offset_right = 153.0
+offset_bottom = 35.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/InventoryInterface/VBoxContainer"]
+layout_mode = 2
+
+[node name="Items" type="Button" parent="UI/InventoryInterface/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Items"
+
+[node name="Collectibles" type="Button" parent="UI/InventoryInterface/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Collectibles"
+
+[node name="Control" type="Control" parent="UI/InventoryInterface/VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayerInventory" parent="UI/InventoryInterface/VBoxContainer/Control" instance=ExtResource("9_6eer6")]
+layout_mode = 0
+offset_right = 651.0
+offset_bottom = 59.0
+
+[node name="CollectibleInventory" parent="UI/InventoryInterface/VBoxContainer/Control" instance=ExtResource("10_hlv7a")]
+visible = false
+layout_mode = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="UI/InventoryInterface/VBoxContainer/Control"]
+
+[node name="PauseMenu" type="Control" parent="UI"]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="UI/PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.360784)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UI/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PauseMenu/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -33.0
+offset_right = 65.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Continue" type="Button" parent="UI/PauseMenu/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "Continue"
+
+[node name="Quit to Desktop" type="Button" parent="UI/PauseMenu/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "Quit to Desktop"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(320, 180)
+render_target_update_mode = 4
+
+[node name="ENOde" parent="SubViewportContainer/SubViewport" instance=ExtResource("11_2xbol")]
+
+[node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("12_j2ce4")]
+
+[connection signal="pressed" from="UI/InventoryInterface/VBoxContainer/HBoxContainer/Items" to="." method="_on_items_pressed"]
+[connection signal="pressed" from="UI/InventoryInterface/VBoxContainer/HBoxContainer/Collectibles" to="." method="_on_collectibles_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/NinePatchRect/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/NinePatchRect/VBoxContainer/Quit to Desktop" to="." method="_on_quit_to_desktop_pressed"]
+
+[editable path="UI/EyeUI"]
+[editable path="UI/InventoryInterface/VBoxContainer/Control/PlayerInventory"]
+[editable path="UI/InventoryInterface/VBoxContainer/Control/CollectibleInventory"]
+[editable path="SubViewportContainer/SubViewport/Player"]
+[editable path="SubViewportContainer/SubViewport/Player/Head/Camera3D/Orb"]

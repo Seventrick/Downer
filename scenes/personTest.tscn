@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bs251qcs5gbty"]
+
+[ext_resource type="PackedScene" uid="uid://crbjdyb1fht6s" path="res://assets/screwdriver.gltf" id="1_c6tkl"]
+[ext_resource type="Script" path="res://scripts/person_test.gd" id="1_fdvqn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ve2if"]
+size = Vector3(1, 7.9, 1)
+
+[node name="person" type="StaticBody3D"]
+script = ExtResource("1_fdvqn")
+
+[node name="def not a screwdriver" parent="." instance=ExtResource("1_c6tkl")]
+transform = Transform3D(2.86, 0, 0, 0, 2.86, 0, 0, 0, 2.86, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+shape = SubResource("BoxShape3D_ve2if")

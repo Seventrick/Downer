@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Collectible" load_steps=3 format=3 uid="uid://jy81xqfcmvey"]
+
+[ext_resource type="Texture2D" uid="uid://48j2ddh5wd3n" path="res://assets/nick olsen standing sprite.png" id="1_efn4p"]
+[ext_resource type="Script" path="res://item/collectible.gd" id="1_hhy47"]
+
+[resource]
+script = ExtResource("1_hhy47")
+name = "test collectible"
+description = "buh"
+icon = ExtResource("1_efn4p")

@@ -1,0 +1,39 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://braxvydka1alm"
+path.s3tc="res://.godot/imported/theater entryway_Material__38basecolortexture.png-580d441bda642b93d6b6784c5c6520bc.s3tc.ctex"
+path.etc2="res://.godot/imported/theater entryway_Material__38basecolortexture.png-580d441bda642b93d6b6784c5c6520bc.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "0a121cab30b358140e426c042b3dea68"
+}
+
+[deps]
+
+source_file="res://assets/theater/theater entryway_Material__38basecolortexture.png"
+dest_files=["res://.godot/imported/theater entryway_Material__38basecolortexture.png-580d441bda642b93d6b6784c5c6520bc.s3tc.ctex", "res://.godot/imported/theater entryway_Material__38basecolortexture.png-580d441bda642b93d6b6784c5c6520bc.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

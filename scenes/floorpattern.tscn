@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=4 uid="uid://cahgk7dfmg2os"]
+
+[ext_resource type="Texture2D" uid="uid://ca5gn63t6otwq" path="res://Assets/wallsfloordoorByStylooGltfFbx/gltf/floorpattern_Plane_1.png" id="1_f3fvr"]
+[ext_resource type="Texture2D" uid="uid://d172hem6skyeh" path="res://Assets/wallsfloordoorByStylooGltfFbx/gltf/floorpattern_Plane.png" id="2_s7o4x"]
+[ext_resource type="PackedScene" uid="uid://cajsurwtjwfbx" path="res://scenes/classroom.tscn" id="3_wnmf2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a31rf"]
+resource_name = "Plane.002"
+cull_mode = 2
+albedo_texture = ExtResource("1_f3fvr")
+roughness = 0.5
+normal_enabled = true
+normal_texture = ExtResource("2_s7o4x")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_bf0nk"]
+_surfaces = [{
+"aabb": AABB(-1, -0.0588784, -1, 2, 0.0588884, 2.00001),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAADAAEAAAACAAMABQAHAAQABQAGAAcAAAAGAAUAAAABAAYAAQAHAAYAAQADAAcAAgAFAAQAAgAAAAUAAwAEAAcAAwACAAQA"),
+"name": "Plane.002",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AADz//7/AAD///P//v8AAAAA8/8AAAAA///z/wAAAAAAAAAAAAAAAAAAAAD+/wAA//8AAP7/AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_tehca"]
+resource_name = "floorpattern_Plane_270"
+_surfaces = [{
+"aabb": AABB(-1, -0.0588784, -1, 2, 0.0588884, 2.00001),
+"attribute_data": PackedByteArray("AAD//wAA//8AAP//////////////////AAAAAAAAAAAAAAAA//8AAP//AAD//wAAAAAAAAAAAAAAAAAAAAD//wAA//8AAP////////////////////8AAP//AAD//wAA"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AQAKAAQAAQAHAAoAEAAWAA0AEAATABYAAAASAA8AAAADABIABQAXABQABQALABcACAARAA4ACAACABEACQAMABUACQAGAAwA"),
+"material": SubResource("StandardMaterial3D_a31rf"),
+"name": "Plane.002",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AADz//7//n8AAPP//v//vwAA8//+//+////z//7//n////P//v//v///8//+//+/AADz/wAA//8AAPP/AAD/vwAA8/8AAP+////z/wAA//////P/AAD/v///8/8AAP+/AAAAAAAA//8AAAAAAAD/PwAAAAAAAP+/AAAAAP7//n8AAAAA/v//PwAAAAD+//+///8AAP7//n///wAA/v//P///AAD+//+///8AAAAA/////wAAAAD/P///AAAAAP+//3///////3//f////3///////3//fwAA////f////3//f///////f////3//fwAA////fwAA/3//f////3///wAA/3//f////3///wAA/3//fwAA////fwAA/3//fwAA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_bf0nk")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ah67m"]
+size = Vector3(2, 0.0617188, 2)
+
+[node name="floorpattern2" type="StaticBody3D"]
+
+[node name="floorpattern" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_tehca")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0308594, 0)
+shape = SubResource("BoxShape3D_ah67m")
+
+[node name="classroom" parent="." instance=ExtResource("3_wnmf2")]

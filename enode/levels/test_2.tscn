@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://kd2yg7nqmr35"]
+
+[ext_resource type="Script" path="res://enode/test_2.gd" id="1_o2jtt"]
+[ext_resource type="Script" path="res://enode/level_data.gd" id="2_nsxea"]
+
+[sub_resource type="Resource" id="Resource_acovb"]
+script = ExtResource("2_nsxea")
+complete = false
+middle_school = true
+high_school = false
+family = true
+friend = false
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_knflr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5tuyd"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_dp7su"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ax7wu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oq4mo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_47c8n"]
+
+[node name="test_2" type="Node3D"]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
+script = ExtResource("1_o2jtt")
+level_data = SubResource("Resource_acovb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(2.225, 0, 0, 0, 0.2, 0, 0, 0, 2.225, 0, -0.126975, 0.788854)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_knflr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_5tuyd")
+
+[node name="A" type="StaticBody3D" parent="."]
+transform = Transform3D(0.285, 0, 0, 0, 0.285, 0, 0, 0, 0.285, -0.570642, 0.257045, 1.58428)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="A"]
+mesh = SubResource("PrismMesh_dp7su")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="A"]
+shape = SubResource("BoxShape3D_ax7wu")
+
+[node name="B" type="StaticBody3D" parent="."]
+transform = Transform3D(0.225, 0, 0, 0, 0.225, 0, 0, 0, 0.225, 0.622489, 0.2, 1.56913)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="B"]
+shape = SubResource("BoxShape3D_oq4mo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="B"]
+mesh = SubResource("BoxMesh_47c8n")

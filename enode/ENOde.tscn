@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dch2eiosifr1b"]
+
+[ext_resource type="Script" path="res://enode/enode.gd" id="1_i14kj"]
+[ext_resource type="Script" path="res://enode/enode_data.gd" id="2_0ilov"]
+
+[sub_resource type="Resource" id="Resource_0gma4"]
+script = ExtResource("2_0ilov")
+current_level = "puzzle_level"
+mainTheme = ""
+levelsSetup = false
+levelThemes = {}
+
+[node name="ENOde" type="Node"]
+script = ExtResource("1_i14kj")
+enode_data = SubResource("Resource_0gma4")

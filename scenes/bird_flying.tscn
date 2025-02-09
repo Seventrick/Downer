@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgusmq7mhjgg5"]
+
+[ext_resource type="PackedScene" uid="uid://7hppi53lwwnt" path="res://assets/preBirdFly.gltf" id="1_kegwu"]
+[ext_resource type="PackedScene" uid="uid://bhmxohy5kpk3h" path="res://scenes/safe zone.tscn" id="2_hcqnt"]
+[ext_resource type="PackedScene" uid="uid://lso4s4ks2kl6" path="res://assets/3D assets/daBird.gltf" id="3_ar8k4"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_x2usy"]
+radius = 5.42548
+
+[node name="birdFlying" type="Node3D"]
+
+[node name="blockbench_export" parent="." instance=ExtResource("1_kegwu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0225028, 0, 0.0503538)
+visible = false
+
+[node name="Light" type="OmniLight3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.759328, -0.524325)
+light_energy = 30.0
+
+[node name="safe zone" parent="Light" instance=ExtResource("2_hcqnt")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Light/safe zone"]
+shape = SubResource("SphereShape3D_x2usy")
+
+[node name="blockbench_export2" parent="." instance=ExtResource("3_ar8k4")]

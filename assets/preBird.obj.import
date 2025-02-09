@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://fwiuchtkbf1h"
+path="res://.godot/imported/preBird.obj-bb95ab8fba37dc7051b06d7bfe3ff851.mesh"
+
+[deps]
+
+files=["res://.godot/imported/preBird.obj-bb95ab8fba37dc7051b06d7bfe3ff851.mesh"]
+
+source_file="res://assets/preBird.obj"
+dest_files=["res://.godot/imported/preBird.obj-bb95ab8fba37dc7051b06d7bfe3ff851.mesh", "res://.godot/imported/preBird.obj-bb95ab8fba37dc7051b06d7bfe3ff851.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

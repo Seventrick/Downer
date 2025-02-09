@@ -1,0 +1,96 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://b7majr8b8ms7l"
+path="res://.godot/imported/theater entryway.glb-b8eb1d2a575119138ddb822fad4ad489.scn"
+
+[deps]
+
+source_file="res://assets/theater/theater entryway.glb"
+dest_files=["res://.godot/imported/theater entryway.glb-b8eb1d2a575119138ddb822fad4ad489.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"nodes": {
+"PATH:Node_1/Floor": {
+"generate/physics": true,
+"physics/shape_type": 1
+},
+"PATH:Node_11/Legs1_002": {
+"generate/physics": true
+},
+"PATH:Node_13/Legs1_003": {
+"generate/physics": true
+},
+"PATH:Node_15/Cyc": {
+"generate/physics": true
+},
+"PATH:Node_17/FrontBaffles": {
+"generate/physics": true
+},
+"PATH:Node_19/HouseTabs": {
+"generate/physics": true
+},
+"PATH:Node_21/CycTabs": {
+"generate/physics": true
+},
+"PATH:Node_3/Stage": {
+"generate/physics": true
+},
+"PATH:Node_31/WallsFOHBack": {
+"physics/shape_type": 2
+},
+"PATH:Node_33/Line003": {
+"generate/physics": true
+},
+"PATH:Node_35/Line002": {
+"generate/physics": true
+},
+"PATH:Node_37/Line001": {
+"generate/physics": true
+},
+"PATH:Node_41/ProsceniumWood": {
+"generate/physics": true
+},
+"PATH:Node_43/WallsBOH": {
+"generate/physics": true
+},
+"PATH:Node_45/WallsFOHFront": {
+"generate/physics": true
+},
+"PATH:Node_5/Proscenium": {
+"generate/physics": true,
+"physics/shape_type": 2
+},
+"PATH:Node_7/Legs1": {
+"generate/physics": true,
+"physics/shape_type": 2
+},
+"PATH:Node_9/Legs1_001": {
+"generate/physics": true
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

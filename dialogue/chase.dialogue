@@ -1,0 +1,30 @@
+~ studentOffStage
+set PlayerState.controlLock = true
+[p align=center]Student: Hey Downer, we're up soon! Find a costume in the wings and get to your spot!
+set PlayerState.controlLock = false
+=> END
+
+~ teacher
+set PlayerState.movementLock = true
+[p align=center]Teacher: Is everyone happy with their spots?
+do wait(3)
+=> END
+
+~ deathCutscene
+=> END
+
+~ saveCutscene
+set PlayerState.movementLock = true
+do wait(2)
+set PlayerState.flyingSave = true
+do wait(2)
+set PlayerState.kidnapped = true
+do wait(3.4)
+do rotateThem()
+set PlayerState.flyingSave = false
+set PlayerState.kidnapped = false
+set PlayerState.enterRoom = true
+do wait(0.6)
+set PlayerState.movementLock = false
+do sceneChange()
+=> END

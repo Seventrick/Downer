@@ -1,0 +1,164 @@
+[gd_scene load_steps=21 format=3 uid="uid://d1m0i4tjyxoy8"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_jng3c"]
+[ext_resource type="Script" path="res://inventory/inventory_data.gd" id="2_c4ess"]
+[ext_resource type="Shader" path="res://color_dither/shaders/color_dither_post_3d.gdshader" id="2_wrsw1"]
+[ext_resource type="Script" path="res://inventory/collectible_inventory_data.gd" id="3_d10sg"]
+[ext_resource type="Texture2D" uid="uid://cp0ok14rv0p6u" path="res://color_dither/textures/palettes/sweetie-16.png" id="3_l2k74"]
+[ext_resource type="Script" path="res://item/item_data.gd" id="4_c48y5"]
+[ext_resource type="PackedScene" uid="uid://dxtxicxfiwc7t" path="res://scenes/orb.tscn" id="4_pqilm"]
+[ext_resource type="AudioStream" uid="uid://cc6oo6pde0f6h" path="res://audio/orbup.wav" id="5_8meci"]
+[ext_resource type="ArrayMesh" uid="uid://ct80ukfqjvbm8" path="res://assets/arm.obj" id="5_gevpi"]
+[ext_resource type="AudioStream" uid="uid://h12kpmri13yc" path="res://audio/orbdown.wav" id="6_6m0lh"]
+[ext_resource type="AudioStream" uid="uid://d38q3hj1i8puo" path="res://audio/step1.wav" id="6_avayu"]
+
+[sub_resource type="Resource" id="Resource_qc06j"]
+script = ExtResource("2_c4ess")
+slot_datas = Array[ExtResource("4_c48y5")]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+
+[sub_resource type="Resource" id="Resource_ko2d6"]
+script = ExtResource("3_d10sg")
+slot_datas = Array[ExtResource("4_c48y5")]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6w3sm"]
+radius = 0.35
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0gwvg"]
+points = PackedVector3Array(0.223309, 0.896623, 0.103721, -0.337198, -0.702061, -0.0738964, -0.337534, -0.702762, 0.0723161, 0.310749, -0.801262, 0.0436457, -0.0738964, 0.702061, -0.337198, -0.16127, 0.700536, 0.305571, 0.0725934, -0.705427, 0.337223, 0.159308, -0.699184, -0.306633, -0.312854, 0.802421, -0.0156505, 0.305573, 0.700541, -0.161271, 0.271925, 0.68908, 0.21446, -0.163457, -0.828337, -0.252249, -0.163719, -0.829673, 0.251001, -0.273692, 0.660736, -0.216253, -0.076791, 0.973148, -0.10719, 0.105646, -0.974166, 0.0752147, 0.0725934, 0.705427, 0.337223, 0.159305, 0.699172, -0.306627, -0.16068, -0.697961, -0.306097, 0.333009, -0.667538, -0.102346, 0.21446, -0.68908, 0.271925, 0.333438, 0.668396, 0.100824, -0.297834, 0.594163, 0.183049, -0.216924, -0.662794, 0.272955, -0.106631, 0.937716, 0.165455, -0.10719, -0.973148, -0.076791, 0.104936, -0.937366, -0.167048, 0.333438, -0.668396, 0.100824, 0.0723161, -0.702761, -0.337534, 0.104937, 0.937368, -0.167048, -0.102345, -0.667533, 0.333007, -0.337198, 0.702061, -0.0738964)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bog7q"]
+render_priority = 0
+shader = ExtResource("2_wrsw1")
+shader_parameter/dither_pixel_size = 1.0
+shader_parameter/dither_pixel_offset = Vector2(0, 0)
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/albedo_strength = 1.0
+shader_parameter/dither_palette = ExtResource("3_l2k74")
+
+[sub_resource type="QuadMesh" id="QuadMesh_hsmwe"]
+size = Vector2(2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3fu0"]
+albedo_color = Color(0.42327, 0.30402, 0.235987, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gw6pr"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2x7ye"]
+height = 0.2
+
+[node name="Player" type="CharacterBody3D" groups=["player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.18362, 0)
+script = ExtResource("1_jng3c")
+inventory_data = SubResource("Resource_qc06j")
+collectible_inventory_data = SubResource("Resource_ko2d6")
+dash_speed = 11.5
+dash_duration = 0.15
+dash_decel = 40.0
+
+[node name="Body" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("CapsuleMesh_6w3sm")
+
+[node name="BodyCollider" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_0gwvg")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.675149, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+
+[node name="dithering" type="MeshInstance3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.80831)
+material_override = SubResource("ShaderMaterial_bog7q")
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_hsmwe")
+
+[node name="Orb" parent="Head/Camera3D" groups=["items"] instance=ExtResource("4_pqilm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.849936, -0.732519, -1.09498)
+
+[node name="orbUp" type="AudioStreamPlayer" parent="Head/Camera3D/Orb"]
+unique_name_in_owner = true
+stream = ExtResource("5_8meci")
+volume_db = -10.0
+
+[node name="orbDown" type="AudioStreamPlayer" parent="Head/Camera3D/Orb"]
+unique_name_in_owner = true
+stream = ExtResource("6_6m0lh")
+volume_db = -10.0
+
+[node name="Arm" type="MeshInstance3D" parent="Head/Camera3D"]
+transform = Transform3D(1.08383, 0.10696, -0.503854, 0.515082, -0.225064, 1.06021, 1.43051e-07, -1.17384, -0.249187, 0.920305, -0.922592, -0.162071)
+visible = false
+material_override = SubResource("StandardMaterial3D_f3fu0")
+mesh = ExtResource("5_gevpi")
+skeleton = NodePath("../../..")
+
+[node name="SeeCast" type="RayCast3D" parent="Head/Camera3D"]
+unique_name_in_owner = true
+transform = Transform3D(9.49478, 0, 0, 0, -9.32097e-08, -9.16943, 0, 2.13239, -4.00809e-07, 0, 0, 0)
+collision_mask = 3
+
+[node name="DashMarker" type="Marker3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.675149, -4.2363)
+
+[node name="PlayerZone" type="ShapeCast3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_gw6pr")
+target_position = Vector3(0, 0, 0)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="StepCast" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0553763, 0)
+enabled = false
+shape = SubResource("CylinderShape3D_2x7ye")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="BoxContainer" type="BoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InteractText" type="Label" parent="CanvasLayer/BoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Press E"
+
+[node name="boxCooldown" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="walk" type="Timer" parent="."]
+wait_time = 0.75
+autostart = true
+
+[node name="sprintDuration" type="Timer" parent="."]
+unique_name_in_owner = true
+process_callback = 0
+one_shot = true
+
+[node name="sprintCooldown" type="Timer" parent="."]
+unique_name_in_owner = true
+process_callback = 0
+wait_time = 3.0
+one_shot = true
+
+[node name="walkSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_avayu")
+volume_db = -10.0
+
+[connection signal="timeout" from="walk" to="." method="_on_walk_timeout"]
+
+[editable path="Head/Camera3D/Orb"]

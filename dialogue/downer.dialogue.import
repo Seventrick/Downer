@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://cwq2mycqki6j3"
+path="res://.godot/imported/downer.dialogue-f53aa96986e279b97efce6550cbdf3bd.tres"
+
+[deps]
+
+source_file="res://dialogue/downer.dialogue"
+dest_files=["res://.godot/imported/downer.dialogue-f53aa96986e279b97efce6550cbdf3bd.tres"]
+
+[params]
+
+defaults=true

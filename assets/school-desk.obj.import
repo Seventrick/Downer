@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bd6h4cgxflvws"
+path="res://.godot/imported/school-desk.obj-9c205592f92263d7b70c48c3926b790a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/school-desk.obj-9c205592f92263d7b70c48c3926b790a.mesh"]
+
+source_file="res://assets/school-desk.obj"
+dest_files=["res://.godot/imported/school-desk.obj-9c205592f92263d7b70c48c3926b790a.mesh", "res://.godot/imported/school-desk.obj-9c205592f92263d7b70c48c3926b790a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

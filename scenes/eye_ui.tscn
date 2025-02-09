@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://bh7fvnh6qc55x"]
+
+[ext_resource type="Texture2D" uid="uid://dld52treo5jyr" path="res://assets/eye meter/eye meter pngs1.png" id="1_4feyw"]
+[ext_resource type="Script" path="res://scripts/eye_ui.gd" id="1_c6ydq"]
+[ext_resource type="Texture2D" uid="uid://5y3rrt1n23f0" path="res://assets/eye meter/eye meter pngs2.png" id="2_6om3a"]
+[ext_resource type="Texture2D" uid="uid://b55c327ovlvv0" path="res://assets/eye meter/eye meter pngs3.png" id="3_4deqt"]
+[ext_resource type="Texture2D" uid="uid://t1gfrgaheobn" path="res://assets/eye meter/eye meter pngs4.png" id="4_kggsg"]
+[ext_resource type="Texture2D" uid="uid://boxdnq5w5xkc5" path="res://assets/eye meter/eye meter pngs5.png" id="5_wd5hg"]
+[ext_resource type="Texture2D" uid="uid://cf04exwuowqku" path="res://assets/eye meter/eye meter pngs6.png" id="6_15rc4"]
+[ext_resource type="Texture2D" uid="uid://kioax7rv4j4n" path="res://assets/eye meter/eye meter pngs7.png" id="7_hx1c5"]
+
+[node name="EyeUI" type="Node2D"]
+z_index = 1
+texture_filter = 1
+position = Vector2(179, 923)
+scale = Vector2(5.77, 5.77)
+script = ExtResource("1_c6ydq")
+
+[node name="eye1" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_4feyw")
+
+[node name="eye2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_6om3a")
+
+[node name="eye3" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_4deqt")
+
+[node name="eye4" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_kggsg")
+
+[node name="eye5" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("5_wd5hg")
+
+[node name="eye6" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("6_15rc4")
+
+[node name="eye7" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("7_hx1c5")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="SleepScreen" type="ColorRect" parent="."]
+unique_name_in_owner = true
+offset_left = -112.305
+offset_top = -186.655
+offset_right = 394.695
+offset_bottom = 75.3449
+color = Color(0, 0, 0, 1)

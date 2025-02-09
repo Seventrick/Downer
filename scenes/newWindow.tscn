@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://cmr7ce7r5yhcw"]
+
+[ext_resource type="PackedScene" uid="uid://dk6k6avrape4w" path="res://assets/wallsfloordoorByStylooGltfFbx/gltf/window.glb" id="1_2oesp"]
+[ext_resource type="Script" path="res://scripts/new_window.gd" id="1_4787b"]
+[ext_resource type="PackedScene" uid="uid://ba2i2wwf41i1j" path="res://dialogue/mainDialogueBalloon.tscn" id="2_id2g8"]
+[ext_resource type="PackedScene" uid="uid://dnda808mfc1fe" path="res://assets/bars.gltf" id="2_qnt7t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7j5on"]
+size = Vector3(1.09695, 0.683105, 0.111084)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_x3wax"]
+margin = 0.0
+radius = 1.75726
+
+[node name="StaticBody3D" type="StaticBody3D" groups=["interactable"]]
+script = ExtResource("1_4787b")
+balloon = ExtResource("2_id2g8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00582416, 1.3555, 0.10941)
+shape = SubResource("BoxShape3D_7j5on")
+
+[node name="window2" parent="." instance=ExtResource("1_2oesp")]
+transform = Transform3D(-5.50763e-08, 1.54, 0, -1.26, -6.73155e-08, 0, 0, 0, 1, 0, 1.35784, 0.1)
+
+[node name="blockbench_export" parent="." instance=ExtResource("2_qnt7t")]
+transform = Transform3D(-4.37114e-08, 0, 1.17573, 0, 1.3, 0, -1, 0, -5.13928e-08, 0, 1.05137, 0)
+
+[node name="Area3D" type="Area3D" parent="." groups=["window"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 16
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_x3wax")

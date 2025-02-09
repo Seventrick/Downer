@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxtxicxfiwc7t"]
+
+[ext_resource type="Script" path="res://scripts/orb timer.gd" id="1_26qex"]
+[ext_resource type="PackedScene" uid="uid://bhmxohy5kpk3h" path="res://scenes/safe zone.tscn" id="2_sf0ku"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dk7w2"]
+size = Vector3(4, 4, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2afjq"]
+render_priority = 1
+no_depth_test = true
+shading_mode = 0
+
+[sub_resource type="SphereMesh" id="SphereMesh_uvb4p"]
+radius = 0.2
+height = 0.4
+
+[node name="Orb" type="StaticBody3D"]
+collision_layer = 2048
+script = ExtResource("1_26qex")
+
+[node name="safe zone" parent="." instance=ExtResource("2_sf0ku")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="safe zone"]
+shape = SubResource("BoxShape3D_dk7w2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_2afjq")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_uvb4p")
+
+[node name="Light" type="OmniLight3D" parent="."]
+light_energy = 0.0
+omni_range = 4.06976
+
+[node name="LightTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 15.0
+one_shot = true
+
+[connection signal="timeout" from="LightTimer" to="." method="_on_light_timer_timeout"]

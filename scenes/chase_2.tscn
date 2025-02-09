@@ -1,0 +1,1151 @@
+[gd_scene load_steps=14 format=3 uid="uid://bfintjk8fr4kw"]
+
+[ext_resource type="Script" path="res://scripts/test_chase_cutscene.gd" id="1_tnplf"]
+[ext_resource type="Texture2D" uid="uid://uyemse1dmnsv" path="res://assets/reticle_red.png" id="1_xljl3"]
+[ext_resource type="Texture2D" uid="uid://ckoukpcralllq" path="res://assets/reticle.png" id="2_e6qdk"]
+[ext_resource type="PackedScene" uid="uid://ba2i2wwf41i1j" path="res://dialogue/mainDialogueBalloon.tscn" id="2_pb0oa"]
+[ext_resource type="Texture2D" uid="uid://c5530mwcgi53m" path="res://assets/Screenshot 2024-09-03 200605.png" id="3_v1l4e"]
+[ext_resource type="PackedScene" uid="uid://d1m0i4tjyxoy8" path="res://scenes/player.tscn" id="4_ng1xc"]
+[ext_resource type="ArrayMesh" uid="uid://bfff81uftaub3" path="res://assets/preMonster.obj" id="5_qw1mw"]
+[ext_resource type="PackedScene" uid="uid://7prn1reuulcn" path="res://assets/wallsfloordoorByStylooGltfFbx/gltf/wall_003.glb" id="6_7b6qj"]
+[ext_resource type="PackedScene" uid="uid://dscyhwo6pa1rq" path="res://assets/wallsfloordoorByStylooGltfFbx/gltf/walldoor_003.glb" id="7_7yhqj"]
+[ext_resource type="MeshLibrary" uid="uid://bjvfdqnctikix" path="res://libraries/floor.tres" id="7_huuli"]
+[ext_resource type="PackedScene" uid="uid://bwidq50kvwq2t" path="res://assets/wallsfloordoorByStylooGltfFbx/gltf/door.glb" id="8_aj0sv"]
+[ext_resource type="PackedScene" uid="uid://7hppi53lwwnt" path="res://assets/preBirdFly.gltf" id="11_kqw0u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qhune"]
+size = Vector3(2.40234, 3.07788, 4.56163)
+
+[node name="chase2" type="Node3D"]
+script = ExtResource("1_tnplf")
+balloon = ExtResource("2_pb0oa")
+
+[node name="redReticle" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(960, 540)
+texture = ExtResource("1_xljl3")
+
+[node name="reticle" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(960, 540)
+texture = ExtResource("2_e6qdk")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-0.16, 0, 0, 0, -6.99382e-09, 0.16, 0, 0.16, 6.99382e-09, 10.7068, 0.101512, 11.7674)
+texture = ExtResource("3_v1l4e")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 6
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(320, 180)
+render_target_update_mode = 4
+
+[node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_ng1xc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140.018, 1.218, 27.091)
+
+[node name="PreMonster" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(-0.0383397, 0, 0.999137, 0, 0.999975, 0, -0.999129, 0, -0.0383397, -136.507, 0, 27.0846)
+mesh = ExtResource("5_qw1mw")
+skeleton = NodePath("../../..")
+
+[node name="Area3D" type="Area3D" parent="SubViewportContainer/SubViewport/PreMonster"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/PreMonster/Area3D"]
+transform = Transform3D(1, -1.63709e-10, 0, 1.40062e-09, 1, -2.24215e-08, 0, -2.24079e-08, 1, 0.0179893, 1.36983, -0.213383)
+shape = SubResource("BoxShape3D_qhune")
+
+[node name="level" type="Node3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="lockers" type="Node3D" parent="SubViewportContainer/SubViewport/level"]
+
+[node name="walls" type="Node3D" parent="SubViewportContainer/SubViewport/level"]
+
+[node name="wall_0466" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -102.77, 1, 16.9022)
+
+[node name="wall_0467" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -102.77, 3, 16.9022)
+
+[node name="wall_0468" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -102.77, 1, 14.9022)
+
+[node name="wall_0469" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -102.77, 3, 14.9022)
+
+[node name="wall_0470" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -102.77, 1, 12.9022)
+
+[node name="wall_0471" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -102.77, 3, 12.9022)
+
+[node name="wall_0478" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -102.77, 1, 8.90221)
+
+[node name="wall_0479" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -102.77, 3, 8.90221)
+
+[node name="wall_0480" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -102.77, 1, 10.9022)
+
+[node name="wall_0481" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -102.77, 3, 10.9022)
+
+[node name="wall_0502" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -97.7702, 1, 16.9022)
+
+[node name="wall_0503" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -97.7702, 3, 16.9022)
+
+[node name="wall_0504" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -97.7702, 1, 14.9022)
+
+[node name="wall_0505" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -97.7702, 3, 14.9022)
+
+[node name="wall_0506" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -97.7702, 1, 12.9022)
+
+[node name="wall_0507" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -97.7702, 3, 12.9022)
+
+[node name="wall_0514" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -97.7702, 1, 8.90221)
+
+[node name="wall_0515" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -97.7702, 3, 8.90221)
+
+[node name="wall_0516" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -97.7702, 1, 10.9022)
+
+[node name="wall_0517" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -97.7702, 3, 10.9022)
+
+[node name="wall_0526" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -97.7857, 1, 28.9022)
+
+[node name="wall_0527" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -97.7857, 3, 28.9022)
+
+[node name="wall_0528" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -97.7857, 1, 18.9022)
+
+[node name="wall_0529" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -97.7857, 3, 18.9022)
+
+[node name="wall_0530" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -97.7857, 1, 20.9022)
+
+[node name="wall_0531" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -97.7857, 3, 20.9022)
+
+[node name="wall_0532" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -97.7857, 1, 22.9022)
+
+[node name="wall_0533" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -97.7857, 3, 22.9022)
+
+[node name="wall_0534" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -97.7857, 1, 24.9022)
+
+[node name="wall_0535" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -97.7857, 3, 24.9022)
+
+[node name="wall_0536" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -97.7857, 1, 26.9022)
+
+[node name="wall_0537" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -97.7857, 3, 26.9022)
+
+[node name="wall_0564" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -102.786, 1, 18.9022)
+
+[node name="wall_0565" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -102.786, 3, 18.9022)
+
+[node name="wall_0566" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -102.786, 1, 20.9022)
+
+[node name="wall_0567" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -102.786, 3, 20.9022)
+
+[node name="wall_0568" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -102.786, 1, 22.9022)
+
+[node name="wall_0569" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -102.786, 3, 22.9022)
+
+[node name="wall_0570" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -102.786, 1, 23.5728)
+
+[node name="wall_0571" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -102.786, 3, 23.5728)
+
+[node name="wall_0594" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 1, 44.55)
+
+[node name="wall_0595" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 3, 44.55)
+
+[node name="wall_0596" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 1, 42.55)
+
+[node name="wall_0597" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 3, 42.55)
+
+[node name="wall_0598" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 1, 40.55)
+
+[node name="wall_0599" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 3, 40.55)
+
+[node name="wall_0600" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 1, 30.55)
+
+[node name="wall_0601" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 3, 30.55)
+
+[node name="wall_0602" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 1, 32.55)
+
+[node name="wall_0603" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 3, 32.55)
+
+[node name="wall_0604" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 1, 34.55)
+
+[node name="wall_0605" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 3, 34.55)
+
+[node name="wall_0606" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 1, 36.55)
+
+[node name="wall_0607" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 3, 36.55)
+
+[node name="wall_0608" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 1, 38.55)
+
+[node name="wall_0609" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 3, 38.55)
+
+[node name="wall_0610" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 64.55)
+
+[node name="wall_0611" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 64.55)
+
+[node name="wall_0612" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 62.55)
+
+[node name="wall_0613" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 62.55)
+
+[node name="wall_0614" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 60.55)
+
+[node name="wall_0615" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 60.55)
+
+[node name="wall_0616" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 50.55)
+
+[node name="wall_0617" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 50.55)
+
+[node name="wall_0618" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 52.55)
+
+[node name="wall_0619" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 52.55)
+
+[node name="wall_0620" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 54.55)
+
+[node name="wall_0621" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 54.55)
+
+[node name="wall_0622" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 56.55)
+
+[node name="wall_0623" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 56.55)
+
+[node name="wall_0624" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 58.55)
+
+[node name="wall_0625" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 58.55)
+
+[node name="wall_0626" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 48.55)
+
+[node name="wall_0627" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 48.55)
+
+[node name="wall_0628" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 46.55)
+
+[node name="wall_0629" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 46.55)
+
+[node name="wall_0630" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 1, 3.54996)
+
+[node name="wall_0631" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 3, 3.54996)
+
+[node name="wall_0632" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 1, 1.54996)
+
+[node name="wall_0633" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 3, 1.54996)
+
+[node name="wall_0634" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 1, -0.450039)
+
+[node name="wall_0635" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 3, -0.450039)
+
+[node name="wall_0636" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 1, -10.45)
+
+[node name="wall_0637" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 3, -10.45)
+
+[node name="wall_0638" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 1, -8.45004)
+
+[node name="wall_0639" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 3, -8.45004)
+
+[node name="wall_0640" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 1, -6.45004)
+
+[node name="wall_0641" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 3, -6.45004)
+
+[node name="wall_0642" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 1, -4.45004)
+
+[node name="wall_0643" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 3, -4.45004)
+
+[node name="wall_0644" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 1, -2.45004)
+
+[node name="wall_0645" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 3, -2.45004)
+
+[node name="wall_0646" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 23.55)
+
+[node name="wall_0647" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 23.55)
+
+[node name="wall_0648" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 21.55)
+
+[node name="wall_0649" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 21.55)
+
+[node name="wall_0650" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 19.55)
+
+[node name="wall_0651" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 19.55)
+
+[node name="wall_0652" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 9.54996)
+
+[node name="wall_0653" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 9.54996)
+
+[node name="wall_0654" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 11.55)
+
+[node name="wall_0655" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 11.55)
+
+[node name="wall_0656" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 13.55)
+
+[node name="wall_0657" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 13.55)
+
+[node name="wall_0658" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 15.55)
+
+[node name="wall_0659" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 15.55)
+
+[node name="wall_0660" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 17.55)
+
+[node name="wall_0661" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 17.55)
+
+[node name="wall_0662" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 7.54996)
+
+[node name="wall_0663" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 7.54996)
+
+[node name="wall_0664" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 5.54996)
+
+[node name="wall_0665" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 5.54996)
+
+[node name="wall_0682" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, -12.45)
+
+[node name="wall_0683" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, -12.45)
+
+[node name="wall_0684" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, -14.45)
+
+[node name="wall_0685" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, -14.45)
+
+[node name="wall_0686" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, -16.45)
+
+[node name="wall_0687" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, -16.45)
+
+[node name="wall_0696" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, -17.1386)
+
+[node name="wall_0697" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, -17.1386)
+
+[node name="wall_0718" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, -12.45)
+
+[node name="wall_0719" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, -12.45)
+
+[node name="wall_0720" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, -14.45)
+
+[node name="wall_0721" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, -14.45)
+
+[node name="wall_0722" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, -16.45)
+
+[node name="wall_0723" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, -16.45)
+
+[node name="wall_0738" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 1, 3.54996)
+
+[node name="wall_0739" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 3, 3.54996)
+
+[node name="wall_0740" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 1, 1.54996)
+
+[node name="wall_0741" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 3, 1.54996)
+
+[node name="wall_0742" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 1, -0.450039)
+
+[node name="wall_0743" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 3, -0.450039)
+
+[node name="wall_0744" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 1, -10.45)
+
+[node name="wall_0745" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 3, -10.45)
+
+[node name="wall_0746" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 1, -8.45004)
+
+[node name="wall_0747" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 3, -8.45004)
+
+[node name="wall_0748" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 1, -6.45004)
+
+[node name="wall_0749" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 3, -6.45004)
+
+[node name="wall_0750" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 1, -4.45004)
+
+[node name="wall_0751" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 3, -4.45004)
+
+[node name="wall_0752" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 1, -2.45004)
+
+[node name="wall_0753" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 3, -2.45004)
+
+[node name="wall_0754" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, 23.55)
+
+[node name="wall_0755" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 23.55)
+
+[node name="wall_0756" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, 21.55)
+
+[node name="wall_0757" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 21.55)
+
+[node name="wall_0758" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, 19.55)
+
+[node name="wall_0759" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 19.55)
+
+[node name="wall_0760" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, 9.54996)
+
+[node name="wall_0761" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 9.54996)
+
+[node name="wall_0762" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, 11.55)
+
+[node name="wall_0763" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 11.55)
+
+[node name="wall_0764" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, 13.55)
+
+[node name="wall_0765" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 13.55)
+
+[node name="wall_0766" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, 15.55)
+
+[node name="wall_0767" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 15.55)
+
+[node name="wall_0768" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, 17.55)
+
+[node name="wall_0769" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 17.55)
+
+[node name="wall_0770" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, 7.54996)
+
+[node name="wall_0771" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 7.54996)
+
+[node name="wall_0772" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, 5.54996)
+
+[node name="wall_0773" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 5.54996)
+
+[node name="wall_0774" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 1, 39.55)
+
+[node name="wall_0775" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 3, 39.55)
+
+[node name="wall_0776" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 1, 37.55)
+
+[node name="wall_0777" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 3, 37.55)
+
+[node name="wall_0778" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 1, 35.55)
+
+[node name="wall_0779" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 3, 35.55)
+
+[node name="wall_0780" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 1, 25.55)
+
+[node name="wall_0781" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 3, 25.55)
+
+[node name="wall_0782" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 1, 27.55)
+
+[node name="wall_0783" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 3, 27.55)
+
+[node name="wall_0784" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 1, 29.55)
+
+[node name="wall_0785" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 3, 29.55)
+
+[node name="wall_0786" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 1, 31.55)
+
+[node name="wall_0787" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 3, 31.55)
+
+[node name="wall_0788" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 1, 33.55)
+
+[node name="wall_0789" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 3, 33.55)
+
+[node name="wall_0790" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, 59.55)
+
+[node name="wall_0791" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 59.55)
+
+[node name="wall_0792" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, 57.55)
+
+[node name="wall_0793" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 57.55)
+
+[node name="wall_0794" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, 55.55)
+
+[node name="wall_0795" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 55.55)
+
+[node name="wall_0796" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, 45.55)
+
+[node name="wall_0797" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 45.55)
+
+[node name="wall_0799" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 47.55)
+
+[node name="wall_0800" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, 49.55)
+
+[node name="wall_0801" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 49.55)
+
+[node name="wall_0802" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, 51.55)
+
+[node name="wall_0803" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 51.55)
+
+[node name="wall_0804" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, 53.55)
+
+[node name="wall_0805" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 53.55)
+
+[node name="wall_0806" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, 43.55)
+
+[node name="wall_0807" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 43.55)
+
+[node name="wall_0808" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, 41.55)
+
+[node name="wall_0809" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 41.55)
+
+[node name="wall_0810" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 1, 75.55)
+
+[node name="wall_0811" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 3, 75.55)
+
+[node name="wall_0812" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 1, 73.55)
+
+[node name="wall_0813" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 3, 73.55)
+
+[node name="wall_0814" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 1, 71.55)
+
+[node name="wall_0815" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 3, 71.55)
+
+[node name="wall_0816" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 1, 61.55)
+
+[node name="wall_0817" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 3, 61.55)
+
+[node name="wall_0818" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 1, 63.55)
+
+[node name="wall_0819" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 3, 63.55)
+
+[node name="wall_0820" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 1, 65.55)
+
+[node name="wall_0821" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 3, 65.55)
+
+[node name="wall_0822" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 1, 67.55)
+
+[node name="wall_0823" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 3, 67.55)
+
+[node name="wall_0824" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 1, 69.55)
+
+[node name="wall_0825" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.49, 3, 69.55)
+
+[node name="wall_0826" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, 95.55)
+
+[node name="wall_0827" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 95.55)
+
+[node name="wall_0828" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, 93.55)
+
+[node name="wall_0829" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 93.55)
+
+[node name="wall_0830" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, 91.55)
+
+[node name="wall_0831" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 91.55)
+
+[node name="wall_0832" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, 81.55)
+
+[node name="wall_0833" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 81.55)
+
+[node name="wall_0834" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, 83.55)
+
+[node name="wall_0835" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 83.55)
+
+[node name="wall_0836" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, 85.55)
+
+[node name="wall_0837" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 85.55)
+
+[node name="wall_0838" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, 87.55)
+
+[node name="wall_0839" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 87.55)
+
+[node name="wall_0840" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, 89.55)
+
+[node name="wall_0841" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 89.55)
+
+[node name="wall_0842" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, 79.55)
+
+[node name="wall_0843" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 79.55)
+
+[node name="wall_0844" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 1, 77.55)
+
+[node name="wall_0845" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -142.475, 3, 77.55)
+
+[node name="wall_0846" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 1, 80.55)
+
+[node name="wall_0847" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 3, 80.55)
+
+[node name="wall_0848" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 1, 78.55)
+
+[node name="wall_0849" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 3, 78.55)
+
+[node name="wall_0850" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 1, 76.55)
+
+[node name="wall_0851" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 3, 76.55)
+
+[node name="wall_0852" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 1, 66.55)
+
+[node name="wall_0853" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 3, 66.55)
+
+[node name="wall_0854" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 1, 68.55)
+
+[node name="wall_0855" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 3, 68.55)
+
+[node name="wall_0856" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 1, 70.55)
+
+[node name="wall_0857" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 3, 70.55)
+
+[node name="wall_0858" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 1, 72.55)
+
+[node name="wall_0859" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 3, 72.55)
+
+[node name="wall_0860" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 1, 74.55)
+
+[node name="wall_0861" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.49, 3, 74.55)
+
+[node name="wall_0862" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 100.55)
+
+[node name="wall_0863" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 100.55)
+
+[node name="wall_0864" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 98.55)
+
+[node name="wall_0865" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 98.55)
+
+[node name="wall_0866" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 96.55)
+
+[node name="wall_0867" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 96.55)
+
+[node name="wall_0868" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 86.55)
+
+[node name="wall_0869" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 86.55)
+
+[node name="wall_0870" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 88.55)
+
+[node name="wall_0871" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 88.55)
+
+[node name="wall_0872" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 90.55)
+
+[node name="wall_0873" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 90.55)
+
+[node name="wall_0874" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 92.55)
+
+[node name="wall_0875" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 92.55)
+
+[node name="wall_0876" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 94.55)
+
+[node name="wall_0877" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 94.55)
+
+[node name="wall_0878" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 84.55)
+
+[node name="wall_0879" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 84.55)
+
+[node name="wall_0880" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 1, 82.55)
+
+[node name="wall_0881" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -137.475, 3, 82.55)
+
+[node name="wall_0882" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.481, 1, 29.5585)
+
+[node name="wall_0883" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.481, 3, 29.5585)
+
+[node name="wall_0884" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -124.481, 1, 29.5585)
+
+[node name="wall_0885" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -124.481, 3, 29.5585)
+
+[node name="wall_0886" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.481, 1, 29.5585)
+
+[node name="wall_0887" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.481, 3, 29.5585)
+
+[node name="wall_0888" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -136.481, 1, 29.5585)
+
+[node name="wall_0889" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -136.481, 3, 29.5585)
+
+[node name="wall_0890" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -134.481, 1, 29.5585)
+
+[node name="wall_0891" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -134.481, 3, 29.5585)
+
+[node name="wall_0892" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -132.481, 1, 29.5585)
+
+[node name="wall_0893" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -132.481, 3, 29.5585)
+
+[node name="wall_0894" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130.481, 1, 29.5585)
+
+[node name="wall_0895" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130.481, 3, 29.5585)
+
+[node name="wall_0896" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.481, 1, 29.5585)
+
+[node name="wall_0897" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.481, 3, 29.5585)
+
+[node name="wall_0898" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.481, 1, 29.543)
+
+[node name="wall_0899" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.481, 3, 29.543)
+
+[node name="wall_0900" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104.481, 1, 29.543)
+
+[node name="wall_0901" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104.481, 3, 29.543)
+
+[node name="wall_1098" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -98.4815, 1, 29.543)
+
+[node name="wall_1099" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -98.4815, 3, 29.543)
+
+[node name="wall_1100" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.481, 1, 29.543)
+
+[node name="wall_1101" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.481, 3, 29.543)
+
+[node name="wall_0902" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106.481, 1, 29.543)
+
+[node name="wall_0903" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106.481, 3, 29.543)
+
+[node name="wall_0904" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.481, 1, 29.543)
+
+[node name="wall_0905" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.481, 3, 29.543)
+
+[node name="wall_0906" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114.481, 1, 29.543)
+
+[node name="wall_0907" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114.481, 3, 29.543)
+
+[node name="wall_0908" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -112.481, 1, 29.543)
+
+[node name="wall_0909" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -112.481, 3, 29.543)
+
+[node name="wall_0910" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.481, 1, 29.543)
+
+[node name="wall_0911" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.481, 3, 29.543)
+
+[node name="wall_0912" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.481, 1, 29.543)
+
+[node name="wall_0913" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.481, 3, 29.543)
+
+[node name="wall_0914" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118.481, 1, 29.543)
+
+[node name="wall_0915" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118.481, 3, 29.543)
+
+[node name="wall_0916" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120.481, 1, 29.543)
+
+[node name="wall_0917" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120.481, 3, 29.543)
+
+[node name="wall_0918" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.481, 1, 24.5585)
+
+[node name="wall_0919" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.481, 3, 24.5585)
+
+[node name="wall_0920" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -124.481, 1, 24.5585)
+
+[node name="wall_0921" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -124.481, 3, 24.5585)
+
+[node name="wall_0922" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.481, 1, 24.5585)
+
+[node name="wall_0923" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.481, 3, 24.5585)
+
+[node name="wall_0924" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -136.481, 1, 24.5585)
+
+[node name="wall_0925" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -136.481, 3, 24.5585)
+
+[node name="wall_0926" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -134.481, 1, 24.5585)
+
+[node name="wall_0927" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -134.481, 3, 24.5585)
+
+[node name="wall_0928" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -132.481, 1, 24.5585)
+
+[node name="wall_0929" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -132.481, 3, 24.5585)
+
+[node name="wall_0930" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130.481, 1, 24.5585)
+
+[node name="wall_0931" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130.481, 3, 24.5585)
+
+[node name="wall_0932" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.481, 1, 24.5585)
+
+[node name="wall_0933" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.481, 3, 24.5585)
+
+[node name="wall_0934" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.745, 1, 24.543)
+
+[node name="wall_0935" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.745, 3, 24.543)
+
+[node name="wall_0936" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104.481, 1, 24.543)
+
+[node name="wall_0937" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104.481, 3, 24.543)
+
+[node name="wall_0938" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106.481, 1, 24.543)
+
+[node name="wall_0939" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106.481, 3, 24.543)
+
+[node name="wall_0940" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.481, 1, 24.543)
+
+[node name="wall_0941" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.481, 3, 24.543)
+
+[node name="wall_0942" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114.481, 1, 24.543)
+
+[node name="wall_0943" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114.481, 3, 24.543)
+
+[node name="wall_0944" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -112.481, 1, 24.543)
+
+[node name="wall_0945" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -112.481, 3, 24.543)
+
+[node name="wall_0946" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.481, 1, 24.543)
+
+[node name="wall_0947" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.481, 3, 24.543)
+
+[node name="wall_0948" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.481, 1, 24.543)
+
+[node name="wall_0949" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.481, 3, 24.543)
+
+[node name="wall_0950" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118.481, 1, 24.543)
+
+[node name="wall_0951" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118.481, 3, 24.543)
+
+[node name="wall_0952" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120.481, 1, 24.543)
+
+[node name="wall_0953" parent="SubViewportContainer/SubViewport/level/walls" instance=ExtResource("6_7b6qj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120.481, 3, 24.543)
+
+[node name="walldoor_0032" parent="SubViewportContainer/SubViewport/level" instance=ExtResource("7_7yhqj")]
+transform = Transform3D(-7.46914e-08, 0, -1, 0, 1.70874, 0, 1.70874, 0, -4.37114e-08, -142.477, 1.09851, 47.392)
+
+[node name="doorAnchor" type="Node3D" parent="SubViewportContainer/SubViewport/level"]
+transform = Transform3D(-0.383602, 0, 0.923498, 0, 1, 0, -0.923498, 0, -0.383602, -142.479, 0, 47.8688)
+
+[node name="door2" parent="SubViewportContainer/SubViewport/level/doorAnchor" instance=ExtResource("8_aj0sv")]
+transform = Transform3D(-5.96046e-08, 0, 0.437009, 0, 1.70874, 0, -1.25969, 0, 0, -0.145145, 0.623485, -0.383301)
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="SubViewportContainer/SubViewport/level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140.11, 4.79587, 27.1921)
+light_energy = 10.293
+omni_range = 30.0
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="SubViewportContainer/SubViewport/level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140.11, 4.79587, 48.3194)
+light_energy = 10.293
+omni_range = 30.0
+
+[node name="GridMap" type="GridMap" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh_library = ExtResource("7_huuli")
+data = {
+"cells": PackedInt32Array(65464, 65528, 0, 65464, 65529, 0, 65464, 65530, 0, 65464, 65531, 0, 65464, 65532, 0, 65464, 65533, 0, 65464, 65534, 0, 65464, 65535, 0, 65464, 0, 0, 65464, 1, 0, 65464, 2, 0, 65464, 3, 0, 65464, 4, 0, 65464, 5, 0, 65464, 6, 0, 65464, 7, 0, 65464, 8, 0, 65464, 9, 0, 65464, 10, 0, 65464, 11, 0, 65464, 12, 0, 65464, 13, 0, 65464, 14, 0, 65464, 15, 0, 65464, 16, 0, 65464, 17, 0, 65464, 18, 0, 65464, 19, 0, 65464, 20, 0, 65464, 21, 0, 65464, 22, 0, 65464, 23, 0, 65464, 24, 0, 65464, 25, 0, 65464, 26, 0, 65464, 27, 0, 65464, 28, 0, 65464, 29, 0, 65464, 30, 0, 65464, 31, 0, 65464, 32, 0, 65464, 33, 0, 65464, 34, 0, 65464, 35, 0, 65464, 36, 0, 65464, 37, 0, 65464, 38, 0, 65464, 39, 0, 65464, 40, 0, 65464, 41, 0, 65464, 42, 0, 65464, 43, 0, 65464, 44, 0, 65464, 45, 0, 65464, 46, 0, 65464, 47, 0, 65464, 48, 0, 65464, 49, 0, 65464, 50, 0, 65464, 51, 0, 65465, 65528, 0, 65465, 65529, 0, 65465, 65530, 0, 65465, 65531, 0, 65465, 65532, 0, 65465, 65533, 0, 65465, 65534, 0, 65465, 65535, 0, 65465, 0, 0, 65465, 1, 0, 65465, 2, 0, 65465, 3, 0, 65465, 4, 0, 65465, 5, 0, 65465, 6, 0, 65465, 7, 0, 65465, 8, 0, 65465, 9, 0, 65465, 10, 0, 65465, 11, 0, 65465, 12, 0, 65465, 13, 0, 65465, 14, 0, 65465, 15, 0, 65465, 16, 0, 65465, 17, 0, 65465, 18, 0, 65465, 19, 0, 65465, 20, 0, 65465, 21, 0, 65465, 22, 0, 65465, 23, 0, 65465, 24, 0, 65465, 25, 0, 65465, 26, 0, 65465, 27, 0, 65465, 28, 0, 65465, 29, 0, 65465, 30, 0, 65465, 31, 0, 65465, 32, 0, 65465, 33, 0, 65465, 34, 0, 65465, 35, 0, 65465, 36, 0, 65465, 37, 0, 65465, 38, 0, 65465, 39, 0, 65465, 40, 0, 65465, 41, 0, 65465, 42, 0, 65465, 43, 0, 65465, 44, 0, 65465, 45, 0, 65465, 46, 0, 65465, 47, 0, 65465, 48, 0, 65465, 49, 0, 65465, 50, 0, 65465, 51, 0, 65466, 65528, 0, 65466, 65529, 0, 65466, 65530, 0, 65466, 65531, 0, 65466, 65532, 0, 65466, 65533, 0, 65466, 65534, 0, 65466, 65535, 0, 65466, 0, 0, 65466, 1, 0, 65466, 2, 0, 65466, 3, 0, 65466, 4, 0, 65466, 5, 0, 65466, 6, 0, 65466, 7, 0, 65466, 8, 0, 65466, 9, 0, 65466, 10, 0, 65466, 11, 0, 65466, 12, 0, 65466, 13, 0, 65466, 14, 0, 65466, 15, 0, 65466, 16, 0, 65466, 17, 0, 65466, 18, 0, 65466, 19, 0, 65466, 20, 0, 65466, 21, 0, 65466, 22, 0, 65466, 23, 0, 65466, 24, 0, 65466, 25, 0, 65466, 26, 0, 65466, 27, 0, 65466, 28, 0, 65466, 29, 0, 65466, 30, 0, 65466, 31, 0, 65466, 32, 0, 65466, 33, 0, 65466, 34, 0, 65466, 35, 0, 65466, 36, 0, 65466, 37, 0, 65466, 38, 0, 65466, 39, 0, 65466, 40, 0, 65466, 41, 0, 65466, 42, 0, 65466, 43, 0, 65466, 44, 0, 65466, 45, 0, 65466, 46, 0, 65466, 47, 0, 65466, 48, 0, 65466, 49, 0, 65466, 50, 0, 65466, 51, 0, 65467, 65528, 0, 65467, 65529, 0, 65467, 65530, 0, 65467, 65531, 0, 65467, 65532, 0, 65467, 65533, 0, 65467, 65534, 0, 65467, 65535, 0, 65467, 0, 0, 65467, 1, 0, 65467, 2, 0, 65467, 3, 0, 65467, 4, 0, 65467, 5, 0, 65467, 6, 0, 65467, 7, 0, 65467, 8, 0, 65467, 9, 0, 65467, 10, 0, 65467, 11, 0, 65467, 12, 0, 65467, 13, 0, 65467, 14, 0, 65467, 15, 0, 65467, 16, 0, 65467, 17, 0, 65467, 18, 0, 65467, 19, 0, 65467, 20, 0, 65467, 21, 0, 65467, 22, 0, 65467, 23, 0, 65467, 24, 0, 65467, 25, 0, 65467, 26, 0, 65467, 27, 0, 65467, 28, 0, 65467, 29, 0, 65467, 30, 0, 65467, 31, 0, 65467, 32, 0, 65467, 33, 0, 65467, 34, 0, 65467, 35, 0, 65467, 36, 0, 65467, 37, 0, 65467, 38, 0, 65467, 39, 0, 65467, 40, 0, 65467, 41, 0, 65467, 42, 0, 65467, 43, 0, 65467, 44, 0, 65467, 45, 0, 65467, 46, 0, 65467, 47, 0, 65467, 48, 0, 65467, 49, 0, 65467, 50, 0, 65467, 51, 0, 65468, 12, 0, 65468, 13, 0, 65468, 14, 0, 65468, 15, 0, 65469, 12, 0, 65469, 13, 0, 65469, 14, 0, 65469, 15, 0, 65470, 12, 0, 65470, 13, 0, 65470, 14, 0, 65470, 15, 0, 65471, 12, 0, 65471, 13, 0, 65471, 14, 0, 65471, 15, 0, 65472, 12, 0, 65472, 13, 0, 65472, 14, 0, 65472, 15, 0, 65473, 12, 0, 65473, 13, 0, 65473, 14, 0, 65473, 15, 0, 65474, 12, 0, 65474, 13, 0, 65474, 14, 0, 65474, 15, 0, 65475, 12, 0, 65475, 13, 0, 65475, 14, 0, 65475, 15, 0, 65476, 12, 0, 65476, 13, 0, 65476, 14, 0, 65476, 15, 0, 65477, 12, 0, 65477, 13, 0, 65477, 14, 0, 65477, 15, 0, 65478, 12, 0, 65478, 13, 0, 65478, 14, 0, 65478, 15, 0, 65479, 12, 0, 65479, 13, 0, 65479, 14, 0, 65479, 15, 0, 65480, 12, 0, 65480, 13, 0, 65480, 14, 0, 65480, 15, 0, 65481, 12, 0, 65481, 13, 0, 65481, 14, 0, 65481, 15, 0, 65482, 12, 0, 65482, 13, 0, 65482, 14, 0, 65482, 15, 0, 65483, 12, 0, 65483, 13, 0, 65483, 14, 0, 65483, 15, 0, 65484, 12, 0, 65484, 13, 0, 65484, 14, 0, 65484, 15, 0, 65485, 12, 0, 65485, 13, 0, 65485, 14, 0, 65485, 15, 0, 65486, 12, 0, 65486, 13, 0, 65486, 14, 0, 65486, 15, 0, 65487, 12, 0, 65487, 13, 0, 65487, 14, 0, 65487, 15, 0, 65488, 12, 0, 65488, 13, 0, 65488, 14, 0, 65488, 15, 0, 65485, 5, 0, 65485, 6, 0, 65485, 7, 0, 65485, 8, 0, 65485, 9, 0, 65485, 10, 0, 65485, 11, 0, 65486, 5, 0, 65486, 6, 0, 65486, 7, 0, 65486, 8, 0, 65486, 9, 0, 65486, 10, 0, 65486, 11, 0, 65487, 5, 0, 65487, 6, 0, 65487, 7, 0, 65487, 8, 0, 65487, 9, 0, 65487, 10, 0, 65487, 11, 0, 65484, 5, 0, 65484, 6, 0, 65484, 7, 0, 65484, 8, 0, 65484, 9, 0, 65484, 10, 0, 65484, 11, 0)
+}
+
+[node name="blockbench_export" parent="SubViewportContainer/SubViewport" instance=ExtResource("11_kqw0u")]
+transform = Transform3D(-1, -7.56632e-08, 4.37114e-08, 2.359e-11, 0.5, 0.866026, -8.73819e-08, 0.866026, -0.5, -140.018, 2.2, 15.3692)
+
+[node name="markerDoor" type="Marker3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -140.018, 0.303152, 47.6272)
+
+[node name="markerDoorUp" type="Marker3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -140.018, 2.2, 47.6272)
+
+[node name="markerRoom" type="Marker3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -150.11, -0.451698, 47.6267)
+
+[node name="markerRoomUp" type="Marker3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -150.11, 1.4453, 47.6267)
+
+[editable path="SubViewportContainer/SubViewport/Player"]
+[editable path="SubViewportContainer/SubViewport/Player/Head/Camera3D/Orb"]

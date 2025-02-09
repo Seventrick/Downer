@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://c603a5phc3jv4"]
+
+[ext_resource type="Script" path="res://inventory/slot.gd" id="1_acjle"]
+[ext_resource type="Theme" uid="uid://cpnnbrfmit8pi" path="res://ui/main ui.tres" id="1_u6w3f"]
+[ext_resource type="Texture2D" uid="uid://cur8x5srqphm0" path="res://assets/white ring.png" id="2_jiiyq"]
+
+[node name="Slot" type="PanelContainer"]
+custom_minimum_size = Vector2(128, 128)
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_u6w3f")
+script = ExtResource("1_acjle")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_jiiyq")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

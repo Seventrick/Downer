@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://f7788p2eb0my"
+path="res://.godot/imported/prenatal mommy.obj-8ca3169e2d22057e521efca4377b039d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/prenatal mommy.obj-8ca3169e2d22057e521efca4377b039d.mesh"]
+
+source_file="res://assets/prenatal mommy.obj"
+dest_files=["res://.godot/imported/prenatal mommy.obj-8ca3169e2d22057e521efca4377b039d.mesh", "res://.godot/imported/prenatal mommy.obj-8ca3169e2d22057e521efca4377b039d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

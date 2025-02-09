@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://u4rh7wbu6tq0"]
+
+[ext_resource type="Script" path="res://item/item_data.gd" id="1_7wsf5"]
+[ext_resource type="Texture2D" uid="uid://cvwk73d5gpjtt" path="res://assets/screwdriver.png" id="1_gr40u"]
+
+[resource]
+script = ExtResource("1_7wsf5")
+name = "Screwdriver"
+description = "A philips head screwdriver"
+icon = ExtResource("1_gr40u")

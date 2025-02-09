@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://ct2jefiadrdc6"]
+
+[ext_resource type="Texture2D" uid="uid://811d2fx08tqc" path="res://assets/orb.png" id="1_vq1om"]
+[ext_resource type="Script" path="res://item/item_data.gd" id="1_xuelg"]
+
+[resource]
+script = ExtResource("1_xuelg")
+name = "Orb"
+description = "A mysterious orb of light that diminishes over time with use."
+icon = ExtResource("1_vq1om")

@@ -1,0 +1,20 @@
+~ quiz_test_1
+Q: Quiz test.
+Q: Here are some choices.
+- A
+	Q: Wrong.
+- B (correct)
+	Q: Right.
+	set FactsOfLife.test = true
+- C
+	Q: Wrong.
+- D (wrong test cutscene)
+	Q: Wrong.
+	set FactsOfLife.lock = true
+	do wait(2)
+	set FactsOfLife.lock = false
+	do testCutscene()
+	set FactsOfLife.movingCube = true
+	do wait(3)
+	set FactsOfLife.movingCube = false
+=> END

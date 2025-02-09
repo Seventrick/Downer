@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbmg1ilvaf0c3"]
+
+[ext_resource type="Script" path="res://scripts/recharge.gd" id="1_j6wuj"]
+[ext_resource type="PackedScene" uid="uid://bhmxohy5kpk3h" path="res://scenes/safe zone.tscn" id="2_apgxa"]
+[ext_resource type="PackedScene" uid="uid://d1lcujt3sv507" path="res://assets/daBird.gltf" id="2_ensmo"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ywxy4"]
+height = 1.70395
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5uln5"]
+radius = 5.42548
+
+[node name="Recharge" type="StaticBody3D" groups=["interactable"]]
+script = ExtResource("1_j6wuj")
+
+[node name="blockbench_export" parent="." instance=ExtResource("2_ensmo")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.804101, -0.115027)
+shape = SubResource("CapsuleShape3D_ywxy4")
+
+[node name="Light" type="OmniLight3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55729, -0.907005)
+light_energy = 5.0
+
+[node name="safe zone" parent="Light" instance=ExtResource("2_apgxa")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Light/safe zone"]
+shape = SubResource("SphereShape3D_5uln5")

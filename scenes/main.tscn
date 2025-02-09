@@ -1,0 +1,469 @@
+[gd_scene load_steps=28 format=3 uid="uid://du831ffkl6p4p"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_luchm"]
+[ext_resource type="Script" path="res://scripts/save_data.gd" id="2_h2aws"]
+[ext_resource type="PackedScene" uid="uid://ba2i2wwf41i1j" path="res://dialogue/mainDialogueBalloon.tscn" id="2_nvh7m"]
+[ext_resource type="PackedScene" uid="uid://bh7fvnh6qc55x" path="res://scenes/eye_ui.tscn" id="3_yspg7"]
+[ext_resource type="PackedScene" uid="uid://dch2eiosifr1b" path="res://enode/ENOde.tscn" id="4_kmshw"]
+[ext_resource type="Texture2D" uid="uid://b7nch56v5r2ow" path="res://assets/controls.png" id="4_kt3sh"]
+[ext_resource type="Texture2D" uid="uid://5br18tbj0rso" path="res://assets/DOWNER.png" id="4_qllad"]
+[ext_resource type="Texture2D" uid="uid://smkv6jr4nq62" path="res://assets/PonyboyStudiosLogo.png" id="4_r6pk8"]
+[ext_resource type="Texture2D" uid="uid://cur8x5srqphm0" path="res://assets/white ring.png" id="4_vmdit"]
+[ext_resource type="Texture2D" uid="uid://uyemse1dmnsv" path="res://assets/reticle_red.png" id="5_1l1nt"]
+[ext_resource type="Texture2D" uid="uid://c5s4h72baqfim" path="res://assets/black.png" id="5_irmcq"]
+[ext_resource type="Texture2D" uid="uid://ckoukpcralllq" path="res://assets/reticle.png" id="6_wbi0j"]
+[ext_resource type="Script" path="res://inventory/inventory_interface.gd" id="7_mhqka"]
+[ext_resource type="FontFile" uid="uid://mli4iwlh0iqa" path="res://assets/Baskic8.otf" id="7_tuubp"]
+[ext_resource type="PackedScene" uid="uid://crj2bm1x567ll" path="res://inventory/inventory.tscn" id="8_oprn1"]
+[ext_resource type="PackedScene" uid="uid://bu2ohw8lhs6fw" path="res://inventory/collectible_inventory.tscn" id="9_g76ng"]
+[ext_resource type="Texture2D" uid="uid://bulqp052h8ju6" path="res://ui/downer ui 3.png" id="9_mqvlc"]
+[ext_resource type="Theme" uid="uid://cpnnbrfmit8pi" path="res://ui/main ui.tres" id="10_248jh"]
+[ext_resource type="PackedScene" uid="uid://d1m0i4tjyxoy8" path="res://scenes/player.tscn" id="10_jrnga"]
+[ext_resource type="Texture2D" uid="uid://chidyo1maffh1" path="res://assets/basic nine-patch 3.png" id="13_1b718"]
+[ext_resource type="FontFile" uid="uid://b5lxqj02wygdp" path="res://assets/monogram.ttf" id="14_a5g1p"]
+[ext_resource type="Script" path="res://enode/enode_data.gd" id="17_g0m0k"]
+
+[sub_resource type="Resource" id="Resource_ys5r0"]
+script = ExtResource("2_h2aws")
+
+[sub_resource type="Resource" id="Resource_ita56"]
+script = ExtResource("17_g0m0k")
+current_level = ""
+mainTheme = ""
+levelsSetup = false
+levelThemes = {}
+
+[sub_resource type="Animation" id="Animation_abq3m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/blackMain:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/Line5:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7br8y"]
+resource_name = "end"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/blackMain:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/Line5:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_snojh"]
+_data = {
+"RESET": SubResource("Animation_abq3m"),
+"end": SubResource("Animation_7br8y")
+}
+
+[node name="main" type="Node3D"]
+transform = Transform3D(0.999983, -0.00319816, 0.00483952, 0.00336122, 0.999414, -0.0340702, -0.00472772, 0.0340859, 0.999408, 0, 0, 0)
+script = ExtResource("1_luchm")
+save_data = SubResource("Resource_ys5r0")
+balloon = ExtResource("2_nvh7m")
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="blackMain" type="TextureRect" parent="UI"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -135.0
+offset_top = -125.0
+offset_right = 2048.0
+offset_bottom = 1261.0
+texture = ExtResource("5_irmcq")
+
+[node name="Line5" type="RichTextLabel" parent="UI"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 39.0
+offset_right = 1897.0
+offset_bottom = 1077.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("7_tuubp")
+theme_override_font_sizes/normal_font_size = 77
+bbcode_enabled = true
+text = "[p align=center]
+
+
+Thanks for playing! 
+
+This is an early build to showcase in the Art and Tech show.
+
+To follow our game subscribe to our YouTube channel Ponyboy Studios, where we post dev logs and updates!"
+
+[node name="black3" type="TextureRect" parent="UI"]
+visible = false
+offset_left = -135.0
+offset_top = -125.0
+offset_right = 2048.0
+offset_bottom = 1261.0
+texture = ExtResource("5_irmcq")
+
+[node name="logo" type="TextureRect" parent="UI"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -484.0
+offset_right = 484.0
+offset_bottom = 1201.0
+grow_horizontal = 2
+texture = ExtResource("4_r6pk8")
+expand_mode = 1
+
+[node name="Line4" type="RichTextLabel" parent="UI"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -317.0
+offset_top = -214.0
+offset_right = 317.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("7_tuubp")
+theme_override_font_sizes/normal_font_size = 77
+text = "
+ Ponyboy Studios"
+
+[node name="black" type="TextureRect" parent="UI"]
+visible = false
+offset_left = -98.0
+offset_top = -44.0
+offset_right = 2051.0
+offset_bottom = 1163.0
+texture = ExtResource("5_irmcq")
+
+[node name="title" type="TextureRect" parent="UI/black"]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 337.0
+offset_right = 2021.0
+offset_bottom = 809.0
+texture = ExtResource("4_qllad")
+expand_mode = 2
+
+[node name="controls" type="TextureRect" parent="UI"]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("4_kt3sh")
+
+[node name="black2" type="TextureRect" parent="UI"]
+visible = false
+offset_left = -135.0
+offset_top = -125.0
+offset_right = 2048.0
+offset_bottom = 1261.0
+texture = ExtResource("5_irmcq")
+
+[node name="Line1" type="RichTextLabel" parent="UI"]
+visible = false
+offset_left = 447.0
+offset_top = 224.0
+offset_right = 1473.0
+offset_bottom = 402.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("7_tuubp")
+theme_override_font_sizes/normal_font_size = 77
+text = "
+ Explore your surroundings"
+
+[node name="Line2" type="RichTextLabel" parent="UI"]
+visible = false
+offset_left = 676.0
+offset_top = 426.0
+offset_right = 1241.0
+offset_bottom = 604.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("7_tuubp")
+theme_override_font_sizes/normal_font_size = 77
+text = "
+ Find a way out"
+
+[node name="Line3" type="RichTextLabel" parent="UI"]
+visible = false
+offset_left = 679.0
+offset_top = 641.0
+offset_right = 1268.0
+offset_bottom = 819.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("7_tuubp")
+theme_override_font_sizes/normal_font_size = 77
+text = "
+ Stay in the light"
+
+[node name="EyeUI" parent="UI" instance=ExtResource("3_yspg7")]
+visible = false
+z_index = 2
+
+[node name="SleepScreen" parent="UI/EyeUI" index="8"]
+visible = false
+
+[node name="rechargeBar" type="TextureProgressBar" parent="UI"]
+z_index = 1
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+pivot_offset = Vector2(16, 16)
+fill_mode = 4
+texture_progress = ExtResource("4_vmdit")
+metadata/_edit_use_anchors_ = true
+
+[node name="redReticle" type="Sprite2D" parent="UI"]
+visible = false
+z_index = 1
+texture_filter = 1
+position = Vector2(960, 540)
+texture = ExtResource("5_1l1nt")
+
+[node name="reticle" type="Sprite2D" parent="UI"]
+visible = false
+z_index = 1
+texture_filter = 1
+position = Vector2(960, 540)
+texture = ExtResource("6_wbi0j")
+
+[node name="InventoryInterface" type="Control" parent="UI"]
+visible = false
+z_index = 1
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("7_mhqka")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UI/InventoryInterface"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -374.0
+offset_top = -408.0
+offset_right = 374.0
+offset_bottom = 369.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_mqvlc")
+region_rect = Rect2(12, 12, 132, 132)
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/InventoryInterface/NinePatchRect"]
+layout_mode = 1
+offset_left = 27.0
+offset_top = 21.0
+offset_right = 191.0
+offset_bottom = 56.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/InventoryInterface/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Items" type="Button" parent="UI/InventoryInterface/NinePatchRect/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("10_248jh")
+theme_override_font_sizes/font_size = 48
+toggle_mode = true
+text = "Items"
+
+[node name="Collectibles" type="Button" parent="UI/InventoryInterface/NinePatchRect/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("10_248jh")
+theme_override_font_sizes/font_size = 48
+toggle_mode = true
+text = "Collectibles"
+
+[node name="Control" type="Control" parent="UI/InventoryInterface/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayerInventory" parent="UI/InventoryInterface/NinePatchRect/VBoxContainer/Control" instance=ExtResource("8_oprn1")]
+layout_mode = 0
+offset_right = 651.0
+offset_bottom = 59.0
+
+[node name="CollectibleInventory" parent="UI/InventoryInterface/NinePatchRect/VBoxContainer/Control" instance=ExtResource("9_g76ng")]
+visible = false
+layout_mode = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="UI/InventoryInterface/NinePatchRect/VBoxContainer/Control"]
+
+[node name="PauseMenu" type="Control" parent="UI"]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="UI/PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.360784)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UI/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -242.0
+offset_top = -118.0
+offset_right = 243.0
+offset_bottom = 109.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_1b718")
+region_rect = Rect2(0, 0, 132, 132)
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PauseMenu/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -33.0
+offset_right = 65.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Continue" type="Button" parent="UI/PauseMenu/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("14_a5g1p")
+theme_override_font_sizes/font_size = 68
+text = "Continue"
+
+[node name="Reset" type="Button" parent="UI/PauseMenu/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("14_a5g1p")
+theme_override_font_sizes/font_size = 68
+text = "Reset"
+
+[node name="Quit to Desktop" type="Button" parent="UI/PauseMenu/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("14_a5g1p")
+theme_override_font_sizes/font_size = 68
+text = "Quit to Desktop"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(384, 216)
+render_target_update_mode = 4
+
+[node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("10_jrnga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.4543, 1.63069, -23.8488)
+
+[node name="ENOde" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_kmshw")]
+enode_data = SubResource("Resource_ita56")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_snojh")
+}
+
+[connection signal="pressed" from="UI/InventoryInterface/NinePatchRect/VBoxContainer/HBoxContainer/Items" to="." method="_on_items_pressed"]
+[connection signal="pressed" from="UI/InventoryInterface/NinePatchRect/VBoxContainer/HBoxContainer/Collectibles" to="." method="_on_collectibles_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/NinePatchRect/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/NinePatchRect/VBoxContainer/Reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/NinePatchRect/VBoxContainer/Quit to Desktop" to="." method="_on_quit_to_desktop_pressed"]
+
+[editable path="UI/EyeUI"]
+[editable path="UI/InventoryInterface/NinePatchRect/VBoxContainer/Control/PlayerInventory"]
+[editable path="UI/InventoryInterface/NinePatchRect/VBoxContainer/Control/CollectibleInventory"]
+[editable path="SubViewportContainer/SubViewport/Player"]
+[editable path="SubViewportContainer/SubViewport/Player/Head/Camera3D/Orb"]

@@ -1,0 +1,65 @@
+~ intro
+[p align=center]Bird: We have to get out of here.
+do get_parent().get_node("SubViewportContainer").get_node("SubViewport").get_node("ENOde").get_node("puzzle_level").introScene()
+=> END
+
+~ chatFirst
+set PlayerState.OPENBOX = true
+set PlayerState.controlLock = true
+[p align=center]Bird: Looks like there's some light coming from over there.
+[p align=center]Bird: Maybe we should check it out.
+[p align=center]Bird: ...
+[p align=center]Bird: By the way I replenished the essence of that thing you have there.
+[p align=center]Bird: Come back to me if you need another recharge.
+set PlayerState.birdTalked1 = true
+set PlayerState.controlLock = false
+set PlayerState.OPENBOX = false
+=> END
+
+~ window
+set PlayerState.OPENBOX = true
+set PlayerState.window = true
+set PlayerState.controlLock = true
+do wait(0.3)
+[p align=center]You: The exit is barred shut.
+[p align=center]You: What do we do now?
+[p align=center]Bird: Blow it open.
+[p align=center]You: ...
+[p align=center]You: okay then.
+set PlayerState.controlLock = false
+set PlayerState.OPENBOX = false
+=> END
+
+~ window_closed
+set PlayerState.OPENBOX = true
+set PlayerState.controlLock = true
+[p align=center]You: The window won't budge.
+[p align=center]Bird: We'll need to find something to pry it open.
+set PlayerState.controlLock = false
+set PlayerState.OPENBOX = false
+=> END
+
+~ window_open
+set PlayerState.OPENBOX = true
+set PlayerState.controlLock = true
+[p align=center]Bird: Find something to blow this thing up.
+set PlayerState.controlLock = false
+set PlayerState.OPENBOX = false
+=> END
+
+~ firework_box_ready
+set PlayerState.OPENBOX = true
+set PlayerState.controlLock = true
+[p align=center]Bird: Lets light these bad boys up.
+do get_parent().get_node("SubViewportContainer").get_node("SubViewport").get_node("ENOde").get_node("puzzle_level").get_node("FireworkBox").ending()
+set PlayerState.OPENBOX = false
+=> END
+
+~ firework_box_not_ready
+set PlayerState.OPENBOX = true
+set PlayerState.controlLock = true
+[p align=center]Bird: It's best not to light these until they're in place.
+[p align=center]You: Good idea.
+set PlayerState.controlLock = false
+set PlayerState.OPENBOX = false
+=> END

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://ihrx7hp7voac"]
+
+[ext_resource type="Script" path="res://scripts/orb pickup.gd" id="1_rj4u4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vet8i"]
+grow = true
+grow_amount = -0.405
+
+[sub_resource type="SphereMesh" id="SphereMesh_d5cmb"]
+material = SubResource("StandardMaterial3D_vet8i")
+radius = 0.2
+height = 0.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_aes7d"]
+radius = 0.2
+
+[node name="OrbPickup" type="StaticBody3D" groups=["interactable"]]
+script = ExtResource("1_rj4u4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_d5cmb")
+
+[node name="item to pickup" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_aes7d")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0.997546, 0.939975, 0.728004, 1)
+omni_range = 1.0

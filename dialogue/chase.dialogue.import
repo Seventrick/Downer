@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://cmsw2a85dldb0"
+path="res://.godot/imported/chase.dialogue-344019348f7a19a6c3dbd721940e9661.tres"
+
+[deps]
+
+source_file="res://dialogue/chase.dialogue"
+dest_files=["res://.godot/imported/chase.dialogue-344019348f7a19a6c3dbd721940e9661.tres"]
+
+[params]
+
+defaults=true

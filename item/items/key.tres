@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://djlv0rrmugyb4"]
+
+[ext_resource type="Texture2D" uid="uid://clp5j4jdn4w0k" path="res://characters/bird.png" id="1_bxrwq"]
+[ext_resource type="Script" path="res://item/item_data.gd" id="1_iqvry"]
+
+[resource]
+script = ExtResource("1_iqvry")
+name = "Key"
+description = "A standard key."
+icon = ExtResource("1_bxrwq")

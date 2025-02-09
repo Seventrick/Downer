@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://cqv4eu4306dap"
+path="res://.godot/imported/quizzes.dialogue-0872a12de301274e77f873c3e780f00f.tres"
+
+[deps]
+
+source_file="res://dialogue/quizzes.dialogue"
+dest_files=["res://.godot/imported/quizzes.dialogue-0872a12de301274e77f873c3e780f00f.tres"]
+
+[params]
+
+defaults=true
