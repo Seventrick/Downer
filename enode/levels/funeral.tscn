@@ -14,12 +14,12 @@
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_w0d0u"]
 
-[sub_resource type="Sky" id="Sky_ddnf3"]
+[sub_resource type="Sky" id="Sky_aj1i0"]
 sky_material = SubResource("PhysicalSkyMaterial_w0d0u")
 
 [sub_resource type="Environment" id="Environment_2ir40"]
 background_mode = 1
-sky = SubResource("Sky_ddnf3")
+sky = SubResource("Sky_aj1i0")
 ssao_enabled = true
 ssil_enabled = true
 sdfgi_enabled = true

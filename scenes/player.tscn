@@ -68,7 +68,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.675149, 0)
 [node name="Camera3D" type="Camera3D" parent="Head"]
 
 [node name="dithering" type="MeshInstance3D" parent="Head/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.80831)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30.8083)
 material_override = SubResource("ShaderMaterial_bog7q")
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_hsmwe")
