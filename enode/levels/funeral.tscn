@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dp06qcrtpcb6l"]
+[gd_scene load_steps=31 format=3 uid="uid://dp06qcrtpcb6l"]
 
 [ext_resource type="Script" path="res://enode/funeral.gd" id="1_vvfk2"]
 [ext_resource type="Texture2D" uid="uid://c0gcqkuibmnsc" path="res://assets/textures/ground.png" id="2_t7x5s"]
@@ -11,6 +11,8 @@
 [ext_resource type="AudioStream" uid="uid://du13v4xw3say5" path="res://audio/fire crackle.mp3" id="9_74sk8"]
 [ext_resource type="ArrayMesh" uid="uid://2vqc3yjrm11" path="res://assets/3D assets/dad2.obj" id="10_aeshe"]
 [ext_resource type="Script" path="res://scripts/fire_light.gd" id="10_ij6v6"]
+[ext_resource type="PackedScene" uid="uid://d2ck6rr5j0kl8" path="res://scenes/essence.tscn" id="12_d0akr"]
+[ext_resource type="Texture2D" uid="uid://bksc0lag26kiv" path="res://assets/2D assets/Downer Hunched.png" id="13_vus33"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_w0d0u"]
 
@@ -55,14 +57,14 @@ albedo_texture = ExtResource("3_8n34i")
 offsets = PackedFloat32Array(0.428571, 0.980519)
 colors = PackedColorArray(0.941036, 0.674682, 0.294777, 1, 0.81066, 0.0316158, 0.114081, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_6obv2"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wnw1q"]
 gradient = SubResource("Gradient_h2l6q")
 
 [sub_resource type="Curve" id="Curve_gea1d"]
 _data = [Vector2(0, 0.177273), 0.0, 0.0, 0, 0, Vector2(0.324713, 1), -0.0175757, -0.0175757, 0, 0, Vector2(1, 0), -1.15812, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_h28m1"]
+[sub_resource type="CurveTexture" id="CurveTexture_hf0r0"]
 curve = SubResource("Curve_gea1d")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hbnej"]
@@ -79,10 +81,10 @@ linear_accel_min = 3.0
 linear_accel_max = 3.0
 scale_min = 5.0
 scale_max = 5.0
-scale_curve = SubResource("CurveTexture_h28m1")
-color_ramp = SubResource("GradientTexture1D_6obv2")
+scale_curve = SubResource("CurveTexture_hf0r0")
+color_ramp = SubResource("GradientTexture1D_wnw1q")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m6jsg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iseh5"]
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
@@ -97,7 +99,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_pt8rt"]
-material = SubResource("StandardMaterial3D_m6jsg")
+material = SubResource("StandardMaterial3D_iseh5")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_767r6"]
 albedo_color = Color(0.215249, 0.618553, 0.48589, 1)
@@ -214,3 +216,10 @@ surface_material_override/8 = SubResource("StandardMaterial3D_767r6")
 surface_material_override/9 = SubResource("StandardMaterial3D_767r6")
 surface_material_override/10 = SubResource("StandardMaterial3D_767r6")
 surface_material_override/11 = SubResource("StandardMaterial3D_767r6")
+
+[node name="Node3D2" parent="." instance=ExtResource("12_d0akr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8944, 0.603326, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.265, 0, 0, 0, 0.265, 0, 0, 0, 0.265, 5.49527, 1.64198, 0.510406)
+texture = ExtResource("13_vus33")
