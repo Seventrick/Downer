@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://lxwhypwhq6y6"]
+
+[ext_resource type="Script" path="res://scripts/theater_script.gd" id="1_18mbv"]
+[ext_resource type="Texture2D" uid="uid://c5530mwcgi53m" path="res://assets/Screenshot 2024-09-03 200605.png" id="2_iet0v"]
+[ext_resource type="Script" path="res://item/item_data.gd" id="2_qmpww"]
+
+[sub_resource type="Resource" id="Resource_3xtmr"]
+script = ExtResource("2_qmpww")
+name = "Theater Script"
+description = "The Captain can write about this."
+icon = ExtResource("2_iet0v")
+
+[node name="Theater Script" type="StaticBody3D"]
+script = ExtResource("1_18mbv")
+item_data = SubResource("Resource_3xtmr")

@@ -1,6 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dv3roeahxoy5c"]
+[gd_scene load_steps=8 format=3 uid="uid://dv3roeahxoy5c"]
 
 [ext_resource type="Script" path="res://scripts/orb pickup.gd" id="1_u5pn8"]
+[ext_resource type="Texture2D" uid="uid://811d2fx08tqc" path="res://assets/orb.png" id="2_1v3r8"]
+[ext_resource type="Script" path="res://item/item_data.gd" id="2_ky748"]
+
+[sub_resource type="Resource" id="Resource_segcc"]
+script = ExtResource("2_ky748")
+name = "Orb"
+description = "An essence of light itself"
+icon = ExtResource("2_1v3r8")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vet8i"]
 grow = true
@@ -12,10 +20,11 @@ radius = 0.2
 height = 0.4
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_aes7d"]
-radius = 0.2
+radius = 0.205475
 
 [node name="OrbPickup" type="StaticBody3D" groups=["interactable"]]
 script = ExtResource("1_u5pn8")
+item_data = SubResource("Resource_segcc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_d5cmb")

@@ -31,7 +31,7 @@ mesh = SubResource("SphereMesh_uvb4p")
 
 [node name="Light" type="OmniLight3D" parent="."]
 light_energy = 0.0
-omni_range = 4.06976
+omni_range = 8.0
 
 [node name="LightTimer" type="Timer" parent="."]
 process_callback = 0

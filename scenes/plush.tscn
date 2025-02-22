@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://byme55yyti3cp"]
+
+[ext_resource type="Script" path="res://scripts/plush.gd" id="1_exonk"]
+[ext_resource type="PackedScene" uid="uid://c6w6tddbn2fun" path="res://assets/3D assets/uploads_files_5423429_A_cute_Teddybear_Plus_0725033504_refine.glb" id="2_3hymn"]
+[ext_resource type="Texture2D" uid="uid://c5530mwcgi53m" path="res://assets/Screenshot 2024-09-03 200605.png" id="2_i2t7y"]
+[ext_resource type="Script" path="res://item/item_data.gd" id="2_o7lpf"]
+
+[sub_resource type="Resource" id="Resource_kbikb"]
+script = ExtResource("2_o7lpf")
+name = "Plush"
+description = "An old stuffed bear. It seems to have been untouch for a long while."
+icon = ExtResource("2_i2t7y")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jryhu"]
+size = Vector3(1.07832, 1.10449, 0.93335)
+
+[node name="Plush" type="StaticBody3D"]
+script = ExtResource("1_exonk")
+item_data = SubResource("Resource_kbikb")
+
+[node name="uploads_files_5423429_A_cute_Teddybear_Plus_0725033504_refine" parent="." instance=ExtResource("2_3hymn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.601267, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0113602, 0.653513, 0.00524902)
+shape = SubResource("BoxShape3D_jryhu")

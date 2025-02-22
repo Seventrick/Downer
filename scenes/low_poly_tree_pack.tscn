@@ -1,0 +1,155 @@
+[gd_scene load_steps=13 format=3 uid="uid://d32bexmerbfrv"]
+
+[ext_resource type="PackedScene" uid="uid://cqdi5kqpd0g7m" path="res://assets/3D assets/trees and stuff/simple_tree_pack/Models/Tree Type3 01.dae" id="1_pstvt"]
+[ext_resource type="Texture2D" uid="uid://bawemhogh10hq" path="res://assets/3D assets/trees and stuff/simple_tree_pack/Textures/Colorsheet Tree Normal.png" id="2_lcepd"]
+[ext_resource type="PackedScene" uid="uid://dlajcbedwonlm" path="res://assets/3D assets/trees and stuff/simple_tree_pack/Models/Tree Type3 02.dae" id="2_yc25k"]
+[ext_resource type="PackedScene" uid="uid://by05rv3yejknk" path="res://assets/3D assets/trees and stuff/simple_tree_pack/Models/Tree Type3 03.dae" id="3_rltuk"]
+[ext_resource type="PackedScene" uid="uid://dmpvl6b4own3v" path="res://assets/3D assets/trees and stuff/simple_tree_pack/Models/Tree Type3 04.dae" id="4_obga0"]
+[ext_resource type="PackedScene" uid="uid://csk8u8bhqkm4s" path="res://assets/3D assets/trees and stuff/simple_tree_pack/Models/Tree Type4 01.dae" id="6_574gp"]
+[ext_resource type="PackedScene" uid="uid://vji3rpuj15gw" path="res://assets/3D assets/trees and stuff/simple_tree_pack/Models/Tree Type4 02.dae" id="7_b83gs"]
+[ext_resource type="PackedScene" uid="uid://dqtt3o2ags8f8" path="res://assets/3D assets/trees and stuff/simple_tree_pack/Models/Tree Type4 03.dae" id="8_56yyj"]
+[ext_resource type="PackedScene" uid="uid://ce2jha6j5ek5b" path="res://assets/3D assets/trees and stuff/simple_tree_pack/Models/Tree Type4 04.dae" id="9_simdc"]
+[ext_resource type="PackedScene" uid="uid://c33ymin4822b5" path="res://assets/3D assets/trees and stuff/simple_tree_pack/Models/Tree Type4 05.dae" id="10_gy61u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kdxgd"]
+albedo_texture = ExtResource("2_lcepd")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mi8ej"]
+radius = 0.188592
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Tree Type3 01" parent="." instance=ExtResource("1_pstvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -8)
+
+[node name="Tree_Type3_01_mesh" parent="Tree Type3 01" index="0"]
+transform = Transform3D(1.25, 0, 0, 0, -5.46392e-08, -1.25, 0, 1.25, -5.46392e-08, 0, 0.457244, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_kdxgd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Tree Type3 01/Tree_Type3_01_mesh" index="0"]
+transform = Transform3D(0.8, 0, 0, 0, -3.49691e-08, 0.8, 0, -0.8, -3.49691e-08, 0, 0, 0.365795)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tree Type3 01/Tree_Type3_01_mesh/StaticBody3D"]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 1.40209, 0)
+shape = SubResource("CylinderShape3D_mi8ej")
+
+[node name="Tree Type3 02" parent="." instance=ExtResource("2_yc25k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -8)
+
+[node name="Tree_Type3_02_mesh" parent="Tree Type3 02" index="0"]
+transform = Transform3D(1.25, 0, 0, 0, -5.46392e-08, -1.25, 0, 1.25, -5.46392e-08, 0, 0.457244, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_kdxgd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Tree Type3 02/Tree_Type3_02_mesh" index="0"]
+transform = Transform3D(0.8, 0, 0, 0, -3.49691e-08, 0.8, 0, -0.8, -3.49691e-08, 0, 0, 0.365795)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tree Type3 02/Tree_Type3_02_mesh/StaticBody3D"]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 1.40209, 0)
+shape = SubResource("CylinderShape3D_mi8ej")
+
+[node name="Tree Type3 03" parent="." instance=ExtResource("3_rltuk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="Tree_Type3_03_mesh" parent="Tree Type3 03" index="0"]
+transform = Transform3D(1.25, 0, 0, 0, -5.46392e-08, -1.25, 0, 1.25, -5.46392e-08, 0, 0.457244, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_kdxgd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Tree Type3 03/Tree_Type3_03_mesh" index="0"]
+transform = Transform3D(0.8, 0, 0, 0, -3.49691e-08, 0.8, 0, -0.8, -3.49691e-08, 0, 0, 0.365795)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tree Type3 03/Tree_Type3_03_mesh/StaticBody3D"]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 1.40209, 0)
+shape = SubResource("CylinderShape3D_mi8ej")
+
+[node name="Tree Type3 04" parent="." instance=ExtResource("4_obga0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -8)
+
+[node name="Tree_Type3_04_mesh" parent="Tree Type3 04" index="0"]
+transform = Transform3D(1.25, 0, 0, 0, -5.46392e-08, -1.25, 0, 1.25, -5.46392e-08, 0, 0.457244, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_kdxgd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Tree Type3 04/Tree_Type3_04_mesh" index="0"]
+transform = Transform3D(0.8, 0, 0, 0, -3.49691e-08, 0.8, 0, -0.8, -3.49691e-08, 0, 0, 0.365795)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tree Type3 04/Tree_Type3_04_mesh/StaticBody3D"]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 1.40209, 0)
+shape = SubResource("CylinderShape3D_mi8ej")
+
+[node name="Tree Type4 01" parent="." instance=ExtResource("6_574gp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 0)
+
+[node name="Tree_Type4_01_mesh" parent="Tree Type4 01" index="0"]
+transform = Transform3D(1.25, 0, 0, 0, -5.46392e-08, -1.25, 0, 1.25, -5.46392e-08, 0, 0.457244, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_kdxgd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Tree Type4 01/Tree_Type4_01_mesh" index="0"]
+transform = Transform3D(0.8, 0, 0, 0, -3.49691e-08, 0.8, 0, -0.8, -3.49691e-08, 0, 1.59894e-08, 0.365795)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tree Type4 01/Tree_Type4_01_mesh/StaticBody3D"]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 1.40209, 0)
+shape = SubResource("CylinderShape3D_mi8ej")
+
+[node name="Tree Type4 02" parent="." instance=ExtResource("7_b83gs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="Tree_Type4_02_mesh" parent="Tree Type4 02" index="0"]
+transform = Transform3D(1.25, 0, 0, 0, -5.46392e-08, -1.25, 0, 1.25, -5.46392e-08, 0, 0.457244, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_kdxgd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Tree Type4 02/Tree_Type4_02_mesh" index="0"]
+transform = Transform3D(0.8, 0, 0, 0, -3.49691e-08, 0.8, 0, -0.8, -3.49691e-08, 0, 1.59894e-08, 0.365795)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tree Type4 02/Tree_Type4_02_mesh/StaticBody3D"]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 1.40209, 0)
+shape = SubResource("CylinderShape3D_mi8ej")
+
+[node name="Tree Type4 03" parent="." instance=ExtResource("8_56yyj")]
+
+[node name="Tree_Type4_03_mesh" parent="Tree Type4 03" index="0"]
+transform = Transform3D(1.25, 0, 0, 0, -5.46392e-08, -1.25, 0, 1.25, -5.46392e-08, 0, 0.457244, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_kdxgd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Tree Type4 03/Tree_Type4_03_mesh" index="0"]
+transform = Transform3D(0.8, 0, 0, 0, -3.49691e-08, 0.8, 0, -0.8, -3.49691e-08, 0, 1.59894e-08, 0.365795)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tree Type4 03/Tree_Type4_03_mesh/StaticBody3D"]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 1.40209, 0)
+shape = SubResource("CylinderShape3D_mi8ej")
+
+[node name="Tree Type4 04" parent="." instance=ExtResource("9_simdc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+
+[node name="Tree_Type4_04_mesh" parent="Tree Type4 04" index="0"]
+transform = Transform3D(1.25, 0, 0, 0, -5.46392e-08, -1.25, 0, 1.25, -5.46392e-08, 0, 0.457244, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_kdxgd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Tree Type4 04/Tree_Type4_04_mesh" index="0"]
+transform = Transform3D(0.8, 0, 0, 0, -3.49691e-08, 0.8, 0, -0.8, -3.49691e-08, 0, 1.59894e-08, 0.365795)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tree Type4 04/Tree_Type4_04_mesh/StaticBody3D"]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 1.40209, 0)
+shape = SubResource("CylinderShape3D_mi8ej")
+
+[node name="Tree Type4 05" parent="." instance=ExtResource("10_gy61u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 0)
+
+[node name="Tree_Type4_05_mesh" parent="Tree Type4 05" index="0"]
+transform = Transform3D(1.25, 0, 0, 0, -5.46392e-08, -1.25, 0, 1.25, -5.46392e-08, 0, 0.457244, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_kdxgd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Tree Type4 05/Tree_Type4_05_mesh" index="0"]
+transform = Transform3D(0.8, 0, 0, 0, -3.49691e-08, 0.8, 0, -0.8, -3.49691e-08, 0, 1.59894e-08, 0.365795)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tree Type4 05/Tree_Type4_05_mesh/StaticBody3D"]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 1.40209, 0)
+shape = SubResource("CylinderShape3D_mi8ej")
+
+[editable path="Tree Type3 01"]
+[editable path="Tree Type3 02"]
+[editable path="Tree Type3 03"]
+[editable path="Tree Type3 04"]
+[editable path="Tree Type4 01"]
+[editable path="Tree Type4 02"]
+[editable path="Tree Type4 03"]
+[editable path="Tree Type4 04"]
+[editable path="Tree Type4 05"]
