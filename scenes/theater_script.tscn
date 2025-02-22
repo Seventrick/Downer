@@ -10,6 +10,6 @@ name = "Theater Script"
 description = "The Captain can write about this."
 icon = ExtResource("2_iet0v")
 
-[node name="Theater Script" type="StaticBody3D"]
+[node name="Theater Script" type="StaticBody3D" groups=["interactable", "items"]]
 script = ExtResource("1_18mbv")
 item_data = SubResource("Resource_3xtmr")

@@ -1,15 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://khda42nefs50"]
+[gd_scene load_steps=2 format=3 uid="uid://khda42nefs50"]
 
 [ext_resource type="Script" path="res://scripts/paper_boat.gd" id="1_fc7na"]
-[ext_resource type="Script" path="res://item/item_data.gd" id="2_igvg3"]
-[ext_resource type="Texture2D" uid="uid://c5530mwcgi53m" path="res://assets/Screenshot 2024-09-03 200605.png" id="2_w3i2v"]
 
-[sub_resource type="Resource" id="Resource_euurc"]
-script = ExtResource("2_igvg3")
-name = "Paper Boat"
-description = "A paper boat, sopping wet on the bottom."
-icon = ExtResource("2_w3i2v")
-
-[node name="Paper Boat" type="StaticBody3D"]
+[node name="Paper Boat" type="StaticBody3D" groups=["interactable", "items"]]
 script = ExtResource("1_fc7na")
-item_data = SubResource("Resource_euurc")

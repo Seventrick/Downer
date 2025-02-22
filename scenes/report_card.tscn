@@ -10,6 +10,6 @@ name = "Report Card"
 description = "Looks like someone hasn't been doing too well in classes..."
 icon = ExtResource("2_0clfp")
 
-[node name="Report Card" type="StaticBody3D"]
+[node name="Report Card" type="StaticBody3D" groups=["interactable", "items"]]
 script = ExtResource("1_7fj0v")
 item_data = SubResource("Resource_ytclb")

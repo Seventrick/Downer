@@ -6,7 +6,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_vx56n"]
 size = Vector3(7.17212, 1.89188, 11.5252)
 
-[node name="matchbox" type="StaticBody3D" groups=["interactable"]]
+[node name="matchbox" type="StaticBody3D" groups=["interactable", "items"]]
 script = ExtResource("1_rmniy")
 
 [node name="anime match" parent="." instance=ExtResource("1_4qcs1")]

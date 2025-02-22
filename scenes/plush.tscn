@@ -14,7 +14,7 @@ icon = ExtResource("2_i2t7y")
 [sub_resource type="BoxShape3D" id="BoxShape3D_jryhu"]
 size = Vector3(1.07832, 1.10449, 0.93335)
 
-[node name="Plush" type="StaticBody3D"]
+[node name="Plush" type="StaticBody3D" groups=["interactable", "items"]]
 script = ExtResource("1_exonk")
 item_data = SubResource("Resource_kbikb")
 

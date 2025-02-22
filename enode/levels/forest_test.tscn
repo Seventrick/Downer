@@ -1,12 +1,13 @@
-[gd_scene load_steps=25 format=3 uid="uid://bg4xye3u766kd"]
+[gd_scene load_steps=27 format=3 uid="uid://bg4xye3u766kd"]
 
+[ext_resource type="Script" path="res://scripts/forest_test.gd" id="1_11lva"]
 [ext_resource type="Texture2D" uid="uid://c0gcqkuibmnsc" path="res://assets/textures/ground.png" id="1_63gj1"]
-[ext_resource type="Script" path="res://scripts/paper_boat.gd" id="1_gapac"]
 [ext_resource type="Texture2D" uid="uid://dwb2pvejyy41l" path="res://assets/textures/ground_n.png" id="2_rxmuy"]
 [ext_resource type="MeshLibrary" uid="uid://chm67or5o1coi" path="res://libraries/trees4.tres" id="2_stwdv"]
 [ext_resource type="MeshLibrary" uid="uid://8fc4clrkpbv8" path="res://libraries/trees3.tres" id="2_t2ity"]
 [ext_resource type="Texture2D" uid="uid://bi2v2ombnt81r" path="res://assets/screwdriver_0.png" id="5_yef5v"]
 [ext_resource type="PackedScene" uid="uid://khda42nefs50" path="res://scenes/paper_boat.tscn" id="7_cpn6p"]
+[ext_resource type="Script" path="res://item/item_data.gd" id="8_4igrm"]
 [ext_resource type="PackedScene" uid="uid://byme55yyti3cp" path="res://scenes/plush.tscn" id="8_n08tc"]
 [ext_resource type="PackedScene" uid="uid://bsutl44iu52ju" path="res://scenes/report_card.tscn" id="9_x7np7"]
 [ext_resource type="PackedScene" uid="uid://lxwhypwhq6y6" path="res://scenes/theater_script.tscn" id="10_6j5mq"]
@@ -88,9 +89,14 @@ point_count = 8
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ys56o"]
 albedo_texture = ExtResource("5_yef5v")
 
+[sub_resource type="Resource" id="Resource_u1gno"]
+script = ExtResource("8_4igrm")
+name = "Paper Boat"
+description = "A paper boat that's completely soggy on the bottom."
+
 [node name="ForestTest" type="Node3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -2, 0)
-script = ExtResource("1_gapac")
+script = ExtResource("1_11lva")
 
 [node name="SpawnMarker" type="Marker3D" parent="."]
 transform = Transform3D(0.737159, 0, -0.675719, 0, 1, 0, 0.675719, 0, 0.737159, -21.1083, -0.347059, -14.8888)
@@ -256,9 +262,10 @@ polygon = PackedVector2Array(-1.16673, -1.47532, -1.44905, -1.14334, -1.6588, -0
 
 [node name="Paper Boat" parent="." instance=ExtResource("7_cpn6p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3513, -0.901027, -11.3324)
+item_data = SubResource("Resource_u1gno")
 
 [node name="Plush" parent="." instance=ExtResource("8_n08tc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3513, -0.901027, -11.3324)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.49624, -0.901026, -0.669281)
 
 [node name="Report Card" parent="." instance=ExtResource("9_x7np7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3513, -0.901027, -11.3324)
@@ -268,6 +275,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3513, -0.901027, -11.3324
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -4.91966, 0, 0.243516)
+visible = false
 light_energy = 4.632
 omni_range = 10.0417
 
