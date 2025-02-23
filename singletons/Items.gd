@@ -8,3 +8,4 @@ var matchbox = false
 var screwUsed = false
 var mask = false
 var storageKey = false
+var essenceUsed = false

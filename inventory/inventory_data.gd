@@ -26,3 +26,9 @@ func on_slot_clicked(index: int, button: int) -> void:
 	inventory_interact.emit(self, index, button)
 	
 	#print(slot_datas)
+	
+func remove_item_data(index: int) -> void:
+	var item_data = slot_datas[index]
+	if item_data:
+		slot_datas[index] = null
+	

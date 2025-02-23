@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://kuitpekwq8ad"]
+[gd_scene load_steps=35 format=3 uid="uid://kuitpekwq8ad"]
 
 [ext_resource type="Script" path="res://scripts/puzzle_level.gd" id="1_r0uyx"]
 [ext_resource type="Shader" path="res://shaders2/glitch.gdshader" id="2_0dev6"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" path="res://item/collectibles/static_body_3d_2.gd" id="18_dya0i"]
 [ext_resource type="Resource" uid="uid://jy81xqfcmvey" path="res://item/collectibles/test_collectible.tres" id="19_w73tg"]
 [ext_resource type="AudioStream" uid="uid://blfjjhb5gyki" path="res://assets/sounds/fireworks.wav" id="21_mp04g"]
+[ext_resource type="PackedScene" uid="uid://d2ck6rr5j0kl8" path="res://scenes/essence.tscn" id="22_0wenb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_43lwf"]
 render_priority = 0
@@ -404,6 +405,12 @@ libraries = {
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_n5k3m")
+
+[node name="StaticBody3D2" parent="." instance=ExtResource("22_0wenb")]
+transform = Transform3D(0.5, -8.65839e-10, 0, -5.82077e-11, 0.5, 0, 0, -1.49012e-08, 0.5, 7.30107, 1.24524, 9.96822)
+
+[node name="Node3D" parent="." instance=ExtResource("22_0wenb")]
+transform = Transform3D(0.5, -6.4756e-10, 0, -5.82077e-11, 0.5, 0, 0, -1.11759e-08, 0.5, 7.30683, 1.2037, 8.75012)
 
 [editable path="Window"]
 [editable path="classroom"]

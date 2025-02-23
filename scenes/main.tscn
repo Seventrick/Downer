@@ -236,7 +236,6 @@ text = "
  Stay in the light"
 
 [node name="EyeUI" parent="UI" instance=ExtResource("3_yspg7")]
-visible = false
 z_index = 2
 
 [node name="SleepScreen" parent="UI/EyeUI" index="8"]
@@ -467,3 +466,4 @@ libraries = {
 [editable path="UI/InventoryInterface/NinePatchRect/VBoxContainer/Control/CollectibleInventory"]
 [editable path="SubViewportContainer/SubViewport/Player"]
 [editable path="SubViewportContainer/SubViewport/Player/Head/Camera3D/Orb"]
+[editable path="SubViewportContainer/SubViewport/Player/Head/Camera3D/Orb/StaticBody3D"]

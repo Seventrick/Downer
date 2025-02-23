@@ -6,9 +6,12 @@ signal use_button_pressed
 
 @onready var item_grid: GridContainer = $VBoxContainer/MarginContainer/ItemGrid
 
+var connected = false
 
 func set_inventory_data(inventory_data: InventoryData) -> void:
-	inventory_data.inventory_updated.connect(populate_item_grid)
+	if !connected:
+		inventory_data.inventory_updated.connect(populate_item_grid)
+		connected = !connected
 	populate_item_grid(inventory_data)
 
 
@@ -26,4 +29,5 @@ func populate_item_grid(inventory_data: InventoryData) -> void:
 			slot.set_slot_data(item_data)
 
 func _on_use_button_pressed() -> void:
+	#print("button")
 	use_button_pressed.emit() # Replace with function body.

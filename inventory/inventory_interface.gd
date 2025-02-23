@@ -1,5 +1,7 @@
 extends Control
 
+var inventory_data2: InventoryData
+var index2: int
 var grabbed_item_data: ItemData
 var grabbed_collectible_data: ItemData
 
@@ -27,6 +29,8 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 	
 	if button == MOUSE_BUTTON_LEFT:
 		grabbed_item_data = inventory_data.grab_item_data(index)
+		inventory_data2 = inventory_data
+		index2 = index
 		#grabbed_collectible_data = inventory_data.grab_collectible_data(index)
 	update_item_data()
 	#print(grabbed_collectible_data)
@@ -60,4 +64,11 @@ func on_use_button_pressed() -> void:
 	if grabbed_item_data != null:
 		#print(item_name.text + " used")
 		grabbed_item_data.use()
+		if grabbed_item_data.consumable == true:
+			inventory_data2.remove_item_data(index2)
+			item_name.text = ""
+			description.text = ""
+			grabbed_item_data = null
+			player_inventory.set_inventory_data(inventory_data2)
+			
 		

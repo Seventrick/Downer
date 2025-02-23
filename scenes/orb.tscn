@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxtxicxfiwc7t"]
+[gd_scene load_steps=7 format=3 uid="uid://dxtxicxfiwc7t"]
 
 [ext_resource type="Script" path="res://scripts/orb timer.gd" id="1_26qex"]
 [ext_resource type="PackedScene" uid="uid://bhmxohy5kpk3h" path="res://scenes/safe zone.tscn" id="2_sf0ku"]
+[ext_resource type="PackedScene" uid="uid://d2ck6rr5j0kl8" path="res://scenes/essence.tscn" id="3_h3yoj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dk7w2"]
 size = Vector3(4, 4, 4)
@@ -38,4 +39,13 @@ process_callback = 0
 wait_time = 15.0
 one_shot = true
 
+[node name="StaticBody3D" parent="." instance=ExtResource("3_h3yoj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.23069, 0)
+visible = false
+
+[node name="CollisionShape3D" parent="StaticBody3D" index="2"]
+disabled = true
+
 [connection signal="timeout" from="LightTimer" to="." method="_on_light_timer_timeout"]
+
+[editable path="StaticBody3D"]
