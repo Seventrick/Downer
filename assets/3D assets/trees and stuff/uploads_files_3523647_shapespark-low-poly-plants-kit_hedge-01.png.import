@@ -2,15 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dexre2b6vycbn"
+uid="uid://sv132mkp62vs"
 path.s3tc="res://.godot/imported/uploads_files_3523647_shapespark-low-poly-plants-kit_hedge-01.png-a718b8052ed9b45aed7c5abfc1fecc6b.s3tc.ctex"
 path.etc2="res://.godot/imported/uploads_files_3523647_shapespark-low-poly-plants-kit_hedge-01.png-a718b8052ed9b45aed7c5abfc1fecc6b.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "65f16465599e8816424688972ba74bb2"
 }
 
 [deps]

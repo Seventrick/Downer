@@ -8,7 +8,7 @@ signal toggle_inventory
 #signal not_colliding
 
 var SPEED
-const walk_speed = 9.0 #WAS 2 !!!!!!!!!!!!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+const walk_speed = 2.0 #WAS 2 !!!!!!!!!!!!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const sprint_speed = 16.0
 var walking = false
 const JUMP_VELOCITY = 4.5
@@ -222,10 +222,10 @@ func _physics_process(delta):
 		if target != null and target.is_in_group("lightSources"):
 			PlayerState.safe = true
 			PlayerState.timeCheck = false
-			#print("super safe!!!")
+			print("super safe!!!")
 	else:
-		#print("nope!")
-		PlayerState.safe = true #should be false changed to true for testing ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		print("nope!")
+		PlayerState.safe = false #should be false changed to true for testing ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	# Add the gravity.
 	if not is_grounded():
 		velocity.y -= gravity * delta

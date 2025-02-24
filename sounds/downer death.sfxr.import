@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://d2qytxmqfigeg"
+path="res://.godot/imported/downer death.sfxr-f2118963ffbe2d5ebba93b7c840a8639.sample"
+
+[deps]
+
+source_file="res://sounds/downer death.sfxr"
+dest_files=["res://.godot/imported/downer death.sfxr-f2118963ffbe2d5ebba93b7c840a8639.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0

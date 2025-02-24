@@ -53,6 +53,10 @@ detectables=""
 items=""
 collectible=""
 
+[gui]
+
+theme/custom_font="res://assets/Baskic8.otf"
+
 [input]
 
 ui_focus_next={

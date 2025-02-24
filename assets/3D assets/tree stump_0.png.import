@@ -2,18 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfas3ydypp4se"
-path.s3tc="res://.godot/imported/downer portrait 2.png-84025b4583765ab77e9a84960489ee37.s3tc.ctex"
-path.etc2="res://.godot/imported/downer portrait 2.png-84025b4583765ab77e9a84960489ee37.etc2.ctex"
+uid="uid://cuhntwe82f8xn"
+path.s3tc="res://.godot/imported/tree stump_0.png-510dd571659bde593c6856d83a81a24e.s3tc.ctex"
+path.etc2="res://.godot/imported/tree stump_0.png-510dd571659bde593c6856d83a81a24e.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "c8ac204dbb2c92b1873d5a198c751716"
+}
 
 [deps]
 
-source_file="res://characters/downer portrait 2.png"
-dest_files=["res://.godot/imported/downer portrait 2.png-84025b4583765ab77e9a84960489ee37.s3tc.ctex", "res://.godot/imported/downer portrait 2.png-84025b4583765ab77e9a84960489ee37.etc2.ctex"]
+source_file="res://assets/3D assets/tree stump_0.png"
+dest_files=["res://.godot/imported/tree stump_0.png-510dd571659bde593c6856d83a81a24e.s3tc.ctex", "res://.godot/imported/tree stump_0.png-510dd571659bde593c6856d83a81a24e.etc2.ctex"]
 
 [params]
 

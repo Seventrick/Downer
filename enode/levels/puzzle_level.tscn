@@ -356,7 +356,7 @@ light_energy = 30.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Light/safe zone"]
 shape = SubResource("SphereShape3D_0qgsr")
 
-[node name="matchbox" parent="." groups=["items"] instance=ExtResource("11_4tw2i")]
+[node name="matchbox" parent="." instance=ExtResource("11_4tw2i")]
 transform = Transform3D(-0.0295423, 0.000100835, 0.00521915, -7.85783e-05, 0.0299824, -0.00102405, -0.00521953, -0.0010221, -0.0295247, 12.8938, 1.67492, 10.4263)
 item_data = ExtResource("12_inylm")
 

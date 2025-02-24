@@ -1,9 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://du831ffkl6p4p"]
+[gd_scene load_steps=31 format=3 uid="uid://du831ffkl6p4p"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_luchm"]
 [ext_resource type="Script" path="res://scripts/save_data.gd" id="2_h2aws"]
 [ext_resource type="PackedScene" uid="uid://ba2i2wwf41i1j" path="res://dialogue/mainDialogueBalloon.tscn" id="2_nvh7m"]
 [ext_resource type="PackedScene" uid="uid://bh7fvnh6qc55x" path="res://scenes/eye_ui.tscn" id="3_yspg7"]
+[ext_resource type="VideoStream" path="res://cutscenes/conked.ogv" id="4_c5u8b"]
+[ext_resource type="Shader" path="res://shaders2/crt.gdshader" id="4_gba8y"]
 [ext_resource type="PackedScene" uid="uid://dch2eiosifr1b" path="res://enode/ENOde.tscn" id="4_kmshw"]
 [ext_resource type="Texture2D" uid="uid://b7nch56v5r2ow" path="res://assets/controls.png" id="4_kt3sh"]
 [ext_resource type="Texture2D" uid="uid://5br18tbj0rso" path="res://assets/DOWNER.png" id="4_qllad"]
@@ -26,9 +28,26 @@
 [sub_resource type="Resource" id="Resource_ys5r0"]
 script = ExtResource("2_h2aws")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0dx70"]
+shader = ExtResource("4_gba8y")
+shader_parameter/resolution = Vector2(384, 216)
+shader_parameter/scan_line_amount = 1.0
+shader_parameter/warp_amount = 0.078
+shader_parameter/noise_amount = 0.025
+shader_parameter/interference_amount = 0.037
+shader_parameter/grille_amount = 0.1
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.6
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/aberation_amount = 0.5
+shader_parameter/roll_line_amount = 0.0
+shader_parameter/roll_speed = 1.0
+shader_parameter/scan_line_strength = -10.0
+shader_parameter/pixel_strength = -2.0
+
 [sub_resource type="Resource" id="Resource_ita56"]
 script = ExtResource("17_g0m0k")
-current_level = ""
+current_level = "forest_test"
 mainTheme = ""
 levelsSetup = false
 levelThemes = {}
@@ -77,7 +96,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("UI/Line5:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -102,6 +121,18 @@ balloon = ExtResource("2_nvh7m")
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 0
+
+[node name="ColorRect2" type="ColorRect" parent="UI"]
+material = SubResource("ShaderMaterial_0dx70")
+offset_right = 1920.0
+offset_bottom = 1078.0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="UI"]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1088.0
+mouse_filter = 2
+stream = ExtResource("4_c5u8b")
 
 [node name="blackMain" type="TextureRect" parent="UI"]
 modulate = Color(1, 1, 1, 0)
@@ -236,6 +267,7 @@ text = "
  Stay in the light"
 
 [node name="EyeUI" parent="UI" instance=ExtResource("3_yspg7")]
+visible = false
 z_index = 2
 
 [node name="SleepScreen" parent="UI/EyeUI" index="8"]
@@ -445,6 +477,7 @@ size = Vector2i(384, 216)
 render_target_update_mode = 4
 
 [node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("10_jrnga")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.4543, 1.63069, -23.8488)
 
 [node name="ENOde" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_kmshw")]

@@ -1,15 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://lxwhypwhq6y6"]
+[gd_scene load_steps=7 format=3 uid="uid://bvm06wyu7nyxe"]
 
 [ext_resource type="Script" path="res://scripts/theater_script.gd" id="1_18mbv"]
 [ext_resource type="Texture2D" uid="uid://c5530mwcgi53m" path="res://assets/Screenshot 2024-09-03 200605.png" id="2_iet0v"]
 [ext_resource type="Script" path="res://item/item_data.gd" id="2_qmpww"]
+[ext_resource type="PackedScene" uid="uid://cqhul5uu1wxvy" path="res://assets/StylooClassroomAssetPack GLTF & FBX/classroom/GLTF/book.glb" id="4_0guf3"]
 
 [sub_resource type="Resource" id="Resource_3xtmr"]
 script = ExtResource("2_qmpww")
 name = "Theater Script"
-description = "The Captain can write about this."
+description = "A worn script for a musical, it seems to be marked up with highlights and stage directions."
+consumable = false
 icon = ExtResource("2_iet0v")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_so4mf"]
+size = Vector3(0.157471, 0.810059, 0.208755)
+
 [node name="Theater Script" type="StaticBody3D" groups=["interactable", "items"]]
+transform = Transform3D(0.998463, 0, 0, 0, 0.998463, 0, 0, 0, 0.998463, 0, 0, 0)
 script = ExtResource("1_18mbv")
 item_data = SubResource("Resource_3xtmr")
+
+[node name="book2" parent="." instance=ExtResource("4_0guf3")]
+transform = Transform3D(0.654287, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.102423, 0, 0, 0, 1, 0.00183105, 0.00972723, 0.00270843)
+shape = SubResource("BoxShape3D_so4mf")

@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://3eo01fe0htgj"]
+
+[ext_resource type="Texture2D" uid="uid://c061le5tm0nma" path="res://assets/textures/star_02.png" id="1_l44m3"]
+[ext_resource type="PackedScene" uid="uid://bhmxohy5kpk3h" path="res://scenes/safe zone.tscn" id="2_474hb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bwgav"]
+transparency = 1
+blend_mode = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 0.027451)
+albedo_texture = ExtResource("1_l44m3")
+billboard_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_icuio"]
+offsets = PackedFloat32Array(0.390909, 0.690909, 1)
+colors = PackedColorArray(0.92, 0.6785, 0.3404, 0.854902, 0.681688, 0.184726, 0.232215, 0.811765, 0.81, 0.0324, 0.11016, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_feig6"]
+gradient = SubResource("Gradient_icuio")
+
+[sub_resource type="Curve" id="Curve_87tc8"]
+_data = [Vector2(0, 0.406593), 0.0, 0.0, 0, 0, Vector2(0.405797, 0.725275), 0.781219, 0.781219, 0, 0, Vector2(1, 0.681319), -1.15812, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_2ve15"]
+curve = SubResource("Curve_87tc8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_js8jq"]
+lifetime_randomness = 1.0
+angle_min = -165.5
+angle_max = 8.30001
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_2ve15")
+color_ramp = SubResource("GradientTexture1D_feig6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1n1iu"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_l44m3")
+albedo_texture_msdf = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_wd5oe"]
+material = SubResource("StandardMaterial3D_1n1iu")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4wt0u"]
+radius = 5.44296
+
+[node name="flames2" type="GPUParticles3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.56876, 0, 0, 0, 0.5, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_bwgav")
+lifetime = 0.8
+process_material = SubResource("ParticleProcessMaterial_js8jq")
+draw_pass_1 = SubResource("QuadMesh_wd5oe")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(1, 0.866667, 0.509804, 1)
+light_energy = 2.0
+
+[node name="safe zone" parent="." instance=ExtResource("2_474hb")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="safe zone"]
+shape = SubResource("SphereShape3D_4wt0u")

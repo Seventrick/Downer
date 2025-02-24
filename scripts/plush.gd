@@ -2,8 +2,11 @@ extends StaticBody3D
 
 @export var item_data: ItemData
 
-@onready var omni_light_3d: OmniLight3D = $"../OmniLight3D"
+@onready var bear_light_1: GPUParticles3D = $"../lights/bearLight1"
+@onready var bear_light_2: GPUParticles3D = $"../lights/bearLight2"
+
 
 func interact():
 	
-	omni_light_3d.show()
+	bear_light_1.show()
+	bear_light_2.show()

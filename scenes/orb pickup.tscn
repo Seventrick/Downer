@@ -8,6 +8,7 @@
 script = ExtResource("2_ky748")
 name = "Orb"
 description = "An essence of light itself"
+consumable = false
 icon = ExtResource("2_1v3r8")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vet8i"]

@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://khda42nefs50"]
+[gd_scene load_steps=4 format=3 uid="uid://cy1lkhbs8iet0"]
 
 [ext_resource type="Script" path="res://scripts/paper_boat.gd" id="1_fc7na"]
+[ext_resource type="PackedScene" uid="uid://drqppayjxns6b" path="res://assets/3D assets/paper boat.glb" id="2_1ca72"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5diwb"]
 
 [node name="Paper Boat" type="StaticBody3D" groups=["interactable", "items"]]
 script = ExtResource("1_fc7na")
+
+[node name="paper boat" parent="." instance=ExtResource("2_1ca72")]
+transform = Transform3D(0.135, 0, 0, 0, 0.135, 0, 0, 0, 0.135, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.135, 0, 0, 0, 0.135, 0, 0, 0, 0.135, 0, 0.0236797, 0)
+shape = SubResource("BoxShape3D_5diwb")

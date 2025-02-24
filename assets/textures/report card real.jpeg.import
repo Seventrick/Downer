@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfas3ydypp4se"
-path.s3tc="res://.godot/imported/downer portrait 2.png-84025b4583765ab77e9a84960489ee37.s3tc.ctex"
-path.etc2="res://.godot/imported/downer portrait 2.png-84025b4583765ab77e9a84960489ee37.etc2.ctex"
+uid="uid://dhqcdudmebdio"
+path.s3tc="res://.godot/imported/report card real.jpeg-6f3406808b934ba85bcf79e77b3ec2bb.s3tc.ctex"
+path.etc2="res://.godot/imported/report card real.jpeg-6f3406808b934ba85bcf79e77b3ec2bb.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://characters/downer portrait 2.png"
-dest_files=["res://.godot/imported/downer portrait 2.png-84025b4583765ab77e9a84960489ee37.s3tc.ctex", "res://.godot/imported/downer portrait 2.png-84025b4583765ab77e9a84960489ee37.etc2.ctex"]
+source_file="res://assets/textures/report card real.jpeg"
+dest_files=["res://.godot/imported/report card real.jpeg-6f3406808b934ba85bcf79e77b3ec2bb.s3tc.ctex", "res://.godot/imported/report card real.jpeg-6f3406808b934ba85bcf79e77b3ec2bb.etc2.ctex"]
 
 [params]
 

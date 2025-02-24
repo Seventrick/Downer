@@ -1,15 +1,34 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsutl44iu52ju"]
+[gd_scene load_steps=9 format=3 uid="uid://rbypnugsyv74"]
 
 [ext_resource type="Script" path="res://scripts/report_card.gd" id="1_7fj0v"]
 [ext_resource type="Texture2D" uid="uid://c5530mwcgi53m" path="res://assets/Screenshot 2024-09-03 200605.png" id="2_0clfp"]
 [ext_resource type="Script" path="res://item/item_data.gd" id="2_syvky"]
+[ext_resource type="Texture2D" uid="uid://dhqcdudmebdio" path="res://assets/textures/report card real.jpeg" id="4_agstj"]
 
 [sub_resource type="Resource" id="Resource_ytclb"]
 script = ExtResource("2_syvky")
 name = "Report Card"
 description = "Looks like someone hasn't been doing too well in classes..."
+consumable = false
 icon = ExtResource("2_0clfp")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lx7k4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2nc0i"]
+albedo_texture = ExtResource("4_agstj")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b4ew1"]
+size = Vector3(0.178787, 0.0895996, 0.226318)
 
 [node name="Report Card" type="StaticBody3D" groups=["interactable", "items"]]
 script = ExtResource("1_7fj0v")
 item_data = SubResource("Resource_ytclb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.075, 0, 0, 0, 0.536, 0, 0, 0, 0.093, 0, 0, 0)
+mesh = SubResource("PlaneMesh_lx7k4")
+surface_material_override/0 = SubResource("StandardMaterial3D_2nc0i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000663757, 0.0101318, 0.00305176)
+shape = SubResource("BoxShape3D_b4ew1")

@@ -32,14 +32,16 @@ extends Node3D
 @onready var resource = load("res://dialogue/friend.dialogue")
 @export var balloon: PackedScene
 
+@onready var color_rect_2: ColorRect = $UI/ColorRect2
 
 
 func _ready():
 	player.toggle_inventory.connect(toggle_inventory_interface)
 	
-	#demoIntro()
-	
-	load_game()
+	demoIntro()
+	#print(color_rect_2.material.shader.shader_parameter)
+	#color_rect_2.set("shader_paramater/interference_amount", 1.0)
+	#load_game()
 
 func _process(_delta):
 	
@@ -92,37 +94,27 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 func demoIntro() -> void:
 	PlayerState.controlLock = true
-	
-	$UI/black.show()
-	await get_tree().create_timer(5).timeout
-	$UI/logo.show()
-	$UI/Line4.show()
-	$UI/black3.show()
-	$UI/black.hide()
-	await get_tree().create_timer(5).timeout
+	$UI/ColorRect2.hide()
+	$UI/black2.show()
+	await get_tree().create_timer(3).timeout
 	$UI/controls.show()
-	$UI/Line4.hide()
-	$UI/black3.hide()
-	$UI/logo.hide()
+	$UI/black2.hide()
 	await get_tree().create_timer(5).timeout
 	$UI/controls.hide()
-	$UI/black2.show()
-	$UI/Line1.show()
-	await get_tree().create_timer(2).timeout
-	$UI/Line2.show()
-	await get_tree().create_timer(2).timeout
-	$UI/Line3.show()
-	await get_tree().create_timer(3).timeout
-	$UI/black2.hide()
-	$UI/Line1.hide()
-	$UI/Line2.hide()
-	$UI/Line3.hide()
+	$UI/VideoStreamPlayer.show()
+	$UI/VideoStreamPlayer.play()
+	
+	await get_tree().create_timer(5).timeout
+	$AnimationPlayer.play("end")
+	await get_tree().create_timer(4).timeout
+	$UI/VideoStreamPlayer.hide()
 	load_game()
 	await get_tree().create_timer(2).timeout
-	
+	$UI/blackMain.hide()
+	$UI/ColorRect2.show()
 	reticleCheck = true
 	$UI/EyeUI.show()
-	pass
+	PlayerState.controlLock = false
 
 func changeThing() -> void:
 	
