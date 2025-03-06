@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmgl0mbgr4hn4"]
+
+[ext_resource type="Script" path="res://scripts/safe_light.gd" id="1_0qon2"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mse5p"]
+radius = 5.0
+
+[node name="SafeLight" type="OmniLight3D"]
+light_energy = 5.0
+script = ExtResource("1_0qon2")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_mse5p")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

@@ -1,0 +1,108 @@
+[gd_scene load_steps=3 format=3 uid="uid://jjrl1wb5bifs"]
+
+[ext_resource type="Theme" uid="uid://cpnnbrfmit8pi" path="res://ui/main ui.tres" id="1_7xyl7"]
+[ext_resource type="Script" path="res://scripts/debug_menu.gd" id="2_7ke0h"]
+
+[node name="Debug Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7xyl7")
+script = ExtResource("2_7ke0h")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -750.0
+offset_top = -500.0
+offset_right = 750.0
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 1500.0
+offset_bottom = 1000.0
+
+[node name="Insert Text" type="HBoxContainer" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Panel/VBoxContainer/Insert Text"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 71
+placeholder_text = "Insert Level Here Ex: test_intro (press Enter to use)"
+alignment = 1
+
+[node name="Preset Locations" type="HBoxContainer" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+
+[node name="Location1" type="VBoxContainer" parent="Panel/VBoxContainer/Preset Locations"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/Preset Locations/Location1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 66
+text = "forest_test"
+
+[node name="Location2" type="VBoxContainer" parent="Panel/VBoxContainer/Preset Locations"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/Preset Locations/Location2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Location3" type="VBoxContainer" parent="Panel/VBoxContainer/Preset Locations"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/Preset Locations/Location3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Location4" type="VBoxContainer" parent="Panel/VBoxContainer/Preset Locations"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/Preset Locations/Location4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Location5" type="VBoxContainer" parent="Panel/VBoxContainer/Preset Locations"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/Preset Locations/Location5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 60
+text = "quantum_room"
+
+[node name="Player Stat Stuff" type="Panel" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[connection signal="text_submitted" from="Panel/VBoxContainer/Insert Text/LineEdit" to="." method="_custom_location_submitted"]
+[connection signal="pressed" from="Panel/VBoxContainer/Preset Locations/Location1/Button" to="." method="_location1_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Preset Locations/Location2/Button" to="." method="_location2_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Preset Locations/Location3/Button" to="." method="_location3_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Preset Locations/Location4/Button" to="." method="_location4_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Preset Locations/Location5/Button" to="." method="_location5_pressed"]

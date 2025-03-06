@@ -62,7 +62,7 @@ func _ready() -> void:
 	#can be used to set the very first level OR could be a back-up in case the ENOde loses the current level somehow
 	if enode_data.current_level == null or enode_data.current_level.is_empty():
 		#can become the inaccessible level
-		summon_level("test_intro")
+		summon_level("quantum_room")
 	else:
 		
 		#for loading level

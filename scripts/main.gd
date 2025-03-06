@@ -15,6 +15,9 @@ extends Node3D
 
 @onready var reticleCheck = false
 
+@export var debug_menu_scene: PackedScene
+@onready var debugVar = false
+
 #endregion
 
 
@@ -38,10 +41,10 @@ extends Node3D
 func _ready():
 	player.toggle_inventory.connect(toggle_inventory_interface)
 	
-	demoIntro()
+	#demoIntro()
 	#print(color_rect_2.material.shader.shader_parameter)
 	#color_rect_2.set("shader_paramater/interference_amount", 1.0)
-	#load_game()
+	load_game()
 
 func _process(_delta):
 	
@@ -90,6 +93,23 @@ func _unhandled_input(_event: InputEvent) -> void:
 		save_game()
 	if Input.is_action_pressed("ui_left"):
 		load_game()
+	if Input.is_action_pressed("debug"):
+		debug()
+
+
+func debug() -> void:
+	
+	if !debugVar:
+		var debug_menu = debug_menu_scene.instantiate()
+		add_child(debug_menu)
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		%SubViewportContainer.set_mouse_filter(Control.MOUSE_FILTER_IGNORE)
+		debugVar = true
+	elif debugVar:
+		get_child(3).queue_free()
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		%SubViewportContainer.set_mouse_filter(Control.MOUSE_FILTER_PASS)
+		debugVar = false
 
 
 func demoIntro() -> void:

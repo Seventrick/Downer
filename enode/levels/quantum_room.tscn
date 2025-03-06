@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cieu62p0omgxe"]
+
+[ext_resource type="PackedScene" uid="uid://bmgl0mbgr4hn4" path="res://scenes/safe_light.tscn" id="1_4cjtw"]
+[ext_resource type="PackedScene" uid="uid://bxnpjkpjm8mea" path="res://scenes/superposition_asset.tscn" id="2_1uxne"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_673c7"]
+size = Vector3(50, 1, 50)
+
+[node name="QuantumRoom" type="Node3D"]
+
+[node name="Land" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08573, 0)
+size = Vector3(50, 1, 50)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Land"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Land/StaticBody3D"]
+shape = SubResource("BoxShape3D_673c7")
+
+[node name="Light" type="Node3D" parent="."]
+
+[node name="SafeLight" parent="Light" instance=ExtResource("1_4cjtw")]
+
+[node name="SuperpositionAsset" parent="." instance=ExtResource("2_1uxne")]

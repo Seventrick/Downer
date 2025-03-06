@@ -1,8 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://du831ffkl6p4p"]
+[gd_scene load_steps=32 format=3 uid="uid://du831ffkl6p4p"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_luchm"]
 [ext_resource type="Script" path="res://scripts/save_data.gd" id="2_h2aws"]
 [ext_resource type="PackedScene" uid="uid://ba2i2wwf41i1j" path="res://dialogue/mainDialogueBalloon.tscn" id="2_nvh7m"]
+[ext_resource type="PackedScene" uid="uid://jjrl1wb5bifs" path="res://scenes/debug_menu.tscn" id="3_q5lwt"]
 [ext_resource type="PackedScene" uid="uid://bh7fvnh6qc55x" path="res://scenes/eye_ui.tscn" id="3_yspg7"]
 [ext_resource type="VideoStream" path="res://cutscenes/conked.ogv" id="4_c5u8b"]
 [ext_resource type="Shader" path="res://shaders2/crt.gdshader" id="4_gba8y"]
@@ -47,7 +48,7 @@ shader_parameter/pixel_strength = -2.0
 
 [sub_resource type="Resource" id="Resource_ita56"]
 script = ExtResource("17_g0m0k")
-current_level = "forest_test"
+current_level = ""
 mainTheme = ""
 levelsSetup = false
 levelThemes = {}
@@ -117,6 +118,7 @@ _data = {
 transform = Transform3D(0.999983, -0.00319816, 0.00483952, 0.00336122, 0.999414, -0.0340702, -0.00472772, 0.0340859, 0.999408, 0, 0, 0)
 script = ExtResource("1_luchm")
 save_data = SubResource("Resource_ys5r0")
+debug_menu_scene = ExtResource("3_q5lwt")
 balloon = ExtResource("2_nvh7m")
 
 [node name="UI" type="CanvasLayer" parent="."]

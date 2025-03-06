@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxnpjkpjm8mea"]
+
+[ext_resource type="Script" path="res://scripts/superposition_asset.gd" id="1_sss5i"]
+[ext_resource type="Script" path="res://resources/superposition_asset_data.gd" id="2_ly3lr"]
+
+[sub_resource type="Resource" id="Resource_uunjf"]
+script = ExtResource("2_ly3lr")
+weight1 = 0
+weight2 = 0
+weight3 = 0
+
+[node name="SuperpositionAsset" type="Node3D"]
+script = ExtResource("1_sss5i")
+assetData = SubResource("Resource_uunjf")
