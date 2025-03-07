@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cm0p3lea6rd4n"]
+[gd_scene load_steps=14 format=4 uid="uid://cm0p3lea6rd4n"]
 
 [ext_resource type="PackedScene" uid="uid://c1oc3d1lr572o" path="res://scenes/2dplayer.tscn" id="1_6baw3"]
 [ext_resource type="Texture2D" uid="uid://bkhduab8e7ywk" path="res://assets/2D assets/hut mockup.png" id="1_bfcgk"]
 [ext_resource type="Texture2D" uid="uid://d1effo5qt7y05" path="res://assets/2D assets/icon.svg" id="2_rknic"]
+[ext_resource type="Texture2D" uid="uid://b04aa122vgriu" path="res://assets/2D assets/tileset stuff/grass 15 tileset.png" id="4_2fwfi"]
+[ext_resource type="Texture2D" uid="uid://d05n2j7867ve0" path="res://shaders2/grass texture 1.png" id="4_yr3v7"]
+[ext_resource type="Script" path="res://addons/TileMapDual/TileMapDual.gd" id="5_47870"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mme1a"]
 blend_mode = 1
@@ -10,6 +13,148 @@ light_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l01pb"]
 size = Vector2(128, 128)
+
+[sub_resource type="Shader" id="Shader_tuvf8"]
+code = "shader_type canvas_item;
+
+uniform sampler2D overlay_tex: repeat_enable, filter_nearest;
+uniform float scale = 0.006944444; // calculated by 1/texture size e.g. 1/144
+varying vec2 world_position;
+
+void vertex(){
+	// calculate the world position for use in the fragment shader
+	world_position = (MODEL_MATRIX * vec4(VERTEX, 0.0, 1.0)).xy;
+}
+
+void fragment() {
+	// only apply overlay_tex on the fully red parts of the original tiles
+	float mix_amount = floor(COLOR.r);
+	
+	// sample the overlay_tex using worldPos
+	vec4 overlay_color = texture(overlay_tex, world_position * scale);
+	
+	// combine original color and overlay color together
+	COLOR = mix(COLOR, overlay_color, mix_amount);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8in0u"]
+shader = SubResource("Shader_tuvf8")
+shader_parameter/scale = 0.00694444
+shader_parameter/overlay_tex = ExtResource("4_yr3v7")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wttxj"]
+light_mode = 2
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_btvjf"]
+texture = ExtResource("4_2fwfi")
+0:3/0 = 0
+0:3/0/terrain_set = 0
+0:3/0/terrain = 0
+0:3/0/terrains_peering_bit/bottom_right_corner = 0
+0:3/0/terrains_peering_bit/bottom_left_corner = 0
+0:3/0/terrains_peering_bit/top_left_corner = 0
+0:3/0/terrains_peering_bit/top_right_corner = 0
+3:3/0 = 0
+3:3/0/terrain_set = 0
+3:3/0/terrains_peering_bit/bottom_right_corner = 0
+3:3/0/terrains_peering_bit/bottom_left_corner = 0
+3:3/0/terrains_peering_bit/top_left_corner = 2
+3:3/0/terrains_peering_bit/top_right_corner = 0
+0:2/0 = 0
+0:2/0/terrain_set = 0
+0:2/0/terrains_peering_bit/bottom_right_corner = 0
+0:2/0/terrains_peering_bit/bottom_left_corner = 0
+0:2/0/terrains_peering_bit/top_left_corner = 0
+0:2/0/terrains_peering_bit/top_right_corner = 2
+1:2/0 = 0
+1:2/0/terrain_set = 0
+1:2/0/terrains_peering_bit/bottom_right_corner = 0
+1:2/0/terrains_peering_bit/bottom_left_corner = 0
+1:2/0/terrains_peering_bit/top_left_corner = 2
+1:2/0/terrains_peering_bit/top_right_corner = 2
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrains_peering_bit/bottom_right_corner = 0
+0:0/0/terrains_peering_bit/bottom_left_corner = 2
+0:0/0/terrains_peering_bit/top_left_corner = 0
+0:0/0/terrains_peering_bit/top_right_corner = 0
+3:2/0 = 0
+3:2/0/terrain_set = 0
+3:2/0/terrains_peering_bit/bottom_right_corner = 0
+3:2/0/terrains_peering_bit/bottom_left_corner = 2
+3:2/0/terrains_peering_bit/top_left_corner = 2
+3:2/0/terrains_peering_bit/top_right_corner = 0
+2:3/0 = 0
+2:3/0/terrain_set = 0
+2:3/0/terrains_peering_bit/bottom_right_corner = 0
+2:3/0/terrains_peering_bit/bottom_left_corner = 2
+2:3/0/terrains_peering_bit/top_left_corner = 0
+2:3/0/terrains_peering_bit/top_right_corner = 2
+3:1/0 = 0
+3:1/0/terrain_set = 0
+3:1/0/terrains_peering_bit/bottom_right_corner = 0
+3:1/0/terrains_peering_bit/bottom_left_corner = 2
+3:1/0/terrains_peering_bit/top_left_corner = 2
+3:1/0/terrains_peering_bit/top_right_corner = 2
+1:3/0 = 0
+1:3/0/terrain_set = 0
+1:3/0/terrains_peering_bit/bottom_right_corner = 2
+1:3/0/terrains_peering_bit/bottom_left_corner = 0
+1:3/0/terrains_peering_bit/top_left_corner = 0
+1:3/0/terrains_peering_bit/top_right_corner = 0
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrains_peering_bit/bottom_right_corner = 2
+0:1/0/terrains_peering_bit/bottom_left_corner = 0
+0:1/0/terrains_peering_bit/top_left_corner = 2
+0:1/0/terrains_peering_bit/top_right_corner = 0
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrains_peering_bit/bottom_right_corner = 2
+1:0/0/terrains_peering_bit/bottom_left_corner = 0
+1:0/0/terrains_peering_bit/top_left_corner = 0
+1:0/0/terrains_peering_bit/top_right_corner = 2
+2:2/0 = 0
+2:2/0/terrain_set = 0
+2:2/0/terrains_peering_bit/bottom_right_corner = 2
+2:2/0/terrains_peering_bit/bottom_left_corner = 0
+2:2/0/terrains_peering_bit/top_left_corner = 2
+2:2/0/terrains_peering_bit/top_right_corner = 2
+3:0/0 = 0
+3:0/0/terrain_set = 0
+3:0/0/terrains_peering_bit/bottom_right_corner = 2
+3:0/0/terrains_peering_bit/bottom_left_corner = 2
+3:0/0/terrains_peering_bit/top_left_corner = 0
+3:0/0/terrains_peering_bit/top_right_corner = 0
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/terrains_peering_bit/bottom_right_corner = 2
+2:0/0/terrains_peering_bit/bottom_left_corner = 2
+2:0/0/terrains_peering_bit/top_left_corner = 2
+2:0/0/terrains_peering_bit/top_right_corner = 0
+1:1/0 = 0
+1:1/0/terrain_set = 0
+1:1/0/terrains_peering_bit/bottom_right_corner = 2
+1:1/0/terrains_peering_bit/bottom_left_corner = 2
+1:1/0/terrains_peering_bit/top_left_corner = 0
+1:1/0/terrains_peering_bit/top_right_corner = 2
+2:1/0 = 0
+2:1/0/terrain_set = 0
+2:1/0/terrain = 2
+2:1/0/terrains_peering_bit/bottom_right_corner = 2
+2:1/0/terrains_peering_bit/bottom_left_corner = 2
+2:1/0/terrains_peering_bit/top_left_corner = 2
+2:1/0/terrains_peering_bit/top_right_corner = 2
+
+[sub_resource type="TileSet" id="TileSet_xdgws"]
+terrain_set_0/mode = 1
+terrain_set_0/terrain_0/name = "<any>"
+terrain_set_0/terrain_0/color = Color(0.933333, 0.509804, 0.933333, 1)
+terrain_set_0/terrain_1/name = "FG -grass 15 tileset.png"
+terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
+terrain_set_0/terrain_2/name = "FG -grass 15 tileset.png"
+terrain_set_0/terrain_2/color = Color(0.46875, 0.5, 0.25, 1)
+sources/1 = SubResource("TileSetAtlasSource_btvjf")
 
 [node name="2DMain" type="Node2D"]
 
@@ -32,3 +177,13 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_l01pb")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_6baw3")]
+z_index = 1
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+material = SubResource("ShaderMaterial_8in0u")
+
+[node name="TileMapDual" type="TileMapLayer" parent="TileMapLayer"]
+material = SubResource("CanvasItemMaterial_wttxj")
+tile_map_data = PackedByteArray("AAADAPz/AQACAAEAAAACAP3/AQACAAEAAAABAP3/AQACAAEAAAABAP7/AQACAAEAAAAAAP7/AQACAAEAAAAAAP//AQACAAEAAAABAP//AQACAAEAAAABAAAAAQACAAEAAAACAAAAAQACAAEAAAACAP//AQACAAEAAAADAP//AQACAAEAAAAEAP7/AQACAAEAAAAFAP7/AQACAAEAAAAFAP3/AQACAAEAAAAFAPz/AQACAAEAAAAEAPz/AQACAAEAAAADAP7/AQACAAEAAAA=")
+tile_set = SubResource("TileSet_xdgws")
+script = ExtResource("5_47870")
