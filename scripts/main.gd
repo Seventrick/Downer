@@ -106,10 +106,11 @@ func debug() -> void:
 		%SubViewportContainer.set_mouse_filter(Control.MOUSE_FILTER_IGNORE)
 		debugVar = true
 	elif debugVar:
-		get_child(3).queue_free()
+		get_child(-1).queue_free()
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		%SubViewportContainer.set_mouse_filter(Control.MOUSE_FILTER_PASS)
 		debugVar = false
+		#changing scene can cause another thing to come up therefore being what is closed
 
 
 func demoIntro() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxnpjkpjm8mea"]
+[gd_scene load_steps=6 format=3 uid="uid://bxnpjkpjm8mea"]
 
 [ext_resource type="Script" path="res://scripts/superposition_asset.gd" id="1_sss5i"]
 [ext_resource type="Script" path="res://resources/superposition_asset_data.gd" id="2_ly3lr"]
@@ -9,6 +9,24 @@ weight1 = 0
 weight2 = 0
 weight3 = 0
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_mtd6l"]
+radius = 8.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_40f2b"]
+radius = 4.0
+
 [node name="SuperpositionAsset" type="Node3D"]
 script = ExtResource("1_sss5i")
 assetData = SubResource("Resource_uunjf")
+
+[node name="ChangeArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChangeArea"]
+shape = SubResource("SphereShape3D_mtd6l")
+
+[node name="SafeArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SafeArea"]
+shape = SubResource("SphereShape3D_40f2b")
+
+[node name="SuperpositionTimer" type="Timer" parent="."]
