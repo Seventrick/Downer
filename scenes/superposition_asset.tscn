@@ -1,19 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxnpjkpjm8mea"]
+[gd_scene load_steps=9 format=3 uid="uid://bxnpjkpjm8mea"]
 
 [ext_resource type="Script" path="res://scripts/superposition_asset.gd" id="1_sss5i"]
+[ext_resource type="PackedScene" uid="uid://dedsr8wlhso5h" path="res://scenes/window.tscn" id="2_1vvj1"]
 [ext_resource type="Script" path="res://resources/superposition_asset_data.gd" id="2_ly3lr"]
+[ext_resource type="PackedScene" uid="uid://ceelq4plkfm0m" path="res://scenes/breakable_wall.tscn" id="3_kwodh"]
+[ext_resource type="PackedScene" uid="uid://d1ib06qrrl0lu" path="res://scenes/mommy.tscn" id="4_4v333"]
 
 [sub_resource type="Resource" id="Resource_uunjf"]
 script = ExtResource("2_ly3lr")
+asset1 = ExtResource("2_1vvj1")
 weight1 = 0
+asset2 = ExtResource("3_kwodh")
 weight2 = 0
+asset3 = ExtResource("4_4v333")
 weight3 = 0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mtd6l"]
-radius = 8.0
+radius = 16.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_40f2b"]
-radius = 4.0
+radius = 5.0
 
 [node name="SuperpositionAsset" type="Node3D"]
 script = ExtResource("1_sss5i")
@@ -30,3 +36,9 @@ shape = SubResource("SphereShape3D_mtd6l")
 shape = SubResource("SphereShape3D_40f2b")
 
 [node name="SuperpositionTimer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="ChangeArea" to="." method="change_entered"]
+[connection signal="area_exited" from="ChangeArea" to="." method="change_exited"]
+[connection signal="area_entered" from="SafeArea" to="." method="safe_entered"]
+[connection signal="area_exited" from="SafeArea" to="." method="safe_exited"]
+[connection signal="timeout" from="SuperpositionTimer" to="." method="_on_superposition_timer_timeout"]

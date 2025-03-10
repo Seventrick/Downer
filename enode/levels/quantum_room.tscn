@@ -1,12 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://cieu62p0omgxe"]
+[gd_scene load_steps=8 format=3 uid="uid://cieu62p0omgxe"]
 
 [ext_resource type="PackedScene" uid="uid://bmgl0mbgr4hn4" path="res://scenes/safe_light.tscn" id="1_4cjtw"]
 [ext_resource type="PackedScene" uid="uid://bxnpjkpjm8mea" path="res://scenes/superposition_asset.tscn" id="2_1uxne"]
+[ext_resource type="PackedScene" uid="uid://d1ib06qrrl0lu" path="res://scenes/mommy.tscn" id="3_u1t4y"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_xwfij"]
+
+[sub_resource type="Sky" id="Sky_ddnf3"]
+sky_material = SubResource("PhysicalSkyMaterial_xwfij")
+
+[sub_resource type="Environment" id="Environment_p7x7c"]
+background_mode = 1
+background_color = Color(1, 1, 1, 1)
+sky = SubResource("Sky_ddnf3")
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.03
+volumetric_fog_albedo = Color(0.536875, 0.338683, 0.585809, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_673c7"]
 size = Vector3(50, 1, 50)
 
 [node name="QuantumRoom" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_p7x7c")
 
 [node name="Land" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08573, 0)
@@ -22,3 +43,7 @@ shape = SubResource("BoxShape3D_673c7")
 [node name="SafeLight" parent="Light" instance=ExtResource("1_4cjtw")]
 
 [node name="SuperpositionAsset" parent="." instance=ExtResource("2_1uxne")]
+transform = Transform3D(0.878335, 0, 0, 0, 1, 0, 0, 0, 1, -9.91345, 4.76837e-07, 12.8151)
+
+[node name="Mommy" parent="." instance=ExtResource("3_u1t4y")]
+transform = Transform3D(7.91567, 0, 0, 0, 3.33236, 0, 0, 0, 7.5439, -22.2992, -0.58573, 22.5615)

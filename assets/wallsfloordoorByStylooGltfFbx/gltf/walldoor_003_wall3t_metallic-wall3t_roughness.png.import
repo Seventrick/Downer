@@ -2,14 +2,13 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4vfc11d60mhk"
+uid="uid://cgqc5c63h7s4q"
 path.s3tc="res://.godot/imported/walldoor_003_wall3t_metallic-wall3t_roughness.png-11501a8f48b222677721956b41f94f30.s3tc.ctex"
 path.etc2="res://.godot/imported/walldoor_003_wall3t_metallic-wall3t_roughness.png-11501a8f48b222677721956b41f94f30.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 

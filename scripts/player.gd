@@ -222,9 +222,9 @@ func _physics_process(delta):
 		if target != null and target.is_in_group("lightSources"):
 			PlayerState.safe = true
 			PlayerState.timeCheck = false
-			print("super safe!!!")
+			#print("super safe!!!")
 	else:
-		print("nope!")
+		#print("nope!")
 		PlayerState.safe = false #should be false changed to true for testing ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	# Add the gravity.
 	if not is_grounded():
