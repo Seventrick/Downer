@@ -10,7 +10,7 @@ extends Node3D
 @onready var resource = load("res://dialogue/friend.dialogue")
 @export var balloon: PackedScene
 
-"""
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	PlayerState.controlLock = true
@@ -22,4 +22,3 @@ func introScene() -> void:
 	await $AnimationPlayer.animation_finished
 	orb_fall.queue_free()
 	PlayerState.controlLock = false
-"""

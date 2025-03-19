@@ -52,7 +52,7 @@ func _process(_delta):
 		#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		#get_tree().quit()
 		player.position = Vector3(0, 1, 0)
-		Items.useOrb = 0
+		Items.useOrb = 0 # check if orb exists first
 		$SubViewportContainer/SubViewport/Player/Head/Camera3D/Orb.hide()
 		$"SubViewportContainer/SubViewport/Player/Head/Camera3D/Orb/safe zone/CollisionShape3D".set_disabled(true)
 		Items.timeCheck = 1
@@ -106,10 +106,11 @@ func debug() -> void:
 		%SubViewportContainer.set_mouse_filter(Control.MOUSE_FILTER_IGNORE)
 		debugVar = true
 	elif debugVar:
-		get_child(3).queue_free()
+		get_child(-1).queue_free()
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		%SubViewportContainer.set_mouse_filter(Control.MOUSE_FILTER_PASS)
 		debugVar = false
+		#changing scene can cause another thing to come up therefore being what is closed
 
 
 func demoIntro() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d1m0i4tjyxoy8"]
+[gd_scene load_steps=22 format=3 uid="uid://d1m0i4tjyxoy8"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_jng3c"]
 [ext_resource type="Script" path="res://inventory/inventory_data.gd" id="2_c4ess"]
@@ -46,6 +46,9 @@ albedo_color = Color(0.42327, 0.30402, 0.235987, 1)
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_2x7ye"]
 height = 0.2
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_scsdy"]
+radius = 3.55351
+
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.18362, 0)
 script = ExtResource("1_jng3c")
@@ -75,6 +78,9 @@ mesh = SubResource("QuadMesh_hsmwe")
 
 [node name="Orb" parent="Head/Camera3D" groups=["items"] instance=ExtResource("4_pqilm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.849936, -0.732519, -1.09498)
+
+[node name="CollisionShape3D" parent="Head/Camera3D/Orb/safe zone" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 
 [node name="orbUp" type="AudioStreamPlayer" parent="Head/Camera3D/Orb"]
 unique_name_in_owner = true
@@ -159,7 +165,13 @@ one_shot = true
 stream = ExtResource("6_avayu")
 volume_db = -10.0
 
+[node name="noLightArea" type="Area3D" parent="." groups=["lightSources"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="noLightArea"]
+shape = SubResource("SphereShape3D_scsdy")
+
 [connection signal="timeout" from="walk" to="." method="_on_walk_timeout"]
 
 [editable path="Head/Camera3D/Orb"]
 [editable path="Head/Camera3D/Orb/StaticBody3D"]
+[editable path="Head/Camera3D/Orb/StaticBody3D/flames2"]
