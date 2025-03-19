@@ -13,7 +13,7 @@ extends Node3D
 @onready var asset
 
 func _ready() -> void:
-	
+	assetPicker()
 	checkAreas()
 
 

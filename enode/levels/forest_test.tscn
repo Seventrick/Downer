@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cy1lkhbs8iet0" path="res://scenes/paper_boat.tscn" id="7_cpn6p"]
 [ext_resource type="Script" path="res://item/item_data.gd" id="8_4igrm"]
 [ext_resource type="Texture2D" uid="uid://bfas3ydypp4se" path="res://characters/downer portrait 2.png" id="8_26x64"]
-[ext_resource type="PackedScene" path="res://scenes/plush.tscn" id="8_n08tc"]
+[ext_resource type="PackedScene" uid="uid://byme55yyti3cp" path="res://scenes/plush.tscn" id="8_n08tc"]
 [ext_resource type="PackedScene" uid="uid://rbypnugsyv74" path="res://scenes/report_card.tscn" id="9_x7np7"]
 [ext_resource type="PackedScene" uid="uid://bvm06wyu7nyxe" path="res://scenes/theater_script.tscn" id="10_6j5mq"]
 [ext_resource type="PackedScene" uid="uid://dv3roeahxoy5c" path="res://scenes/orb pickup.tscn" id="11_0tbqk"]
@@ -183,6 +183,17 @@ shape = SubResource("BoxShape3D_icmqd")
 transform = Transform3D(-0.798331, 0.602219, 1.7732e-07, -9.64358e-08, 1.07715e-07, -0.8, -0.401479, -0.532221, -2.32641e-08, -0.343526, -0.0440464, 2.36505)
 operation = 2
 polygon = PackedVector2Array(-1.16673, -1.47532, -1.44905, -1.14334, -1.6588, -0.645198, -1.8438, -0.0857582, -2.05353, 0.38202, -2.2766, 0.721927, -2.40406, 1.00872, -2.55277, 1.55045, -2.6728, 2.08678, -2.50128, 2.61562, -1.87239, 2.85861, -1.52561, 2.89451, -1.01442, 2.95269, -0.578411, 3.28365, -0.333873, 3.56292, -0.287532, 3.87013, -0.14181, 4.13122, 0.098696, 4.46836, 0.453603, 4.60016, 0.822352, 4.52078, 1.06245, 4.32829, 1.58262, 3.98246, 2.21542, 3.67331, 2.82628, 3.57565, 3.29708, 3.52609, 3.70594, 3.47653, 4.29139, 3.62526, 4.75304, 3.7881, 5.22196, 4.06379, 5.59657, 4.34858, 11.5425, 5.43824, 13.3027, 10.8436, 21.2102, 11.3391, 14.3215, 9.76226, 11.574, 4.14746, 5.1132, 3.59353, 4.73371, 3.24436, 4.18051, 2.76961, 3.74311, 2.52253, 3.43337, 2.42342, 3.04514, 2.20159, 2.94691, 1.98851, 2.86608, 1.78852, 2.66779, 1.8794, 2.73809, 2.05911, 2.71229, 2.31315, 2.55845, 2.52987, 2.33608, 2.63511, 2.10108, 2.64421, 1.92723, 2.54838, 1.81521, 2.32976, 1.77855, 1.99085, 1.85809, 1.71516, 2.08829, 1.55721, 2.55458, 1.66105, 2.66739, 1.87834, 2.86846, 1.78519, 2.81873, 1.51189, 2.76187, 1.16198, 2.99955, 0.758076, 3.57326, -0.114344, 3.73521, -0.598426, 3.64472, -1.17203, 3.11612, -1.57119, 2.58704, -1.71516, 2.84431, -2.2583, 2.64421, -2.8729, 2.24401, -3.17305, 1.87239, -3.08729, 1.52935, -2.93007, 1.01481, -3.05871, 0.500257, -3.073, 0.157224, -2.75856, 0.100051, -2.37264, -0.17034, -2.13641, -0.466814, -1.8604, -0.924429, -1.66934)
+
+[node name="Land2" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, -1.88745e-07, 0, 1.50996e-07, -1.25, 0, 0, 0, 1.5, -50, -1, 0.09)
+size = Vector3(50, 0.05, 50)
+material = SubResource("StandardMaterial3D_au3qn")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Land2"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Land2/StaticBody3D"]
+shape = SubResource("BoxShape3D_icmqd")
 
 [node name="Paths" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.985, 0)
