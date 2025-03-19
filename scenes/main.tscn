@@ -502,3 +502,4 @@ libraries = {
 [editable path="SubViewportContainer/SubViewport/Player"]
 [editable path="SubViewportContainer/SubViewport/Player/Head/Camera3D/Orb"]
 [editable path="SubViewportContainer/SubViewport/Player/Head/Camera3D/Orb/StaticBody3D"]
+[editable path="SubViewportContainer/SubViewport/Player/Head/Camera3D/Orb/StaticBody3D/flames2"]
