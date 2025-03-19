@@ -2,15 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byj0ymsqihndr"
+uid="uid://dappvnu5wr6tl"
 path.s3tc="res://.godot/imported/grass 1_0.png-86750f3e7274e5dc426a069e05dad111.s3tc.ctex"
 path.etc2="res://.godot/imported/grass 1_0.png-86750f3e7274e5dc426a069e05dad111.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "6cd7777f8ea0133f2720b00e3d6a80bc"
 }
 
 [deps]

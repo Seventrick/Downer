@@ -42,10 +42,22 @@ one_shot = true
 [node name="StaticBody3D" parent="." instance=ExtResource("3_h3yoj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.23069, 0)
 visible = false
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape3D" parent="StaticBody3D" index="2"]
+disabled = true
+
+[node name="safe zone" parent="StaticBody3D/flames2" index="1"]
+collision_layer = 0
+collision_mask = 0
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" parent="StaticBody3D/flames2/safe zone" index="0"]
 disabled = true
 
 [connection signal="timeout" from="LightTimer" to="." method="_on_light_timer_timeout"]
 
 [editable path="StaticBody3D"]
+[editable path="StaticBody3D/flames2"]

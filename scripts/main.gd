@@ -52,7 +52,7 @@ func _process(_delta):
 		#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		#get_tree().quit()
 		player.position = Vector3(0, 1, 0)
-		Items.useOrb = 0
+		Items.useOrb = 0 # check if orb exists first
 		$SubViewportContainer/SubViewport/Player/Head/Camera3D/Orb.hide()
 		$"SubViewportContainer/SubViewport/Player/Head/Camera3D/Orb/safe zone/CollisionShape3D".set_disabled(true)
 		Items.timeCheck = 1

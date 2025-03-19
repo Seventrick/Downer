@@ -174,3 +174,4 @@ shape = SubResource("SphereShape3D_scsdy")
 
 [editable path="Head/Camera3D/Orb"]
 [editable path="Head/Camera3D/Orb/StaticBody3D"]
+[editable path="Head/Camera3D/Orb/StaticBody3D/flames2"]

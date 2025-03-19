@@ -42,8 +42,14 @@ shape = SubResource("BoxShape3D_673c7")
 
 [node name="SafeLight" parent="Light" instance=ExtResource("1_4cjtw")]
 
+[node name="Area3D" parent="Light/SafeLight" index="0"]
+collision_layer = 4
+collision_mask = 9
+
 [node name="SuperpositionAsset" parent="." instance=ExtResource("2_1uxne")]
 transform = Transform3D(0.878335, 0, 0, 0, 1, 0, 0, 0, 1, -9.91345, 4.76837e-07, 12.8151)
 
 [node name="Mommy" parent="." instance=ExtResource("3_u1t4y")]
 transform = Transform3D(7.91567, 0, 0, 0, 3.33236, 0, 0, 0, 7.5439, -22.2992, -0.58573, 22.5615)
+
+[editable path="Light/SafeLight"]
