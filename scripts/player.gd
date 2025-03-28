@@ -225,7 +225,7 @@ func _physics_process(delta):
 			print("super safe!!!")
 	else:
 		print("nope!")
-		PlayerState.safe = false #should be false changed to true for testing ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		PlayerState.safe = true #should be false changed to true for testing ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	# Add the gravity.
 	if not is_grounded():
 		velocity.y -= gravity * delta

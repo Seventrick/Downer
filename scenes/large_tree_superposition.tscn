@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://dybhqxdne5v30"]
+
+[ext_resource type="Script" path="res://scripts/superposition_asset.gd" id="1_l0v0o"]
+[ext_resource type="PackedScene" uid="uid://djcwi4sc2je1w" path="res://assets/3D assets/trees and stuff/treeIndividuals/large_tree_1.tscn" id="2_ftymg"]
+[ext_resource type="PackedScene" uid="uid://dh5rq7fi4d2hd" path="res://assets/3D assets/trees and stuff/treeIndividuals/large_tree_2.tscn" id="3_la1sp"]
+[ext_resource type="PackedScene" uid="uid://cwed7pv463kgg" path="res://assets/3D assets/trees and stuff/treeIndividuals/large_tree_3.tscn" id="4_jedte"]
+[ext_resource type="Script" path="res://resources/superposition_asset_data.gd" id="5_wvq1s"]
+
+[sub_resource type="Resource" id="Resource_6m7ca"]
+script = ExtResource("5_wvq1s")
+asset1 = ExtResource("2_ftymg")
+weight1 = 0
+asset2 = ExtResource("3_la1sp")
+weight2 = 0
+asset3 = ExtResource("4_jedte")
+weight3 = 0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mtd6l"]
+radius = 10.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_40f2b"]
+radius = 5.0
+
+[node name="Large Tree Superposition" type="Node3D"]
+
+[node name="SuperpositionAsset" type="Node3D" parent="."]
+script = ExtResource("1_l0v0o")
+assetData = SubResource("Resource_6m7ca")
+
+[node name="ChangeArea" type="Area3D" parent="SuperpositionAsset"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SuperpositionAsset/ChangeArea"]
+shape = SubResource("SphereShape3D_mtd6l")
+
+[node name="SafeArea" type="Area3D" parent="SuperpositionAsset"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SuperpositionAsset/SafeArea"]
+shape = SubResource("SphereShape3D_40f2b")
+
+[node name="SuperpositionTimer" type="Timer" parent="SuperpositionAsset"]
+
+[node name="Tree Type4 05" parent="SuperpositionAsset" instance=ExtResource("2_ftymg")]
+
+[connection signal="area_entered" from="SuperpositionAsset/ChangeArea" to="SuperpositionAsset" method="change_entered"]
+[connection signal="area_exited" from="SuperpositionAsset/ChangeArea" to="SuperpositionAsset" method="change_exited"]
+[connection signal="area_entered" from="SuperpositionAsset/SafeArea" to="SuperpositionAsset" method="safe_entered"]
+[connection signal="area_exited" from="SuperpositionAsset/SafeArea" to="SuperpositionAsset" method="safe_exited"]
+[connection signal="timeout" from="SuperpositionAsset/SuperpositionTimer" to="SuperpositionAsset" method="_on_superposition_timer_timeout"]

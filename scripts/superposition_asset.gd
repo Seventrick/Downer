@@ -29,6 +29,8 @@ func assetPicker() -> void:
 	
 	var picker = round(randf_range(1, 3))
 	
+	print(assetData.asset1)
+	
 	if get_child(-1) != $SuperpositionTimer:
 			get_child(-1).queue_free()
 	
