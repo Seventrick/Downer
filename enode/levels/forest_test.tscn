@@ -179,11 +179,11 @@ _data = {
 }
 
 [node name="ForestTest" type="Node3D"]
-transform = Transform3D(-1.73205, 0, 1, 0, 2, 0, -1, 0, -1.73205, -25.0967, -2, -52.2472)
+transform = Transform3D(-1.73205, 0, 1, 0, 2, 0, -1, 0, -1.73205, -152.613, -2, -16.4219)
 script = ExtResource("1_11lva")
 
 [node name="SpawnMarker" type="Marker3D" parent="."]
-transform = Transform3D(0.737159, 0, -0.675719, 0, 1, 0, 0.675719, 0, 0.737159, -21.1083, -0.347059, -14.8888)
+transform = Transform3D(0.737159, 0, -0.675719, 0, 1, 0, 0.675719, 0, 0.737159, -67.7458, -0.347059, 30.3188)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jgmd8")
@@ -490,7 +490,7 @@ light_energy = 1.28
 omni_range = 0.796
 
 [node name="OrbPickup" parent="." instance=ExtResource("11_0tbqk")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -22.3746, -0.846031, -15.8298)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -56.5688, -0.846027, 40.1497)
 
 [node name="essences" type="Node3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -12.2253, -0.636374, -58.5734)
@@ -540,6 +540,30 @@ visible = false
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 15.7535, 1.03363, 1.03488)
 visible = false
 
+[node name="orbLight3" parent="lights" instance=ExtResource("15_s8y8l")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -52.3883, 1.03363, 99.8329)
+visible = false
+
+[node name="orbLight4" parent="lights" instance=ExtResource("15_s8y8l")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -41.2538, 1.03363, 102.829)
+visible = false
+
+[node name="orbLight5" parent="lights" instance=ExtResource("15_s8y8l")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -31.6902, 1.03363, 112.943)
+visible = false
+
+[node name="orbLight6" parent="lights" instance=ExtResource("15_s8y8l")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -37.1161, 9.80362, 121.232)
+visible = false
+
+[node name="orbLight7" parent="lights" instance=ExtResource("15_s8y8l")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -41.7441, 1.19081, 123.904)
+visible = false
+
+[node name="orbLight8" parent="lights" instance=ExtResource("15_s8y8l")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -43.1272, 1.19081, 117.678)
+visible = false
+
 [node name="orbLight2" parent="lights" instance=ExtResource("15_s8y8l")]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 22.0475, 1.03363, -5.96185)
 visible = false
@@ -550,6 +574,18 @@ visible = false
 
 [node name="startLight" parent="lights" instance=ExtResource("15_s8y8l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3107, 0.693717, -10.4965)
+
+[node name="startLight2" parent="lights" instance=ExtResource("15_s8y8l")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -52.4237, 1.55837, 99.164)
+
+[node name="startLight3" parent="lights" instance=ExtResource("15_s8y8l")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -36.4279, 3.67779, 119.905)
+
+[node name="startLight5" parent="lights" instance=ExtResource("15_s8y8l")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -64.9661, 3.67779, 62.9722)
+
+[node name="startLight4" parent="lights" instance=ExtResource("15_s8y8l")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -38.7035, 1.55837, 106.982)
 
 [node name="downerLight" parent="lights" instance=ExtResource("15_s8y8l")]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 32.0918, 0.693717, 21.4783)
@@ -1777,8 +1813,18 @@ libraries = {
 [editable path="lights/bearLight2"]
 [editable path="lights/reportLight"]
 [editable path="lights/orbLight"]
+[editable path="lights/orbLight3"]
+[editable path="lights/orbLight4"]
+[editable path="lights/orbLight5"]
+[editable path="lights/orbLight6"]
+[editable path="lights/orbLight7"]
+[editable path="lights/orbLight8"]
 [editable path="lights/orbLight2"]
 [editable path="lights/boatLight"]
 [editable path="lights/startLight"]
+[editable path="lights/startLight2"]
+[editable path="lights/startLight3"]
+[editable path="lights/startLight5"]
+[editable path="lights/startLight4"]
 [editable path="lights/downerLight"]
 [editable path="Assets/paperReal"]

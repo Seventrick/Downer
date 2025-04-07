@@ -213,9 +213,13 @@ func load_game() -> void:
 	if ResourceLoader.exists(save_path):
 		save_data = ResourceLoader.load(save_path, "", ResourceLoader.CACHE_MODE_IGNORE)
 		updateData()
+		reticleCheck = true
+		$UI/EyeUI.show()
 	else:
 		inventory_interface.set_player_inventory_data(player.inventory_data)
 		inventory_interface.set_collectible_inventory_data(player.collectible_inventory_data)
+		reticleCheck = true
+		$UI/EyeUI.show()
 		return
 
 #updates save_data before saving updated data

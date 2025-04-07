@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://r4rfb6rdwt8d"
-path="res://.godot/imported/dirtyPaperScene.gltf-baa42314db245537b7fb320e9c432eec.scn"
+valid=false
 
 [deps]
 
 source_file="res://assets/3D assets/dirtyPaperScene.gltf"
-dest_files=["res://.godot/imported/dirtyPaperScene.gltf-baa42314db245537b7fb320e9c432eec.scn"]
 
 [params]
 
