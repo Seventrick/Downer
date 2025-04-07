@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://bgok87vyvl5eo"]
+[gd_scene load_steps=51 format=3 uid="uid://bgok87vyvl5eo"]
 
 [ext_resource type="Script" path="res://scripts/forest_test.gd" id="1_11lva"]
 [ext_resource type="Texture2D" uid="uid://c0gcqkuibmnsc" path="res://assets/textures/ground.png" id="1_63gj1"]
@@ -165,6 +165,18 @@ radius = 13.1517
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6f2us"]
 size = Vector3(10.2969, 3.14941, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aixqx"]
+size = Vector3(0.100098, 2.0708, 7.13916)
+
+[sub_resource type="Animation" id="Animation_ni10p"]
+resource_name = "paper_fall"
+length = 2.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7sb68"]
+_data = {
+"paper_fall": SubResource("Animation_ni10p")
+}
 
 [node name="ForestTest" type="Node3D"]
 transform = Transform3D(-1.73205, 0, 1, 0, 2, 0, -1, 0, -1.73205, -25.0967, -2, -52.2472)
@@ -704,7 +716,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.6197, -1, -12.0731)
 transform = Transform3D(0.646923, 0, -0.762555, 0, 1, 0, 0.762555, 0, 0.646923, -68.8048, -1, -9.94144)
 
 [node name="Large Tree Superposition4" parent="Trees/Large" instance=ExtResource("21_mpl0b")]
-transform = Transform3D(0.646923, 0, -0.762555, 0, 1, 0, 0.762555, 0, 0.646923, -64.331, -1, -20.6826)
+transform = Transform3D(0.646923, 0, -0.762555, 0, 1, 0, 0.762555, 0, 0.646923, -64.6484, -1, -20.878)
+
+[node name="Large Tree Superposition72" parent="Trees/Large" instance=ExtResource("21_mpl0b")]
+transform = Transform3D(0.998856, 0, -0.0478208, 0, 1, 0, 0.0478208, 0, 0.998856, -62.8236, -1, -18.9048)
 
 [node name="Large Tree Superposition69" parent="Trees/Large" instance=ExtResource("21_mpl0b")]
 transform = Transform3D(-0.363592, 0, -0.931558, 0, 1, 0, 0.931558, 0, -0.363592, -57.3317, -1, -13.6405)
@@ -884,6 +899,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.2341, -1, -18.6019)
 
 [node name="Medium_Tree_Superposition5" parent="Trees/Medium" instance=ExtResource("22_f07fq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.272, -1, -5.23397)
+
+[node name="Medium_Tree_Superposition112" parent="Trees/Medium" instance=ExtResource("22_f07fq")]
+transform = Transform3D(0.0174524, 0, 0.999848, 0, 1, 0, -0.999848, 0, 0.0174524, -55.3736, -1, -9.83)
 
 [node name="Medium_Tree_Superposition6" parent="Trees/Medium" instance=ExtResource("22_f07fq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.9636, -1, -27.5949)
@@ -1247,6 +1265,9 @@ transform = Transform3D(-0.629917, 0, -0.776662, 0, 1, 0, 0.776662, 0, -0.629917
 [node name="Small_Tree_Superposition44" parent="Trees/Small" instance=ExtResource("23_necb4")]
 transform = Transform3D(-0.629917, 0, -0.776662, 0, 1, 0, 0.776662, 0, -0.629917, -74.6423, -1, -26.7214)
 
+[node name="Small_Tree_Superposition140" parent="Trees/Small" instance=ExtResource("23_necb4")]
+transform = Transform3D(-0.930596, 0, -0.366046, 0, 1, 0, 0.366046, 0, -0.930596, -69.0855, -1, -23.2417)
+
 [node name="Small_Tree_Superposition45" parent="Trees/Small" instance=ExtResource("23_necb4")]
 transform = Transform3D(-0.979024, 0, -0.203744, 0, 1, 0, 0.203744, 0, -0.979024, -84.5609, -1, 3.67619)
 
@@ -1334,6 +1355,9 @@ transform = Transform3D(-0.70978, 0, 0.704424, 0, 1, 0, -0.704424, 0, -0.70978, 
 [node name="Small_Tree_Superposition135" parent="Trees/Small" instance=ExtResource("23_necb4")]
 transform = Transform3D(0.138119, 0, 0.990416, 0, 1, 0, -0.990416, 0, 0.138119, -62.2442, -1, -23.0486)
 
+[node name="Small_Tree_Superposition139" parent="Trees/Small" instance=ExtResource("23_necb4")]
+transform = Transform3D(0.974847, 0, -0.222876, 0, 1, 0, 0.222876, 0, 0.974847, -65.1708, -1.41855, -22.6851)
+
 [node name="Small_Tree_Superposition18" parent="Trees/Small" instance=ExtResource("23_necb4")]
 transform = Transform3D(-0.70978, 0, 0.704424, 0, 1, 0, -0.704424, 0, -0.70978, -57.1728, -1, -33.3377)
 
@@ -1374,10 +1398,16 @@ transform = Transform3D(0.66088, 0, 0.750492, 0, 1, 0, -0.750492, 0, 0.66088, -4
 transform = Transform3D(0.991957, 0, 0.12658, 0, 1, 0, -0.12658, 0, 0.991957, -52.9264, -1, -16.1712)
 
 [node name="Small_Tree_Superposition54" parent="Trees/Small" instance=ExtResource("23_necb4")]
-transform = Transform3D(0.651, 0, -0.759078, 0, 1, 0, 0.759078, 0, 0.651, -59.1944, -1, -10.3855)
+transform = Transform3D(0.651, 0, -0.759078, 0, 1, 0, 0.759078, 0, 0.651, -59.7899, -1, -11.4489)
+
+[node name="Small_Tree_Superposition141" parent="Trees/Small" instance=ExtResource("23_necb4")]
+transform = Transform3D(0.428588, 0, 0.903501, 0, 1, 0, -0.903501, 0, 0.428588, -59.3455, -1, -7.28993)
 
 [node name="Small_Tree_Superposition55" parent="Trees/Small" instance=ExtResource("23_necb4")]
 transform = Transform3D(0.651, 0, -0.759078, 0, 1, 0, 0.759078, 0, 0.651, -53.4616, -1, 3.14409)
+
+[node name="Small_Tree_Superposition142" parent="Trees/Small" instance=ExtResource("23_necb4")]
+transform = Transform3D(-0.356085, 0, -0.934454, 0, 1, 0, 0.934454, 0, -0.356085, -56.6152, -1, -2.12357)
 
 [node name="Small_Tree_Superposition56" parent="Trees/Small" instance=ExtResource("23_necb4")]
 transform = Transform3D(0.187519, 0, -0.982261, 0, 1, 0, 0.982261, 0, 0.187519, -51.8162, -1, -7.50473)
@@ -1643,38 +1673,47 @@ transform = Transform3D(0.0429869, 0, -0.498149, 0, 0.5, 0, 0.498149, 0, 0.04298
 [node name="Sketchfab_Scene20" parent="Assets" instance=ExtResource("24_nkf48")]
 transform = Transform3D(-0.355007, 0, -0.352095, 0, 0.5, 0, 0.352095, 0, -0.355007, -67.9392, -0.824512, -1.4255)
 
-[node name="Sketchfab_Scene22" parent="Assets" instance=ExtResource("24_nkf48")]
-transform = Transform3D(-0.109096, -0.429799, -0.231022, -0.483438, 0.127335, -0.00860149, 0.0662281, 0.221493, -0.443346, -67.5689, -0.875369, -1.80479)
+[node name="paper" parent="Assets" instance=ExtResource("24_nkf48")]
+transform = Transform3D(-0.109097, -0.4298, -0.231021, -0.483438, 0.127336, -0.00860155, 0.0662281, 0.221491, -0.443347, -67.5689, -0.875369, -1.80479)
 
-[node name="Sketchfab_Scene23" parent="Assets" instance=ExtResource("24_nkf48")]
-transform = Transform3D(-0.125166, -0.479629, -0.0654916, -0.483438, 0.127335, -0.00860148, 0.0249298, 0.0611692, -0.495618, -67.7136, -0.875369, -2.12235)
+[node name="paper2" parent="Assets" instance=ExtResource("24_nkf48")]
+transform = Transform3D(-0.125167, -0.479629, -0.0654928, -0.483437, 0.127335, -0.00860148, 0.0249301, 0.0611701, -0.495618, -67.7136, -0.875369, -2.12235)
 
-[node name="Sketchfab_Scene24" parent="Assets" instance=ExtResource("24_nkf48")]
-transform = Transform3D(-0.121716, -0.449873, 0.181107, -0.483438, 0.127335, -0.00860149, -0.0383831, -0.177201, -0.465969, -67.6996, -0.875369, -2.48201)
+[node name="paper3" parent="Assets" instance=ExtResource("24_nkf48")]
+transform = Transform3D(-0.121717, -0.449872, 0.181109, -0.483438, 0.127335, -0.00860133, -0.0383841, -0.177203, -0.465968, -67.6996, -0.875369, -2.48201)
 
-[node name="Sketchfab_Scene25" parent="Assets" instance=ExtResource("24_nkf48")]
-transform = Transform3D(-0.089738, -0.31519, 0.377628, -0.483438, 0.127335, -0.00860148, -0.090748, -0.366663, -0.327603, -67.5136, -0.875369, -2.78514)
+[node name="paper4" parent="Assets" instance=ExtResource("24_nkf48")]
+transform = Transform3D(-0.0897387, -0.31519, 0.377628, -0.483438, 0.127336, -0.00860149, -0.0907485, -0.366662, -0.327603, -67.5136, -0.875369, -2.78514)
 
-[node name="Sketchfab_Scene26" parent="Assets" instance=ExtResource("24_nkf48")]
-transform = Transform3D(-0.107241, -0.387033, 0.297834, -0.483438, 0.127335, -0.00860149, -0.0691909, -0.289813, -0.401524, -67.8232, -0.875369, -2.80399)
+[node name="paper5" parent="Assets" instance=ExtResource("24_nkf48")]
+transform = Transform3D(-0.107242, -0.387034, 0.297833, -0.483438, 0.127335, -0.00860134, -0.0691913, -0.289811, -0.401525, -67.8232, -0.875369, -2.80399)
 
-[node name="Sketchfab_Scene27" parent="Assets" instance=ExtResource("24_nkf48")]
-transform = Transform3D(-0.126273, -0.472336, 0.104662, -0.483438, 0.127335, -0.00860148, -0.0185284, -0.103366, -0.488848, -67.9549, -0.875369, -2.35489)
+[node name="paper6" parent="Assets" instance=ExtResource("24_nkf48")]
+transform = Transform3D(-0.126274, -0.472336, 0.104661, -0.483438, 0.127335, -0.00860143, -0.0185285, -0.103366, -0.488848, -67.9549, -0.875369, -2.35489)
 
-[node name="Sketchfab_Scene28" parent="Assets" instance=ExtResource("24_nkf48")]
-transform = Transform3D(-0.116716, -0.454744, -0.172006, -0.483438, 0.127335, -0.00860148, 0.0516275, 0.1643, -0.469405, -67.8596, -0.875369, -1.84298)
+[node name="paper7" parent="Assets" instance=ExtResource("24_nkf48")]
+transform = Transform3D(-0.116717, -0.454743, -0.172007, -0.483438, 0.127336, -0.00860169, 0.0516283, 0.164301, -0.469404, -67.8596, -0.875369, -1.84298)
 
-[node name="Sketchfab_Scene29" parent="Assets" instance=ExtResource("24_nkf48")]
-transform = Transform3D(-0.124944, -0.479076, -0.0698228, -0.483438, 0.127335, -0.00860148, 0.0260233, 0.0653609, -0.495027, -68.0571, -0.875369, -2.05409)
+[node name="paper8" parent="Assets" instance=ExtResource("24_nkf48")]
+transform = Transform3D(-0.124945, -0.479076, -0.0698221, -0.483438, 0.127335, -0.00860139, 0.0260231, 0.0653597, -0.495027, -68.0571, -0.875369, -2.05409)
 
-[node name="Sketchfab_Scene30" parent="Assets" instance=ExtResource("24_nkf48")]
-transform = Transform3D(-0.0519125, -0.165411, 0.468983, -0.483438, 0.127335, -0.00860148, -0.11659, -0.454341, -0.173152, -67.4288, -0.875369, -3.10646)
+[node name="paper9" parent="Assets" instance=ExtResource("24_nkf48")]
+transform = Transform3D(-0.0519128, -0.165411, 0.468983, -0.483438, 0.127336, -0.00860139, -0.116591, -0.454341, -0.173152, -67.4288, -0.875369, -3.10646)
 
-[node name="Sketchfab_Scene31" parent="Assets" instance=ExtResource("24_nkf48")]
-transform = Transform3D(-0.0953287, -0.337875, 0.356025, -0.483438, 0.127335, -0.00860148, -0.0848561, -0.345871, -0.35096, -67.987, -0.875369, -3.02216)
+[node name="paper10" parent="Assets" instance=ExtResource("24_nkf48")]
+transform = Transform3D(-0.0953291, -0.337874, 0.356025, -0.483438, 0.127336, -0.00860134, -0.0848569, -0.345871, -0.35096, -67.987, -0.875369, -3.02216)
 
-[node name="Sketchfab_Scene32" parent="Assets" instance=ExtResource("24_nkf48")]
-transform = Transform3D(-0.12186, -0.450538, 0.179349, -0.483438, 0.127335, -0.00860148, -0.037924, -0.175504, -0.466649, -68.3436, -0.875369, -2.49806)
+[node name="paper11" parent="Assets" instance=ExtResource("24_nkf48")]
+transform = Transform3D(-0.121861, -0.450537, 0.179351, -0.483438, 0.127336, -0.00860145, -0.0379248, -0.175506, -0.466648, -68.3436, -0.875369, -2.49806)
+
+[node name="paperReal" parent="Assets" instance=ExtResource("24_nkf48")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.500001, -68.3436, -0.875369, -2.49806)
+
+[node name="Plane_0" parent="Assets/paperReal/Sketchfab_model/root/GLTF_SceneRootNode" index="0"]
+transform = Transform3D(0.241091, 0, 0.108708, 0, 1, 0, -0.140414, 0, 0.186651, -0.172607, -0.0919096, 0.172003)
+
+[node name="Object_4" parent="Assets/paperReal/Sketchfab_model/root/GLTF_SceneRootNode/Plane_0" index="0"]
+transform = Transform3D(1, 0, 2.32831e-10, 0, 1, 0, -9.31323e-10, 0, 1, 0, 0.0614882, 0)
 
 [node name="Sketchfab_Scene21" parent="Assets" instance=ExtResource("24_nkf48")]
 transform = Transform3D(-0.478188, 0, -0.146069, 0, 0.5, 0, 0.146069, 0, -0.478188, -69.2626, -0.824512, -0.916432)
@@ -1718,6 +1757,20 @@ transform = Transform3D(-0.184638, 0, -0.46466, 0, 0.5, 0, 0.46466, 0, -0.184638
 [node name="Sketchfab_Scene3" parent="Assets" instance=ExtResource("24_nkf48")]
 transform = Transform3D(-0.343373, 0, -0.36345, 0, 0.5, 0, 0.36345, 0, -0.343373, -68.2831, -0.824512, -1.16467)
 
+[node name="Triggers" type="Node3D" parent="."]
+
+[node name="paper trigger" type="Area3D" parent="Triggers"]
+transform = Transform3D(0.91665, 0, 0.399694, 0, 1, 0, -0.399694, 0, 0.91665, -70.4672, 1.19209e-07, -0.864128)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/paper trigger"]
+transform = Transform3D(1, 0, -1.41561e-07, 0, 1, 0, 1.41561e-07, 0, 1, 0.449978, -0.5354, 1.07593)
+shape = SubResource("BoxShape3D_aixqx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7sb68")
+}
+
 [connection signal="body_entered" from="Downer/Area3D" to="Downer" method="_on_area_3d_body_entered"]
 
 [editable path="lights/bearLight1"]
@@ -1728,3 +1781,4 @@ transform = Transform3D(-0.343373, 0, -0.36345, 0, 0.5, 0, 0.36345, 0, -0.343373
 [editable path="lights/boatLight"]
 [editable path="lights/startLight"]
 [editable path="lights/downerLight"]
+[editable path="Assets/paperReal"]
