@@ -3,7 +3,7 @@ extends CharacterBody2D
 #testing repo update hello hello world
 
 var player_area
-var speed = 75  # speed in pixels/sec
+@export var speed = 375  # speed in pixels/sec
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 

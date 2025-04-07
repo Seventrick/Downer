@@ -2,15 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hcsmc6rwissk"
+uid="uid://byp2pd4trc5ht"
 path.s3tc="res://.godot/imported/daBird_4.png-5344df39048535cecb0464ca5721c7cc.s3tc.ctex"
 path.etc2="res://.godot/imported/daBird_4.png-5344df39048535cecb0464ca5721c7cc.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "09c80b3cbda1bd40ded1a5dd6ba977a5"
 }
 
 [deps]

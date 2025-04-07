@@ -2,15 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbt74spp0h32w"
+uid="uid://67rf4t3rmijr"
 path.s3tc="res://.godot/imported/ceiling_light_2.jpg-50f4ee4ab5347ac8f56a839160fead4d.s3tc.ctex"
 path.etc2="res://.godot/imported/ceiling_light_2.jpg-50f4ee4ab5347ac8f56a839160fead4d.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "cb1bed60229926f36520a294e145fb2a"
 }
 
 [deps]

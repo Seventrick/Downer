@@ -1,30 +1,54 @@
-[gd_scene load_steps=11 format=3 uid="uid://c1oc3d1lr572o"]
+[gd_scene load_steps=18 format=3 uid="uid://c1oc3d1lr572o"]
 
 [ext_resource type="Script" path="res://scripts/2dplayer.gd" id="1_hmyxt"]
-[ext_resource type="Texture2D" uid="uid://barw8lbnliaxc" path="res://assets/2D assets/nick olsen standing sprite.png" id="2_f78wp"]
-[ext_resource type="Texture2D" uid="uid://srkbj4vgvgms" path="res://assets/2D assets/nick olsen cycle-Sheet.png" id="2_wslph"]
+[ext_resource type="Shader" path="res://shaders2/2d character outline.gdshader" id="2_p67b8"]
+[ext_resource type="Texture2D" uid="uid://c1e3uibj6kbjp" path="res://assets/2D assets/Nick Idle.png" id="2_xamkq"]
+[ext_resource type="Texture2D" uid="uid://ckny8aoulugb7" path="res://assets/2D assets/Nick Spritesheet.png" id="4_fom5w"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ot71o"]
-atlas = ExtResource("2_wslph")
-region = Rect2(0, 0, 12, 22)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ovvsg"]
+shader = ExtResource("2_p67b8")
+shader_parameter/width = 1
+shader_parameter/outline_color = Color(0.101961, 0.109804, 0.172549, 1)
+shader_parameter/flickering_speed = 0.0
+shader_parameter/minimal_flickering_alpha = 0.9
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u5r4x"]
-atlas = ExtResource("2_wslph")
-region = Rect2(12, 0, 12, 22)
+[sub_resource type="AtlasTexture" id="AtlasTexture_vadk2"]
+atlas = ExtResource("4_fom5w")
+region = Rect2(42, 0, 42, 42)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_67gj7"]
-atlas = ExtResource("2_wslph")
-region = Rect2(24, 0, 12, 22)
+[sub_resource type="AtlasTexture" id="AtlasTexture_74th5"]
+atlas = ExtResource("4_fom5w")
+region = Rect2(84, 0, 42, 42)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q3bd1"]
-atlas = ExtResource("2_wslph")
-region = Rect2(36, 0, 12, 22)
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x64p"]
+atlas = ExtResource("4_fom5w")
+region = Rect2(126, 0, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bmkn"]
+atlas = ExtResource("4_fom5w")
+region = Rect2(168, 0, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0opy0"]
+atlas = ExtResource("4_fom5w")
+region = Rect2(210, 0, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mg0a4"]
+atlas = ExtResource("4_fom5w")
+region = Rect2(252, 0, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0s4g"]
+atlas = ExtResource("4_fom5w")
+region = Rect2(294, 0, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcx2w"]
+atlas = ExtResource("4_fom5w")
+region = Rect2(336, 0, 42, 42)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j780u"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_f78wp")
+"texture": ExtResource("2_xamkq")
 }],
 "loop": true,
 "name": &"idle",
@@ -32,50 +56,73 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ot71o")
+"texture": SubResource("AtlasTexture_vadk2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u5r4x")
+"texture": SubResource("AtlasTexture_74th5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_67gj7")
+"texture": SubResource("AtlasTexture_8x64p")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_q3bd1")
+"texture": SubResource("AtlasTexture_1bmkn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0opy0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mg0a4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0s4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcx2w")
 }],
 "loop": true,
 "name": &"run",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2whh"]
-size = Vector2(10, 24)
+size = Vector2(15, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g3d63"]
-size = Vector2(7, 18)
+size = Vector2(7, 35)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gngst"]
+polygon = PackedVector2Array(-4, -18, 3, -18, 3, -17, 4, -17, 4, -16, 5, -16, 5, -15, 6, -15, 6, -9, 5, -9, 5, -3, 6, -3, 6, 4, 5, 4, 5, 5, 4, 5, 4, 20, -5, 20, -5, 17, -4, 17, -4, 9, -6, 9, -6, 2, -5, 2, -5, -4, -4, -4, -4, -5, -5, -5, -5, -7, -6, -7, -6, -8, -7, -8, -7, -15, -6, -15, -6, -16, -5, -16, -5, -17, -4, -17)
 
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["interactable"]]
+scale = Vector2(5, 5)
 script = ExtResource("1_hmyxt")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(8, 8)
+process_callback = 0
 position_smoothing_enabled = true
-position_smoothing_speed = 17.5
+position_smoothing_speed = 18.235
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_ovvsg")
 sprite_frames = SubResource("SpriteFrames_j780u")
-animation = &"idle"
+animation = &"run"
+frame = 7
+frame_progress = 0.576083
 
 [node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
-position = Vector2(-2, 0)
+position = Vector2(-4.5, 1)
 shape = SubResource("RectangleShape2D_m2whh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
+position = Vector2(-0.5, 1.5)
 shape = SubResource("RectangleShape2D_g3d63")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
+occluder = SubResource("OccluderPolygon2D_gngst")
 
 [connection signal="area_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_area_exited"]
