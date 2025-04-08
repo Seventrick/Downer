@@ -1,26 +1,19 @@
-[gd_resource type="Resource" script_class="DialogicStyle" load_steps=6 format=3 uid="uid://cni6fv551ja3"]
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=4 format=3 uid="uid://cni6fv551ja3"]
 
 [ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_gynaj"]
 [ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style.gd" id="2_1smqo"]
-[ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="2_36r0g"]
 
 [sub_resource type="Resource" id="Resource_plxww"]
 script = ExtResource("1_gynaj")
 overrides = {}
 
-[sub_resource type="Resource" id="Resource_x8quj"]
-script = ExtResource("1_gynaj")
-scene = ExtResource("2_36r0g")
-overrides = {}
-
 [resource]
 script = ExtResource("2_1smqo")
 name = "nightStyle"
-layer_list = Array[String](["10"])
+layer_list = Array[String]([])
 layer_info = {
-"": SubResource("Resource_plxww"),
-"10": SubResource("Resource_x8quj")
+"": SubResource("Resource_plxww")
 }
 base_overrides = {}
 layers = Array[ExtResource("1_gynaj")]([])
-metadata/_latest_layer = "10"
+metadata/_latest_layer = ""

@@ -26,12 +26,8 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={
-"testCharacter": "res://dialogic/testCharacter.dch"
-}
-directories/dtl_directory={
-"TestTimeline": "res://dialogic/TestTimeline.dtl"
-}
+directories/dch_directory={}
+directories/dtl_directory={}
 glossary/default_case_sensitive=true
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
@@ -53,7 +49,7 @@ choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
-layout/style_list=["res://dialogic/premadeStyle.tres", "res://dialogic/nightStyle.tres"]
+layout/style_list=["res://dialogic/premadeStyle.tres", "res://dialogic/dayStyle.tres"]
 layout/default_style="res://dialogic/premadeStyle.tres"
 portraits/default_portrait=""
 
