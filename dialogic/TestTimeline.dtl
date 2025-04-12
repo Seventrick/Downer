@@ -1,0 +1,7 @@
+[style name="premadeStyle"]
+I sure wish I had a friend...
+join testCharacter right [animation="Bounce In" wait="true"]
+testCharacter: you suck
+- Do you like testing dialogue?
+	[signal arg="testSignal"]
+- Or no?

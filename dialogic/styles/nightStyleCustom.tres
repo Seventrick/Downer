@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=5 format=3 uid="uid://hn4v0acwv762"]
+
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_jxau0"]
+[ext_resource type="PackedScene" uid="uid://8a2v3clhq3g6" path="res://dialogic/styles/CustomBetterNightStyle/custom_better_night_style.tscn" id="1_mdwfy"]
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style.gd" id="2_nscum"]
+
+[sub_resource type="Resource" id="Resource_b6yxl"]
+script = ExtResource("1_jxau0")
+scene = ExtResource("1_mdwfy")
+overrides = {
+"global_bg_color": "Color(0, 0, 0, 0)",
+"global_font": "\"res://assets/uni05_53.ttf\"",
+"global_font_size": "32.0"
+}
+
+[resource]
+script = ExtResource("2_nscum")
+name = "nightStyleCustom"
+layer_list = Array[String]([])
+layer_info = {
+"": SubResource("Resource_b6yxl")
+}
+base_overrides = {}
+layers = Array[ExtResource("1_jxau0")]([])
+metadata/_latest_layer = ""
