@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://bgok87vyvl5eo"]
+[gd_scene load_steps=54 format=3 uid="uid://bgok87vyvl5eo"]
 
 [ext_resource type="Script" path="res://scripts/forest_test.gd" id="1_11lva"]
 [ext_resource type="Texture2D" uid="uid://c0gcqkuibmnsc" path="res://assets/textures/ground.png" id="1_63gj1"]
@@ -24,6 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://q0k1qgagofkh" path="res://scenes/medium_tree_superposition.tscn" id="22_f07fq"]
 [ext_resource type="PackedScene" uid="uid://oalv74yayehx" path="res://scenes/small_tree_superposition.tscn" id="23_necb4"]
 [ext_resource type="PackedScene" uid="uid://cv4p1phxndopb" path="res://assets/3D assets/paper.gltf" id="24_nkf48"]
+[ext_resource type="Script" path="res://scripts/paper_trigger.gd" id="25_te0aj"]
+[ext_resource type="PackedScene" uid="uid://c3ec0agvd62nc" path="res://assets/3D assets/glass shards.gltf" id="26_mysxp"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_2o13n"]
 
@@ -171,10 +173,278 @@ size = Vector3(0.100098, 2.0708, 7.13916)
 
 [sub_resource type="Animation" id="Animation_ni10p"]
 resource_name = "paper_fall"
-length = 2.0
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Assets/paperReal:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.52114, -0.268517, -1.67735), Vector3(0.0767945, 0.277507, -3.18174)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Assets/paperReal2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.52114, -0.800161, -1.67735), Vector3(-0.00349066, -0.455531, -3.22362)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Assets/paperReal3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.52114, -1.17602, -1.67735), Vector3(-0.00174533, -0.560251, -3.08749)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Assets/paperReal4:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.52114, -0.627234, -1.67735), Vector3(0.0696186, -0.510357, -3.12132)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Assets/paperReal5:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.52114, -0.00177803, -1.67735), Vector3(0.0802851, 0.544543, -3.18348)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Assets/paperReal6:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.52114, 0.291629, -1.67735), Vector3(0.0272376, 0.649857, -3.12006)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Assets/paperReal7:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.52114, 0.518627, -1.67735), Vector3(-0.0663225, 1.04022, -3.16079)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Assets/paperReal8:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.52114, 0.590342, -1.67735), Vector3(0.00766867, 1.04855, -3.12792)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Assets/paperReal9:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.52114, 0.190784, -1.67735), Vector3(0.0238125, 0.624644, -3.13529)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Assets/paperReal10:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.521141, -0.375488, -1.67735), Vector3(0.1309, -0.143117, -3.09272)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Assets/paperReal11:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.521141, -0.884077, -1.67735), Vector3(0.098855, -0.511549, -3.09365)]
+}
+
+[sub_resource type="Animation" id="Animation_kyrpt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Assets/paperReal11:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.098855, -0.511549, -3.09365)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Assets/paperReal10:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.131258, -0.142319, 3.08569)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Assets/paperReal9:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0238125, 0.624644, -3.13529)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Assets/paperReal8:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.00766867, 1.04855, -3.12792)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Assets/paperReal7:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.0656829, 1.04098, 3.13988)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Assets/paperReal6:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0272376, 0.649857, -3.12006)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Assets/paperReal5:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.07983, 0.545329, 3.10049)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Assets/paperReal4:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0236404, -0.506766, -3.04434)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Assets/paperReal3:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.00116813, -0.559784, 3.1166)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Assets/paperReal2:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.00277339, -0.455129, 3.11222)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Assets/paperReal:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0774482, 0.277953, 3.11079)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7sb68"]
 _data = {
+"RESET": SubResource("Animation_kyrpt"),
 "paper_fall": SubResource("Animation_ni10p")
 }
 
@@ -492,6 +762,9 @@ omni_range = 0.796
 [node name="OrbPickup" parent="." instance=ExtResource("11_0tbqk")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -56.5688, -0.846027, 40.1497)
 
+[node name="OmniLight3D" parent="OrbPickup" index="2"]
+light_energy = 5.0
+
 [node name="essences" type="Node3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -12.2253, -0.636374, -58.5734)
 
@@ -503,6 +776,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.65933, 0, 10.0027)
 
 [node name="essence3" parent="essences" instance=ExtResource("13_hx8b5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3908, 4.76837e-07, 11.5799)
+
+[node name="essence4" parent="essences" instance=ExtResource("13_hx8b5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.6389, 0.536486, 193.952)
+
+[node name="essence5" parent="essences" instance=ExtResource("13_hx8b5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.689, 0.0163088, 199.077)
+
+[node name="essence6" parent="essences" instance=ExtResource("13_hx8b5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.6438, 0.272831, 195.336)
 
 [node name="waterbed" type="MeshInstance3D" parent="."]
 transform = Transform3D(6.03192, 0, -0.072118, 0, 2.12907, 0, 0.072118, 0, 6.03192, 0, -3.28228, 1)
@@ -573,27 +855,43 @@ transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 35.5424,
 visible = false
 
 [node name="startLight" parent="lights" instance=ExtResource("15_s8y8l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3107, 0.693717, -10.4965)
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -15.3068, 1.49916, -6.06509)
 
 [node name="startLight2" parent="lights" instance=ExtResource("15_s8y8l")]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -52.4237, 1.55837, 99.164)
 
+[node name="startLight10" parent="lights" instance=ExtResource("15_s8y8l")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -62.6013, 0.660994, 99.0224)
+
 [node name="startLight3" parent="lights" instance=ExtResource("15_s8y8l")]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -36.4279, 3.67779, 119.905)
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -37.9349, 2.75759, 118.615)
 
 [node name="startLight5" parent="lights" instance=ExtResource("15_s8y8l")]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -64.9661, 3.67779, 62.9722)
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -65.3564, 0.850783, 52.4442)
+
+[node name="startLight9" parent="lights" instance=ExtResource("15_s8y8l")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -65.6569, 2.11955, 37.8924)
+
+[node name="startLight8" parent="lights" instance=ExtResource("15_s8y8l")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -64.0294, 0.850783, 63.5986)
 
 [node name="startLight4" parent="lights" instance=ExtResource("15_s8y8l")]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -38.7035, 1.55837, 106.982)
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -42.2579, 1.55837, 102.325)
 
-[node name="downerLight" parent="lights" instance=ExtResource("15_s8y8l")]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 32.0918, 0.693717, 21.4783)
+[node name="startLight6" parent="lights" instance=ExtResource("15_s8y8l")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -61.3084, 1.55838, 33.9052)
 
-[node name="OmniLight3D" parent="lights/downerLight" index="0"]
-transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0, 0, 0)
-omni_range = 13.4802
-omni_attenuation = 0.333
+[node name="startLight11" parent="lights" instance=ExtResource("15_s8y8l")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -60.4568, 1.55838, 18.1597)
+
+[node name="startLight12" parent="lights" instance=ExtResource("15_s8y8l")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -41.5533, 1.92215, 0.697861)
+
+[node name="startLight13" parent="lights" instance=ExtResource("15_s8y8l")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -4.52026, 1.92215, 23.1574)
+
+[node name="startLight7" parent="lights" instance=ExtResource("15_s8y8l")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -69.1397, 0.566757, 43.9965)
 
 [node name="Downer" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01765, 0, 1.3558)
@@ -1711,44 +2009,145 @@ transform = Transform3D(-0.355007, 0, -0.352095, 0, 0.5, 0, 0.352095, 0, -0.3550
 
 [node name="paper" parent="Assets" instance=ExtResource("24_nkf48")]
 transform = Transform3D(-0.109097, -0.4298, -0.231021, -0.483438, 0.127336, -0.00860155, 0.0662281, 0.221491, -0.443347, -67.5689, -0.875369, -1.80479)
+visible = false
 
 [node name="paper2" parent="Assets" instance=ExtResource("24_nkf48")]
 transform = Transform3D(-0.125167, -0.479629, -0.0654928, -0.483437, 0.127335, -0.00860148, 0.0249301, 0.0611701, -0.495618, -67.7136, -0.875369, -2.12235)
+visible = false
 
 [node name="paper3" parent="Assets" instance=ExtResource("24_nkf48")]
 transform = Transform3D(-0.121717, -0.449872, 0.181109, -0.483438, 0.127335, -0.00860133, -0.0383841, -0.177203, -0.465968, -67.6996, -0.875369, -2.48201)
+visible = false
 
 [node name="paper4" parent="Assets" instance=ExtResource("24_nkf48")]
 transform = Transform3D(-0.0897387, -0.31519, 0.377628, -0.483438, 0.127336, -0.00860149, -0.0907485, -0.366662, -0.327603, -67.5136, -0.875369, -2.78514)
+visible = false
 
 [node name="paper5" parent="Assets" instance=ExtResource("24_nkf48")]
 transform = Transform3D(-0.107242, -0.387034, 0.297833, -0.483438, 0.127335, -0.00860134, -0.0691913, -0.289811, -0.401525, -67.8232, -0.875369, -2.80399)
+visible = false
 
 [node name="paper6" parent="Assets" instance=ExtResource("24_nkf48")]
 transform = Transform3D(-0.126274, -0.472336, 0.104661, -0.483438, 0.127335, -0.00860143, -0.0185285, -0.103366, -0.488848, -67.9549, -0.875369, -2.35489)
+visible = false
 
 [node name="paper7" parent="Assets" instance=ExtResource("24_nkf48")]
 transform = Transform3D(-0.116717, -0.454743, -0.172007, -0.483438, 0.127336, -0.00860169, 0.0516283, 0.164301, -0.469404, -67.8596, -0.875369, -1.84298)
+visible = false
 
 [node name="paper8" parent="Assets" instance=ExtResource("24_nkf48")]
 transform = Transform3D(-0.124945, -0.479076, -0.0698221, -0.483438, 0.127335, -0.00860139, 0.0260231, 0.0653597, -0.495027, -68.0571, -0.875369, -2.05409)
+visible = false
 
 [node name="paper9" parent="Assets" instance=ExtResource("24_nkf48")]
 transform = Transform3D(-0.0519128, -0.165411, 0.468983, -0.483438, 0.127336, -0.00860139, -0.116591, -0.454341, -0.173152, -67.4288, -0.875369, -3.10646)
+visible = false
 
 [node name="paper10" parent="Assets" instance=ExtResource("24_nkf48")]
 transform = Transform3D(-0.0953291, -0.337874, 0.356025, -0.483438, 0.127336, -0.00860134, -0.0848569, -0.345871, -0.35096, -67.987, -0.875369, -3.02216)
+visible = false
 
 [node name="paper11" parent="Assets" instance=ExtResource("24_nkf48")]
 transform = Transform3D(-0.121861, -0.450537, 0.179351, -0.483438, 0.127336, -0.00860145, -0.0379248, -0.175506, -0.466648, -68.3436, -0.875369, -2.49806)
+visible = false
 
 [node name="paperReal" parent="Assets" instance=ExtResource("24_nkf48")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.500001, -68.3436, -0.875369, -2.49806)
+transform = Transform3D(-0.480256, -0.0254171, 0.136783, 0.0153522, -0.498265, -0.0386855, 0.138275, -0.0329579, 0.47937, -68.1868, -0.944658, -2.5624)
 
 [node name="Plane_0" parent="Assets/paperReal/Sketchfab_model/root/GLTF_SceneRootNode" index="0"]
 transform = Transform3D(0.241091, 0, 0.108708, 0, 1, 0, -0.140414, 0, 0.186651, -0.172607, -0.0919096, 0.172003)
 
 [node name="Object_4" parent="Assets/paperReal/Sketchfab_model/root/GLTF_SceneRootNode/Plane_0" index="0"]
+transform = Transform3D(1, 0, 2.32831e-10, 0, 1, 0, -9.31323e-10, 0, 1, 0, 0.0614882, 0)
+
+[node name="paperReal2" parent="Assets" instance=ExtResource("24_nkf48")]
+transform = Transform3D(-0.448891, -0.0137974, -0.219789, 0.0146827, -0.499783, 0.0013867, -0.219731, -0.00520922, 0.449102, -67.8101, -0.944658, -3.00493)
+
+[node name="Plane_0" parent="Assets/paperReal2/Sketchfab_model/root/GLTF_SceneRootNode" index="0"]
+transform = Transform3D(0.241091, 0, 0.108708, 0, 1, 0, -0.140414, 0, 0.186651, -0.172607, -0.0919096, 0.172003)
+
+[node name="Object_4" parent="Assets/paperReal2/Sketchfab_model/root/GLTF_SceneRootNode/Plane_0" index="0"]
+transform = Transform3D(1, 0, 2.32831e-10, 0, 1, 0, -9.31323e-10, 0, 1, 0, 0.0614882, 0)
+
+[node name="paperReal3" parent="Assets" instance=ExtResource("24_nkf48")]
+transform = Transform3D(-0.423545, -0.0109, -0.265502, 0.0124974, -0.499844, 0.000584068, -0.265431, -0.00614139, 0.423686, -67.2777, -0.944658, -3.0229)
+
+[node name="Plane_0" parent="Assets/paperReal3/Sketchfab_model/root/GLTF_SceneRootNode" index="0"]
+transform = Transform3D(0.241091, 0, 0.108708, 0, 1, 0, -0.140414, 0, 0.186651, -0.172607, -0.0919096, 0.172003)
+
+[node name="Object_4" parent="Assets/paperReal3/Sketchfab_model/root/GLTF_SceneRootNode/Plane_0" index="0"]
+transform = Transform3D(1, 0, 2.32831e-10, 0, 1, 0, -9.31323e-10, 0, 1, 0, 0.0614882, 0)
+
+[node name="paperReal4" parent="Assets" instance=ExtResource("24_nkf48")]
+transform = Transform3D(-0.434537, 0.0481576, -0.242609, -0.0485365, -0.497499, -0.0118191, -0.242533, 0.013279, 0.437039, -67.6385, -0.944658, -2.78908)
+
+[node name="Plane_0" parent="Assets/paperReal4/Sketchfab_model/root/GLTF_SceneRootNode" index="0"]
+transform = Transform3D(0.241091, 0, 0.108708, 0, 1, 0, -0.140414, 0, 0.186651, -0.172607, -0.0919096, 0.172003)
+
+[node name="Object_4" parent="Assets/paperReal4/Sketchfab_model/root/GLTF_SceneRootNode/Plane_0" index="0"]
+transform = Transform3D(1, 0, 2.32831e-10, 0, 1, 0, -9.31323e-10, 0, 1, 0, 0.0614882, 0)
+
+[node name="paperReal5" parent="Assets" instance=ExtResource("24_nkf48")]
+transform = Transform3D(-0.426268, -0.0382297, 0.258525, 0.0204797, -0.497988, -0.0398728, 0.260532, -0.0234039, 0.426119, -67.8015, -0.944658, -2.44568)
+
+[node name="Plane_0" parent="Assets/paperReal5/Sketchfab_model/root/GLTF_SceneRootNode" index="0"]
+transform = Transform3D(0.241091, 0, 0.108708, 0, 1, 0, -0.140414, 0, 0.186651, -0.172607, -0.0919096, 0.172003)
+
+[node name="Object_4" parent="Assets/paperReal5/Sketchfab_model/root/GLTF_SceneRootNode/Plane_0" index="0"]
+transform = Transform3D(1, 0, 2.32831e-10, 0, 1, 0, -9.31323e-10, 0, 1, 0, 0.0614882, 0)
+
+[node name="paperReal6" parent="Assets" instance=ExtResource("24_nkf48")]
+transform = Transform3D(-0.398171, 0.000335192, 0.302425, -0.0107633, -0.4997, -0.0136171, 0.302233, -0.017354, 0.397939, -67.9557, -0.944658, -2.17991)
+
+[node name="Plane_0" parent="Assets/paperReal6/Sketchfab_model/root/GLTF_SceneRootNode" index="0"]
+transform = Transform3D(0.241091, 0, 0.108708, 0, 1, 0, -0.140414, 0, 0.186651, -0.172607, -0.0919096, 0.172003)
+
+[node name="Object_4" parent="Assets/paperReal6/Sketchfab_model/root/GLTF_SceneRootNode/Plane_0" index="0"]
+transform = Transform3D(1, 0, 2.32831e-10, 0, 1, 0, -9.31323e-10, 0, 1, 0, 0.0614882, 0)
+
+[node name="paperReal7" parent="Assets" instance=ExtResource("24_nkf48")]
+transform = Transform3D(-0.252734, 0.0278861, 0.430522, 0.000854034, -0.498922, 0.032818, 0.431422, 0.0173237, 0.252142, -67.7728, -0.944658, -2.00599)
+
+[node name="Plane_0" parent="Assets/paperReal7/Sketchfab_model/root/GLTF_SceneRootNode" index="0"]
+transform = Transform3D(0.241091, 0, 0.108708, 0, 1, 0, -0.140414, 0, 0.186651, -0.172607, -0.0919096, 0.172003)
+
+[node name="Object_4" parent="Assets/paperReal7/Sketchfab_model/root/GLTF_SceneRootNode/Plane_0" index="0"]
+transform = Transform3D(1, 0, 2.32831e-10, 0, 1, 0, -9.31323e-10, 0, 1, 0, 0.0614882, 0)
+
+[node name="paperReal8" parent="Assets" instance=ExtResource("24_nkf48")]
+transform = Transform3D(-0.249435, 8.60269e-05, 0.43334, -0.0068337, -0.49994, -0.00383432, 0.433285, -0.00783544, 0.249406, -67.5097, -0.944658, -1.97185)
+
+[node name="Plane_0" parent="Assets/paperReal8/Sketchfab_model/root/GLTF_SceneRootNode" index="0"]
+transform = Transform3D(0.241091, 0, 0.108708, 0, 1, 0, -0.140414, 0, 0.186651, -0.172607, -0.0919096, 0.172003)
+
+[node name="Object_4" parent="Assets/paperReal8/Sketchfab_model/root/GLTF_SceneRootNode/Plane_0" index="0"]
+transform = Transform3D(1, 0, 2.32831e-10, 0, 1, 0, -9.31323e-10, 0, 1, 0, 0.0614882, 0)
+
+[node name="paperReal9" parent="Assets" instance=ExtResource("24_nkf48")]
+transform = Transform3D(-0.405622, -0.00440618, 0.292323, -0.00314999, -0.49985, -0.0119052, 0.292338, -0.0114996, 0.405472, -67.5947, -0.944658, -2.24728)
+
+[node name="Plane_0" parent="Assets/paperReal9/Sketchfab_model/root/GLTF_SceneRootNode" index="0"]
+transform = Transform3D(0.241091, 0, 0.108708, 0, 1, 0, -0.140414, 0, 0.186651, -0.172607, -0.0919096, 0.172003)
+
+[node name="Object_4" parent="Assets/paperReal9/Sketchfab_model/root/GLTF_SceneRootNode/Plane_0" index="0"]
+transform = Transform3D(1, 0, 2.32831e-10, 0, 1, 0, -9.31323e-10, 0, 1, 0, 0.0614882, 0)
+
+[node name="paperReal10" parent="Assets" instance=ExtResource("24_nkf48")]
+transform = Transform3D(-0.494691, -0.0183867, -0.0703098, 0.0276964, -0.494926, -0.0654411, -0.0671893, -0.0686407, 0.49069, -67.5261, -0.944658, -2.53881)
+
+[node name="Plane_0" parent="Assets/paperReal10/Sketchfab_model/root/GLTF_SceneRootNode" index="0"]
+transform = Transform3D(0.241091, 0, 0.108708, 0, 1, 0, -0.140414, 0, 0.186651, -0.172607, -0.0919096, 0.172003)
+
+[node name="Object_4" parent="Assets/paperReal10/Sketchfab_model/root/GLTF_SceneRootNode/Plane_0" index="0"]
+transform = Transform3D(1, 0, 2.32831e-10, 0, 1, 0, -9.31323e-10, 0, 1, 0, 0.0614882, 0)
+
+[node name="paperReal11" parent="Assets" instance=ExtResource("24_nkf48")]
+transform = Transform3D(-0.434335, 0.045022, -0.24357, -0.0238431, -0.496989, -0.0493472, -0.246545, -0.0312515, 0.433867, -67.3429, -0.944658, -2.75783)
+
+[node name="Plane_0" parent="Assets/paperReal11/Sketchfab_model/root/GLTF_SceneRootNode" index="0"]
+transform = Transform3D(0.241091, 0, 0.108708, 0, 1, 0, -0.140414, 0, 0.186651, -0.172607, -0.0919096, 0.172003)
+
+[node name="Object_4" parent="Assets/paperReal11/Sketchfab_model/root/GLTF_SceneRootNode/Plane_0" index="0"]
 transform = Transform3D(1, 0, 2.32831e-10, 0, 1, 0, -9.31323e-10, 0, 1, 0, 0.0614882, 0)
 
 [node name="Sketchfab_Scene21" parent="Assets" instance=ExtResource("24_nkf48")]
@@ -1793,10 +2192,47 @@ transform = Transform3D(-0.184638, 0, -0.46466, 0, 0.5, 0, 0.46466, 0, -0.184638
 [node name="Sketchfab_Scene3" parent="Assets" instance=ExtResource("24_nkf48")]
 transform = Transform3D(-0.343373, 0, -0.36345, 0, 0.5, 0, 0.36345, 0, -0.343373, -68.2831, -0.824512, -1.16467)
 
+[node name="glass_shards" parent="Assets" instance=ExtResource("26_mysxp")]
+transform = Transform3D(-1.1363, 0, -0.656044, 0, 0.5, 0, 0.656044, 0, -1.1363, -49.5011, -0.907704, -24.3513)
+
+[node name="glass_shards2" parent="Assets" instance=ExtResource("26_mysxp")]
+transform = Transform3D(-0.498143, 0, -0.287603, 0, 0.5, 0, 0.287603, 0, -0.498143, -49.1662, -0.907704, -22.56)
+
+[node name="glass_shards3" parent="Assets" instance=ExtResource("26_mysxp")]
+transform = Transform3D(-0.498143, 0, -0.287603, 0, 0.5, 0, 0.287603, 0, -0.498143, -49.5041, -0.907704, -22.9837)
+
+[node name="glass_shards4" parent="Assets" instance=ExtResource("26_mysxp")]
+transform = Transform3D(-1.01, 0, 0.668303, 0, 0.5, 0, -0.668303, 0, -1.01, -49.5398, -0.907704, -25.8105)
+
+[node name="glass_shards5" parent="Assets" instance=ExtResource("26_mysxp")]
+transform = Transform3D(-1.00281, 0, 0.679053, 0, 0.5, 0, -0.679053, 0, -1.00281, -50.167, -0.907704, -26.5087)
+
+[node name="glass_shards6" parent="Assets" instance=ExtResource("26_mysxp")]
+transform = Transform3D(-1.00281, 0, 0.679053, 0, 0.5, 0, -0.679053, 0, -1.00281, -50.4001, -0.907704, -28.1221)
+
+[node name="glass_shards7" parent="Assets" instance=ExtResource("26_mysxp")]
+transform = Transform3D(-1.00281, 0, 0.679053, 0, 0.5, 0, -0.679053, 0, -1.00281, -51.6484, -0.907703, -30.5053)
+
+[node name="glass_shards8" parent="Assets" instance=ExtResource("26_mysxp")]
+transform = Transform3D(-1.00281, 0, 0.679053, 0, 0.5, 0, -0.679053, 0, -1.00281, -52.6934, -0.907703, -33.503)
+
+[node name="glass_shards9" parent="Assets" instance=ExtResource("26_mysxp")]
+transform = Transform3D(-1.00281, 0, 0.679053, 0, 0.5, 0, -0.679053, 0, -1.00281, -54.0303, -0.907703, -34.964)
+
+[node name="glass_shards10" parent="Assets" instance=ExtResource("26_mysxp")]
+transform = Transform3D(-1.00281, 0, 0.679053, 0, 0.5, 0, -0.679053, 0, -1.00281, -56.2188, -0.907703, -36.7941)
+
+[node name="glass_shards11" parent="Assets" instance=ExtResource("26_mysxp")]
+transform = Transform3D(-1.00281, 0, 0.679053, 0, 0.5, 0, -0.679053, 0, -1.00281, -58.3239, -0.907703, -38.8242)
+
+[node name="glass_shards12" parent="Assets" instance=ExtResource("26_mysxp")]
+transform = Transform3D(-1.00281, 0, 0.679053, 0, 0.5, 0, -0.679053, 0, -1.00281, -59.9393, -0.907703, -39.3238)
+
 [node name="Triggers" type="Node3D" parent="."]
 
 [node name="paper trigger" type="Area3D" parent="Triggers"]
 transform = Transform3D(0.91665, 0, 0.399694, 0, 1, 0, -0.399694, 0, 0.91665, -70.4672, 1.19209e-07, -0.864128)
+script = ExtResource("25_te0aj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/paper trigger"]
 transform = Transform3D(1, 0, -1.41561e-07, 0, 1, 0, 1.41561e-07, 0, 1, 0.449978, -0.5354, 1.07593)
@@ -1808,7 +2244,9 @@ libraries = {
 }
 
 [connection signal="body_entered" from="Downer/Area3D" to="Downer" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Triggers/paper trigger" to="Triggers/paper trigger" method="_on_body_entered"]
 
+[editable path="OrbPickup"]
 [editable path="lights/bearLight1"]
 [editable path="lights/bearLight2"]
 [editable path="lights/reportLight"]
@@ -1823,8 +2261,25 @@ libraries = {
 [editable path="lights/boatLight"]
 [editable path="lights/startLight"]
 [editable path="lights/startLight2"]
+[editable path="lights/startLight10"]
 [editable path="lights/startLight3"]
 [editable path="lights/startLight5"]
+[editable path="lights/startLight9"]
+[editable path="lights/startLight8"]
 [editable path="lights/startLight4"]
-[editable path="lights/downerLight"]
+[editable path="lights/startLight6"]
+[editable path="lights/startLight11"]
+[editable path="lights/startLight12"]
+[editable path="lights/startLight13"]
+[editable path="lights/startLight7"]
 [editable path="Assets/paperReal"]
+[editable path="Assets/paperReal2"]
+[editable path="Assets/paperReal3"]
+[editable path="Assets/paperReal4"]
+[editable path="Assets/paperReal5"]
+[editable path="Assets/paperReal6"]
+[editable path="Assets/paperReal7"]
+[editable path="Assets/paperReal8"]
+[editable path="Assets/paperReal9"]
+[editable path="Assets/paperReal10"]
+[editable path="Assets/paperReal11"]
