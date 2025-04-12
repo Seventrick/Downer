@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=13 format=3 uid="uid://c3icq82ujph64"]
+
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_8q8eb"]
+[ext_resource type="PackedScene" uid="uid://b7b63ih675oy2" path="res://dialogic/styles/CustomBetterDayStyle/custom_better_day_style.tscn" id="1_et3bl"]
+[ext_resource type="PackedScene" uid="uid://c1k5m0w3r40xf" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_FullBackground/full_background_layer.tscn" id="2_fb3dn"]
+[ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="3_heue4"]
+[ext_resource type="PackedScene" uid="uid://by6waso0mjpjp" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_SpeakerPortraitTextbox/textbox_with_speaker_portrait.tscn" id="4_18sm1"]
+[ext_resource type="PackedScene" uid="uid://dhk6j6eb6e3q" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/vn_choice_layer.tscn" id="6_w3cbq"]
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style.gd" id="9_hjp88"]
+
+[sub_resource type="Resource" id="Resource_j48pu"]
+script = ExtResource("1_8q8eb")
+scene = ExtResource("1_et3bl")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_0msei"]
+script = ExtResource("1_8q8eb")
+scene = ExtResource("2_fb3dn")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_epd2l"]
+script = ExtResource("1_8q8eb")
+scene = ExtResource("3_heue4")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_pbrhr"]
+script = ExtResource("1_8q8eb")
+scene = ExtResource("4_18sm1")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_dpuyl"]
+script = ExtResource("1_8q8eb")
+scene = ExtResource("6_w3cbq")
+overrides = {}
+
+[resource]
+script = ExtResource("9_hjp88")
+name = "betterDayStyle"
+layer_list = Array[String](["10", "11", "12", "14"])
+layer_info = {
+"": SubResource("Resource_j48pu"),
+"10": SubResource("Resource_0msei"),
+"11": SubResource("Resource_epd2l"),
+"12": SubResource("Resource_pbrhr"),
+"14": SubResource("Resource_dpuyl")
+}
+base_overrides = {}
+layers = Array[ExtResource("1_8q8eb")]([])
+metadata/_latest_layer = ""

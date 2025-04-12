@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="DialogicStyle" load_steps=18 format=3 uid="uid://bjs48pgfx2km0"]
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=19 format=3 uid="uid://bjs48pgfx2km0"]
 
+[ext_resource type="PackedScene" uid="uid://tg8f1nnwvcko" path="res://dialogic/styles/CustomDayStyle/custom_day_style.tscn" id="1_7e7kf"]
 [ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_pdxw2"]
 [ext_resource type="PackedScene" uid="uid://c1k5m0w3r40xf" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_FullBackground/full_background_layer.tscn" id="2_kql88"]
 [ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="3_u65mv"]
@@ -12,6 +13,7 @@
 
 [sub_resource type="Resource" id="Resource_e5p7a"]
 script = ExtResource("1_pdxw2")
+scene = ExtResource("1_7e7kf")
 overrides = {}
 
 [sub_resource type="Resource" id="Resource_c3epo"]
