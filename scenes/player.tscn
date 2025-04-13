@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d1m0i4tjyxoy8"]
+[gd_scene load_steps=28 format=3 uid="uid://d1m0i4tjyxoy8"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_jng3c"]
 [ext_resource type="Script" path="res://inventory/inventory_data.gd" id="2_c4ess"]
@@ -10,7 +10,12 @@
 [ext_resource type="AudioStream" uid="uid://cc6oo6pde0f6h" path="res://audio/orbup.wav" id="5_8meci"]
 [ext_resource type="ArrayMesh" uid="uid://ct80ukfqjvbm8" path="res://assets/arm.obj" id="5_gevpi"]
 [ext_resource type="AudioStream" uid="uid://h12kpmri13yc" path="res://audio/orbdown.wav" id="6_6m0lh"]
-[ext_resource type="AudioStream" uid="uid://d38q3hj1i8puo" path="res://audio/step1.wav" id="6_avayu"]
+[ext_resource type="AudioStream" uid="uid://bf27643oglgfx" path="res://audio/dirt_footsteps_1.wav" id="11_6pk3o"]
+[ext_resource type="AudioStream" uid="uid://7cfyiurdrvcr" path="res://audio/dirt_footsteps_2.wav" id="12_ovaf2"]
+[ext_resource type="AudioStream" uid="uid://2uk2ejsbne0m" path="res://audio/dirt_footsteps_3.wav" id="13_5yc1a"]
+[ext_resource type="AudioStream" uid="uid://b3drfmfb5yfms" path="res://audio/dirt_footsteps_4.wav" id="14_0n2ck"]
+[ext_resource type="AudioStream" uid="uid://bek52uxcq72cr" path="res://audio/dirt_footsteps_5.wav" id="15_15bvr"]
+[ext_resource type="AudioStream" uid="uid://dsxe3fopg13e" path="res://audio/pickup.sfxr" id="16_kcgr2"]
 
 [sub_resource type="Resource" id="Resource_qc06j"]
 script = ExtResource("2_c4ess")
@@ -45,6 +50,14 @@ albedo_color = Color(0.42327, 0.30402, 0.235987, 1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_2x7ye"]
 height = 0.2
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_objoq"]
+streams_count = 5
+stream_0/stream = ExtResource("11_6pk3o")
+stream_1/stream = ExtResource("12_ovaf2")
+stream_2/stream = ExtResource("13_5yc1a")
+stream_3/stream = ExtResource("14_0n2ck")
+stream_4/stream = ExtResource("15_15bvr")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_scsdy"]
 radius = 3.55351
@@ -162,8 +175,12 @@ wait_time = 3.0
 one_shot = true
 
 [node name="walkSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_avayu")
+stream = SubResource("AudioStreamRandomizer_objoq")
 volume_db = -10.0
+
+[node name="pickupSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_kcgr2")
+volume_db = -1.874
 
 [node name="noLightArea" type="Area3D" parent="." groups=["lightSources"]]
 

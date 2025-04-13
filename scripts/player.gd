@@ -135,6 +135,7 @@ func _physics_process(delta):
 			if target != null and target.has_method("orb_pickup"):
 				if Input.is_action_just_pressed("interact"):
 					target.orb_pickup() # object runs interact function
+					$pickupSound.play()
 					pickup_orb() # function that adds to singleton
 			if target != null and target.has_method("recharge"):
 				if Input.is_action_just_pressed("interact"):
@@ -150,6 +151,7 @@ func _physics_process(delta):
 			if target != null and target.is_in_group("items"):
 				if Input.is_action_just_pressed("interact"):
 					inventory_data.pickup_item_data(target.item_data)
+					$pickupSound.play()
 					target.queue_free()
 			if target != null and target.is_in_group("collectible"):
 				if Input.is_action_just_pressed("interact"):
@@ -225,7 +227,7 @@ func _physics_process(delta):
 			print("super safe!!!")
 	else:
 		print("nope!")
-		PlayerState.safe = true #should be false changed to true for testing ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		PlayerState.safe = false #should be false changed to true for testing ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	# Add the gravity.
 	if not is_grounded():
 		velocity.y -= gravity * delta

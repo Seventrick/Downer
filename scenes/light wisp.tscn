@@ -57,7 +57,7 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_1n1iu")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4wt0u"]
-radius = 5.44296
+radius = 3.69181
 
 [node name="flames2" type="GPUParticles3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.56876, 0, 0, 0, 0.5, 0, 0, 0)

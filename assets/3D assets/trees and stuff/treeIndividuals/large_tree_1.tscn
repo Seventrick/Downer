@@ -62,5 +62,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_70wv4")
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.209764, 2.16802, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.141666, 2.16802, 0)
 shape = SubResource("CylinderShape3D_uds4c")

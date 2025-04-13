@@ -269,11 +269,7 @@ text = "
  Stay in the light"
 
 [node name="EyeUI" parent="UI" instance=ExtResource("3_yspg7")]
-visible = false
 z_index = 2
-
-[node name="SleepScreen" parent="UI/EyeUI" index="8"]
-visible = false
 
 [node name="rechargeBar" type="TextureProgressBar" parent="UI"]
 z_index = 1
