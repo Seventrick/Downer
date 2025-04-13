@@ -180,6 +180,7 @@ shape = SubResource("RectangleShape2D_l01pb")
 z_index = 1
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_8in0u")
 
 [node name="TileMapDual" type="TileMapLayer" parent="TileMapLayer"]

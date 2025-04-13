@@ -9,6 +9,7 @@
 script = ExtResource("2_o7lpf")
 name = "Plush"
 description = "An old stuffed bear. It seems to have been untouch for a long while."
+consumable = false
 icon = ExtResource("2_i2t7y")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jryhu"]

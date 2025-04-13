@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cieu62p0omgxe"]
+[gd_scene load_steps=12 format=3 uid="uid://cieu62p0omgxe"]
 
 [ext_resource type="PackedScene" uid="uid://bmgl0mbgr4hn4" path="res://scenes/safe_light.tscn" id="1_4cjtw"]
-[ext_resource type="PackedScene" uid="uid://bxnpjkpjm8mea" path="res://scenes/superposition_asset.tscn" id="2_1uxne"]
+[ext_resource type="PackedScene" uid="uid://lbhxr5acq0mg" path="res://scenes/superposition_asset.tscn" id="2_1uxne"]
+[ext_resource type="PackedScene" uid="uid://cpx8s5d5ysr1a" path="res://scenes/no_flicker_lamp.tscn" id="3_17bfj"]
 [ext_resource type="PackedScene" uid="uid://d1ib06qrrl0lu" path="res://scenes/mommy.tscn" id="3_u1t4y"]
+[ext_resource type="PackedScene" uid="uid://cy1lkhbs8iet0" path="res://scenes/paper_boat.tscn" id="5_stjqv"]
+[ext_resource type="Script" path="res://resources/superposition_asset_data.gd" id="6_t15n1"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_xwfij"]
 
@@ -24,6 +27,15 @@ volumetric_fog_albedo = Color(0.536875, 0.338683, 0.585809, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_673c7"]
 size = Vector3(50, 1, 50)
 
+[sub_resource type="Resource" id="Resource_dlcbe"]
+script = ExtResource("6_t15n1")
+asset1 = ExtResource("3_17bfj")
+weight1 = 0
+asset2 = ExtResource("3_u1t4y")
+weight2 = 0
+asset3 = ExtResource("5_stjqv")
+weight3 = 0
+
 [node name="QuantumRoom" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -44,6 +56,7 @@ shape = SubResource("BoxShape3D_673c7")
 
 [node name="SuperpositionAsset" parent="." instance=ExtResource("2_1uxne")]
 transform = Transform3D(0.878335, 0, 0, 0, 1, 0, 0, 0, 1, -9.91345, 4.76837e-07, 12.8151)
+assetData = SubResource("Resource_dlcbe")
 
 [node name="Mommy" parent="." instance=ExtResource("3_u1t4y")]
 transform = Transform3D(7.91567, 0, 0, 0, 3.33236, 0, 0, 0, 7.5439, -22.2992, -0.58573, 22.5615)

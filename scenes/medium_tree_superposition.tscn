@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://q0k1qgagofkh"]
+
+[ext_resource type="Script" path="res://scripts/superposition_asset.gd" id="1_1bus4"]
+[ext_resource type="PackedScene" uid="uid://c6mbl7mih7imb" path="res://assets/3D assets/trees and stuff/treeIndividuals/medium_tree_1.tscn" id="2_l2n6k"]
+[ext_resource type="PackedScene" uid="uid://cs5sg7l5k3sq8" path="res://assets/3D assets/trees and stuff/treeIndividuals/medium_tree_2.tscn" id="3_ea6rw"]
+[ext_resource type="Script" path="res://resources/superposition_asset_data.gd" id="4_rit4q"]
+
+[sub_resource type="Resource" id="Resource_f5blk"]
+script = ExtResource("4_rit4q")
+asset1 = ExtResource("2_l2n6k")
+weight1 = 0
+asset2 = ExtResource("3_ea6rw")
+weight2 = 0
+asset3 = ExtResource("2_l2n6k")
+weight3 = 0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mtd6l"]
+radius = 10.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_40f2b"]
+radius = 5.0
+
+[node name="Medium_Tree_Superposition" type="Node3D"]
+
+[node name="SuperpositionAsset" type="Node3D" parent="."]
+script = ExtResource("1_1bus4")
+assetData = SubResource("Resource_f5blk")
+
+[node name="ChangeArea" type="Area3D" parent="SuperpositionAsset"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SuperpositionAsset/ChangeArea"]
+shape = SubResource("SphereShape3D_mtd6l")
+
+[node name="SafeArea" type="Area3D" parent="SuperpositionAsset"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SuperpositionAsset/SafeArea"]
+shape = SubResource("SphereShape3D_40f2b")
+
+[node name="SuperpositionTimer" type="Timer" parent="SuperpositionAsset"]
+
+[node name="Tree Type4 03" parent="SuperpositionAsset" instance=ExtResource("2_l2n6k")]
+
+[connection signal="area_entered" from="SuperpositionAsset/ChangeArea" to="SuperpositionAsset" method="change_entered"]
+[connection signal="area_exited" from="SuperpositionAsset/ChangeArea" to="SuperpositionAsset" method="change_exited"]
+[connection signal="area_entered" from="SuperpositionAsset/SafeArea" to="SuperpositionAsset" method="safe_entered"]
+[connection signal="area_exited" from="SuperpositionAsset/SafeArea" to="SuperpositionAsset" method="safe_exited"]
+[connection signal="timeout" from="SuperpositionAsset/SuperpositionTimer" to="SuperpositionAsset" method="_on_superposition_timer_timeout"]
