@@ -1,0 +1,92 @@
+[gd_scene load_steps=13 format=4 uid="uid://dqsop2r1al4cs"]
+
+[ext_resource type="Texture2D" uid="uid://4yveh77710g" path="res://assets/2D assets/tileset stuff/master tileset atlas.png" id="1_b87sv"]
+[ext_resource type="TileSet" uid="uid://pyklkyqqcsl8" path="res://assets/2D assets/tileset stuff/interior_dorm_collisions.tres" id="1_j4p17"]
+[ext_resource type="PackedScene" uid="uid://c1oc3d1lr572o" path="res://scenes/2dplayer.tscn" id="2_fw1fv"]
+[ext_resource type="Script" path="res://scripts/2D Scene Transition Scripts/dorm_room_door.gd" id="3_dc68v"]
+[ext_resource type="AudioStream" uid="uid://bk6gstdvcgeue" path="res://sounds/door.sfxr" id="4_g8g20"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j7n44"]
+texture = ExtResource("1_b87sv")
+5:12/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_q1uy1"]
+sources/0 = SubResource("TileSetAtlasSource_j7n44")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t06qx"]
+atlas = ExtResource("1_b87sv")
+region = Rect2(96, 208, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_setk1"]
+atlas = ExtResource("1_b87sv")
+region = Rect2(147, 220, 26, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2yfh"]
+atlas = ExtResource("1_b87sv")
+region = Rect2(112, 170, 16, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53q3f"]
+atlas = SubResource("AtlasTexture_x2yfh")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pnd6s"]
+
+[node name="dorm_room" type="Node2D"]
+scale = Vector2(5, 5)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -192.6
+offset_top = -138.6
+offset_right = 199.4
+offset_bottom = 85.4
+color = Color(0.101961, 0.109804, 0.172549, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-0.2, -26.6)
+
+[node name="Interior" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD9//v/AAABAAwAAAD9//z/AAABAA0AAAD9//3/AAABAA0AAAD9//7/AAABAA0AAAD9////AAABAA0AAAD9/wAAAAABAA4AAAD+//v/AAACAAwAAAD+//z/AAACAA0AAAD+//3/AAACAA0AAAD+//7/AAACAA0AAAD+////AAACAA0AAAD+/wAAAAACAA4AAAD///v/AAACAAwAAAD///z/AAACAA0AAAD///3/AAACAA0AAAD///7/AAACAA0AAAD/////AAACAA0AAAD//wAAAAACAA4AAAAAAPv/AAACAAwAAAAAAPz/AAACAA0AAAAAAP3/AAACAA0AAAAAAP7/AAACAA0AAAAAAP//AAACAA0AAAAAAAAAAAACAA4AAAABAPv/AAADAAwAAAABAPz/AAADAA0AAAABAP3/AAADAA0AAAABAP7/AAADAA0AAAABAP//AAADAA0AAAABAAAAAAADAA4AAAD9/wEAAAACAA8AAAD+/wEAAAACAA8AAAD//wEAAAACAA8AAAAAAAEAAAACAA8AAAABAAEAAAACAA8AAAD8//v/AAAAAA4AAAD8//z/AAAAAA4AAAD8//3/AAAAAA4AAAD8//7/AAAAAA4AAAD8////AAAAAA4AAAD8/wAAAAAAAA4AAAACAPv/AAAEAAwAAAACAPz/AAAEAAwAAAACAP3/AAAEAAwAAAACAP7/AAAEAAwAAAACAP//AAAEAAwAAAACAAAAAAAEAAwAAAD///r/AAACAAsAAAAAAPr/AAACAAsAAAD+//r/AAACAAsAAAD9//r/AAABAAsAAAABAPr/AAADAAsAAAD8//r/AAAAAAsAAAD8//n/AAAAAAsAAAD8//j/AAAAAAkAAAD9//j/AAABAAkAAAD+//j/AAACAAkAAAD///j/AAACAAkAAAAAAPj/AAACAAkAAAABAPj/AAADAAkAAAD9//n/AAABAAoAAAD+//n/AAACAAoAAAD///n/AAACAAoAAAAAAPn/AAACAAoAAAABAPn/AAADAAoAAAACAPj/AAAEAAkAAAACAPn/AAAEAAoAAAACAPr/AAAEAAoAAAD8/wEAAAAAAA8AAAACAAEAAAAEAA8AAAA=")
+tile_set = ExtResource("1_j4p17")
+
+[node name="window" type="TileMapLayer" parent="."]
+position = Vector2(0, 4.54)
+scale = Vector2(1, 1)
+tile_map_data = PackedByteArray("AAD///n/AAAFAAwAAAA=")
+tile_set = SubResource("TileSet_q1uy1")
+
+[node name="Bed" type="Sprite2D" parent="."]
+position = Vector2(19, -67.6)
+texture = SubResource("AtlasTexture_t06qx")
+
+[node name="Bed2" type="Sprite2D" parent="."]
+position = Vector2(-34.8, -68.8)
+texture = SubResource("AtlasTexture_t06qx")
+
+[node name="Cabinet" type="Sprite2D" parent="."]
+position = Vector2(-8, -77.8)
+scale = Vector2(1, 1)
+texture = SubResource("AtlasTexture_setk1")
+
+[node name="Door" type="Sprite2D" parent="."]
+position = Vector2(-8, 15.6)
+scale = Vector2(1, 1)
+texture = SubResource("AtlasTexture_53q3f")
+
+[node name="Area2D" type="Area2D" parent="Door" groups=["interactable"]]
+collision_layer = 2
+script = ExtResource("3_dc68v")
+dest_scene = "res://scenes/2D Scenes/dorm_connecto2r.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Area2D"]
+shape = SubResource("RectangleShape2D_pnd6s")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Door/Area2D"]
+stream = ExtResource("4_g8g20")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_fw1fv")]
+z_index = 1
+position = Vector2(-5.8, -5)
+
+[connection signal="body_entered" from="Door/Area2D" to="Door/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Door/Area2D" to="Door/Area2D" method="_on_body_exited"]
+
+[editable path="CharacterBody2D"]

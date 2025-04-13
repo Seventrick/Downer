@@ -1,0 +1,125 @@
+[gd_scene load_steps=14 format=4 uid="uid://cqwmxx148u6i3"]
+
+[ext_resource type="TileSet" uid="uid://pyklkyqqcsl8" path="res://assets/2D assets/tileset stuff/interior_dorm_collisions.tres" id="1_y4dhx"]
+[ext_resource type="Texture2D" uid="uid://4yveh77710g" path="res://assets/2D assets/tileset stuff/master tileset atlas.png" id="2_rkyjq"]
+[ext_resource type="Script" path="res://scripts/2D Scene Transition Scripts/dorm_connector_door.gd" id="3_tj23q"]
+[ext_resource type="AudioStream" uid="uid://bk6gstdvcgeue" path="res://sounds/door.sfxr" id="4_juhl0"]
+[ext_resource type="PackedScene" uid="uid://c1oc3d1lr572o" path="res://scenes/2dplayer.tscn" id="5_iyeud"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4f8p"]
+atlas = ExtResource("2_rkyjq")
+region = Rect2(130, 222, 12, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6b5ch"]
+atlas = ExtResource("2_rkyjq")
+region = Rect2(134, 200, 4, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsl11"]
+atlas = ExtResource("2_rkyjq")
+region = Rect2(114, 150, 12, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnf8l"]
+atlas = ExtResource("2_rkyjq")
+region = Rect2(101, 153, 5, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dmuy"]
+atlas = ExtResource("2_rkyjq")
+region = Rect2(101, 153, 5, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhdrj"]
+atlas = ExtResource("2_rkyjq")
+region = Rect2(101, 153, 5, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohowy"]
+atlas = ExtResource("2_rkyjq")
+region = Rect2(80, 149, 16, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kaiby"]
+
+[node name="Dorm_Connector" type="Node2D"]
+scale = Vector2(5, 5)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -249.0
+offset_top = -116.0
+offset_right = 143.0
+offset_bottom = 108.0
+color = Color(0.101961, 0.109804, 0.172549, 1)
+
+[node name="Interior" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD0////AAABAAwAAAD0/wAAAAABAA0AAAD0/wEAAAABAA0AAAD0/wIAAAABAA4AAAD1////AAACAAwAAAD1/wAAAAACAA0AAAD1/wEAAAACAA0AAAD1/wIAAAACAA4AAAD2////AAACAAwAAAD2/wAAAAACAA0AAAD2/wEAAAACAA0AAAD2/wIAAAACAA4AAAD3////AAACAAwAAAD3/wAAAAACAA0AAAD3/wEAAAACAA0AAAD3/wIAAAACAA4AAAD4////AAACAAwAAAD4/wAAAAACAA0AAAD4/wEAAAACAA0AAAD4/wIAAAACAA4AAAD5////AAACAAwAAAD5/wAAAAACAA0AAAD5/wEAAAACAA0AAAD5/wIAAAACAA4AAAD6////AAACAAwAAAD6/wAAAAACAA0AAAD6/wEAAAACAA0AAAD6/wIAAAACAA4AAAD7////AAACAAwAAAD7/wAAAAACAA0AAAD7/wEAAAACAA0AAAD7/wIAAAACAA4AAAD8////AAACAAwAAAD8/wAAAAACAA0AAAD8/wEAAAACAA0AAAD8/wIAAAACAA4AAAD9////AAACAAwAAAD9/wAAAAACAA0AAAD9/wEAAAACAA0AAAD9/wIAAAACAA4AAAD+////AAACAAwAAAD+/wAAAAACAA0AAAD+/wEAAAACAA0AAAD+/wIAAAACAA4AAAD/////AAACAAwAAAD//wAAAAACAA0AAAD//wEAAAACAA0AAAD//wIAAAACAA4AAAAAAP//AAACAAwAAAAAAAAAAAACAA0AAAAAAAEAAAACAA0AAAAAAAIAAAACAA4AAAABAP//AAACAAwAAAABAAAAAAACAA0AAAABAAEAAAACAA0AAAABAAIAAAACAA4AAAACAP//AAACAAwAAAACAAAAAAACAA0AAAACAAEAAAACAA0AAAACAAIAAAACAA4AAAADAP//AAACAAwAAAADAAAAAAACAA0AAAADAAEAAAACAA0AAAADAAIAAAACAA4AAAAEAAIAAAADAA4AAAAEAAEAAAADAA0AAAAEAAAAAAADAA0AAAAEAP//AAADAAwAAAAEAP7/AAADAAsAAAD0//7/AAABAAsAAAD0//3/AAABAAoAAAD0//z/AAABAAkAAAD1//z/AAACAAkAAAD2//z/AAACAAkAAAD3//z/AAACAAkAAAD4//z/AAACAAkAAAD5//z/AAACAAkAAAD6//z/AAACAAkAAAD7//z/AAACAAkAAAD8//z/AAACAAkAAAD9//z/AAACAAkAAAD+//z/AAACAAkAAAD///z/AAACAAkAAAAAAPz/AAACAAkAAAABAPz/AAACAAkAAAACAPz/AAACAAkAAAADAPz/AAACAAkAAAAEAPz/AAADAAkAAAAEAP3/AAADAAoAAAD1//3/AAACAAoAAAD2//3/AAACAAoAAAD3//3/AAACAAoAAAD4//3/AAACAAoAAAD5//3/AAACAAoAAAD6//3/AAACAAoAAAD7//3/AAACAAoAAAD8//3/AAACAAoAAAD9//3/AAACAAoAAAD+//3/AAACAAoAAAD///3/AAACAAoAAAAAAP3/AAACAAoAAAABAP3/AAACAAoAAAACAP3/AAACAAoAAAADAP3/AAACAAoAAAD1//7/AAACAAsAAAD2//7/AAACAAsAAAD3//7/AAACAAsAAAD4//7/AAACAAsAAAD5//7/AAACAAsAAAD6//7/AAACAAsAAAD7//7/AAACAAsAAAD8//7/AAACAAsAAAD9//7/AAACAAsAAAD+//7/AAACAAsAAAD///7/AAACAAsAAAAAAP7/AAACAAsAAAABAP7/AAACAAsAAAACAP7/AAACAAsAAAADAP7/AAACAAsAAADz//z/AAAAAAkAAAAFAPz/AAAEAAkAAADz//3/AAAAAAsAAADz//7/AAAAAAsAAADz////AAAAAAsAAADz/wAAAAAAAAsAAADz/wEAAAAAAAsAAADz/wIAAAAAAAsAAADz/wMAAAAAAA8AAAD0/wMAAAACAA8AAAD1/wMAAAACAA8AAAD2/wMAAAACAA8AAAD3/wMAAAACAA8AAAD4/wMAAAACAA8AAAD5/wMAAAACAA8AAAD6/wMAAAACAA8AAAD7/wMAAAACAA8AAAD8/wMAAAACAA8AAAD9/wMAAAACAA8AAAD+/wMAAAACAA8AAAD//wMAAAACAA8AAAAAAAMAAAACAA8AAAABAAMAAAACAA8AAAACAAMAAAACAA8AAAADAAMAAAACAA8AAAAEAAMAAAACAA8AAAAFAAMAAAAEAA8AAAAFAP3/AAAEAAwAAAAFAP7/AAAEAAwAAAAFAP//AAAEAAwAAAAFAAAAAAAEAAwAAAAFAAEAAAAEAAwAAAAFAAIAAAAEAAwAAAA=")
+tile_set = ExtResource("1_y4dhx")
+
+[node name="Table" type="Sprite2D" parent="."]
+position = Vector2(-182.2, -11.2)
+texture = SubResource("AtlasTexture_w4f8p")
+
+[node name="Pot" type="Sprite2D" parent="."]
+position = Vector2(-181.8, -17.8)
+texture = SubResource("AtlasTexture_6b5ch")
+
+[node name="ExitSign" type="Sprite2D" parent="."]
+position = Vector2(-17, -46.4)
+texture = SubResource("AtlasTexture_nsl11")
+
+[node name="Room 6 Sign" type="Sprite2D" parent="."]
+position = Vector2(-122, -34)
+texture = SubResource("AtlasTexture_fnf8l")
+
+[node name="Room 5 Sign" type="Sprite2D" parent="."]
+position = Vector2(-66, -34)
+texture = SubResource("AtlasTexture_1dmuy")
+
+[node name="Room 22 Sign" type="Sprite2D" parent="."]
+position = Vector2(56, -34)
+texture = SubResource("AtlasTexture_jhdrj")
+
+[node name="Exit" type="Sprite2D" parent="."]
+position = Vector2(-24.8, -27.2)
+texture = SubResource("AtlasTexture_ohowy")
+
+[node name="Exit2" type="Sprite2D" parent="."]
+position = Vector2(-9.8, -26.8)
+scale = Vector2(-1, 1)
+texture = SubResource("AtlasTexture_ohowy")
+
+[node name="Room 22" type="Sprite2D" parent="."]
+position = Vector2(-78.6, -27)
+texture = SubResource("AtlasTexture_ohowy")
+
+[node name="Room 6" type="Sprite2D" parent="."]
+position = Vector2(-135.2, -27.4)
+texture = SubResource("AtlasTexture_ohowy")
+
+[node name="Area2D" type="Area2D" parent="Room 6" groups=["interactable"]]
+collision_layer = 2
+script = ExtResource("3_tj23q")
+dest_scene = "res://scenes/2D Scenes/dorm_room.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room 6/Area2D"]
+position = Vector2(-0.2, 10.6)
+shape = SubResource("RectangleShape2D_kaiby")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Room 6/Area2D"]
+stream = ExtResource("4_juhl0")
+
+[node name="Room 5" type="Sprite2D" parent="."]
+position = Vector2(43.4, -27.4)
+texture = SubResource("AtlasTexture_ohowy")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("5_iyeud")]
+z_index = 1
+position = Vector2(-135.16, -28.085)
+
+[node name="Camera2D" parent="CharacterBody2D" index="1"]
+offset = Vector2(265, -250)
+limit_left = -980
+limit_top = -315
+limit_right = 420
+limit_bottom = 265
+editor_draw_limits = true
+
+[connection signal="body_entered" from="Room 6/Area2D" to="Room 6/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Room 6/Area2D" to="Room 6/Area2D" method="_on_body_exited"]
+
+[editable path="CharacterBody2D"]

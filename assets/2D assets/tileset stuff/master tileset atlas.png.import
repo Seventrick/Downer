@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckegc5sb3ddnk"
-path="res://.godot/imported/transp grass 15 tileset.png-b90c3ff32b15ba53e05386abf2b72dea.ctex"
+uid="uid://4yveh77710g"
+path="res://.godot/imported/master tileset atlas.png-50f4c1c5fd35c36d429cedc80ae57354.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/2D assets/tileset stuff/transp grass 15 tileset.png"
-dest_files=["res://.godot/imported/transp grass 15 tileset.png-b90c3ff32b15ba53e05386abf2b72dea.ctex"]
+source_file="res://assets/2D assets/tileset stuff/master tileset atlas.png"
+dest_files=["res://.godot/imported/master tileset atlas.png-50f4c1c5fd35c36d429cedc80ae57354.ctex"]
 
 [params]
 

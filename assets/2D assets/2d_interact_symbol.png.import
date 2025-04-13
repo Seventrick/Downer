@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3tl8evmhlirw"
-path="res://.godot/imported/master tileset.png-f36f837f07d86d8d0b85ea01cdec2a73.ctex"
+uid="uid://o0bdtlopjnou"
+path="res://.godot/imported/2d_interact_symbol.png-42a968d9f65eb32fadf0470f38340557.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/2D assets/tileset stuff/master tileset.png"
-dest_files=["res://.godot/imported/master tileset.png-f36f837f07d86d8d0b85ea01cdec2a73.ctex"]
+source_file="res://assets/2D assets/2d_interact_symbol.png"
+dest_files=["res://.godot/imported/2d_interact_symbol.png-42a968d9f65eb32fadf0470f38340557.ctex"]
 
 [params]
 
