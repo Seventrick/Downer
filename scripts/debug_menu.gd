@@ -16,15 +16,15 @@ func _location1_pressed() -> void:
 
 
 func _location2_pressed() -> void:
-	pass # Replace with function body.
+	get_parent().enode.summon_level("puzzle_level")
 
 
 func _location3_pressed() -> void:
-	pass # Replace with function body.
+	get_parent().enode.summon_level("mothers_house")
 
 
 func _location4_pressed() -> void:
-	pass # Replace with function body.
+	get_parent().enode.summon_level("quantum_room")
 
 
 func _location5_pressed() -> void:

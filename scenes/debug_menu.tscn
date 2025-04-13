@@ -66,6 +66,8 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 66
+text = "puzzle_level"
 
 [node name="Location3" type="VBoxContainer" parent="Panel/VBoxContainer/Preset Locations"]
 layout_mode = 2
@@ -75,6 +77,8 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 61
+text = "mothers_house"
 
 [node name="Location4" type="VBoxContainer" parent="Panel/VBoxContainer/Preset Locations"]
 layout_mode = 2

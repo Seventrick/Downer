@@ -393,6 +393,34 @@ tracks/16/keys = {
 "values": [Vector3(-0.0155802, -1.43825, -0.0477993)]
 }
 
+[sub_resource type="Animation" id="Animation_28kn7"]
+resource_name = "bear_1"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Plush:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.566667, 1.53333, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-32.0077, -1.35867, 0.174728), Vector3(-33.1184, -0.130124, -3.48366), Vector3(-33.4114, -0.130124, -17.6772), Vector3(-36.0293, -1.42281, -23.3074)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Plush:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.566667, 1.53333, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.153982, 0.332348, -0.0644017), Vector3(-0.153982, 0.332348, -0.0644017), Vector3(-0.153982, 0.332348, -0.0644017), Vector3(-0.153982, 0.332348, -0.0644017)]
+}
+
 [sub_resource type="Animation" id="Animation_007py"]
 resource_name = "bear_2"
 length = 2.0
@@ -635,34 +663,6 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(-0.521141, -0.884077, -1.67735), Vector3(0.098855, -0.511549, -3.09365)]
-}
-
-[sub_resource type="Animation" id="Animation_28kn7"]
-resource_name = "bear_1"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Plush:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.566667, 1.53333, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-32.0077, -1.35867, 0.174728), Vector3(-33.1184, -0.130124, -3.48366), Vector3(-33.4114, -0.130124, -17.6772), Vector3(-36.0293, -1.42281, -23.3074)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Plush:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.566667, 1.53333, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.153982, 0.332348, -0.0644017), Vector3(-0.153982, 0.332348, -0.0644017), Vector3(-0.153982, 0.332348, -0.0644017), Vector3(-0.153982, 0.332348, -0.0644017)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7sb68"]
@@ -2452,7 +2452,7 @@ transform = Transform3D(0.241091, 0, 0.108708, 0, 1, 0, -0.140414, 0, 0.186651, 
 transform = Transform3D(1, 0, 2.32831e-10, 0, 1, 0, -9.31323e-10, 0, 1, 0, 0.0614882, 0)
 
 [node name="paperReal3" parent="Assets" instance=ExtResource("24_nkf48")]
-transform = Transform3D(-0.248936, 0.166772, -0.400274, -0.431167, -0.0461171, 0.248935, 0.0461117, 0.469106, 0.166774, -67.2777, -0.944658, -3.0229)
+transform = Transform3D(-0.248936, 0.166772, -0.400274, -0.431167, -0.0461171, 0.248935, 0.0461118, 0.469106, 0.166774, -67.2777, -0.944658, -3.0229)
 
 [node name="Plane_0" parent="Assets/paperReal3/Sketchfab_model/root/GLTF_SceneRootNode" index="0"]
 transform = Transform3D(0.241091, 0, 0.108708, 0, 1, 0, -0.140414, 0, 0.186651, -0.172607, -0.0919096, 0.172003)
@@ -2461,7 +2461,7 @@ transform = Transform3D(0.241091, 0, 0.108708, 0, 1, 0, -0.140414, 0, 0.186651, 
 transform = Transform3D(1, 0, 2.32831e-10, 0, 1, 0, -9.31323e-10, 0, 1, 0, 0.0614882, 0)
 
 [node name="paperReal4" parent="Assets" instance=ExtResource("24_nkf48")]
-transform = Transform3D(-0.188327, 0.386993, -0.254499, -0.431167, -0.0461172, 0.248936, 0.169198, 0.313225, 0.351088, -67.6385, -0.944658, -2.78908)
+transform = Transform3D(-0.188327, 0.386993, -0.254499, -0.431167, -0.0461171, 0.248935, 0.169198, 0.313225, 0.351088, -67.6385, -0.944658, -2.78908)
 
 [node name="Plane_0" parent="Assets/paperReal4/Sketchfab_model/root/GLTF_SceneRootNode" index="0"]
 transform = Transform3D(0.241091, 0, 0.108708, 0, 1, 0, -0.140414, 0, 0.186651, -0.172607, -0.0919096, 0.172003)
@@ -2470,7 +2470,7 @@ transform = Transform3D(0.241091, 0, 0.108708, 0, 1, 0, -0.140414, 0, 0.186651, 
 transform = Transform3D(1, 0, 2.32831e-10, 0, 1, 0, -9.31323e-10, 0, 1, 0, 0.0614882, 0)
 
 [node name="paperReal5" parent="Assets" instance=ExtResource("24_nkf48")]
-transform = Transform3D(-0.0536162, 0.497118, -0.000771003, -0.431167, -0.0461172, 0.248936, 0.247428, 0.0273587, 0.433627, -67.8015, -0.944658, -2.44568)
+transform = Transform3D(-0.0536162, 0.497118, -0.000771003, -0.431167, -0.0461172, 0.248936, 0.247428, 0.0273588, 0.433627, -67.8015, -0.944658, -2.44568)
 
 [node name="Plane_0" parent="Assets/paperReal5/Sketchfab_model/root/GLTF_SceneRootNode" index="0"]
 transform = Transform3D(0.241091, 0, 0.108708, 0, 1, 0, -0.140414, 0, 0.186651, -0.172607, -0.0919096, 0.172003)
@@ -2479,7 +2479,7 @@ transform = Transform3D(0.241091, 0, 0.108708, 0, 1, 0, -0.140414, 0, 0.186651, 
 transform = Transform3D(1, 0, 2.32831e-10, 0, 1, 0, -9.31323e-10, 0, 1, 0, 0.0614882, 0)
 
 [node name="paperReal6" parent="Assets" instance=ExtResource("24_nkf48")]
-transform = Transform3D(0.0202351, 0.483785, 0.124673, -0.431167, -0.0461172, 0.248935, 0.252361, -0.117585, 0.415318, -67.9557, -0.944658, -2.17991)
+transform = Transform3D(0.0202351, 0.483785, 0.124673, -0.431167, -0.0461172, 0.248935, 0.252361, -0.117584, 0.415318, -67.9557, -0.944658, -2.17991)
 
 [node name="Plane_0" parent="Assets/paperReal6/Sketchfab_model/root/GLTF_SceneRootNode" index="0"]
 transform = Transform3D(0.241091, 0, 0.108708, 0, 1, 0, -0.140414, 0, 0.186651, -0.172607, -0.0919096, 0.172003)
@@ -2488,7 +2488,7 @@ transform = Transform3D(0.241091, 0, 0.108708, 0, 1, 0, -0.140414, 0, 0.186651, 
 transform = Transform3D(1, 0, 2.32831e-10, 0, 1, 0, -9.31323e-10, 0, 1, 0, 0.0614882, 0)
 
 [node name="paperReal7" parent="Assets" instance=ExtResource("24_nkf48")]
-transform = Transform3D(0.0765107, 0.444911, 0.214944, -0.431167, -0.0461172, 0.248935, 0.241333, -0.223446, 0.376606, -67.7728, -0.944658, -2.00599)
+transform = Transform3D(0.0765107, 0.444911, 0.214944, -0.431167, -0.0461171, 0.248935, 0.241333, -0.223445, 0.376606, -67.7728, -0.944658, -2.00599)
 
 [node name="Plane_0" parent="Assets/paperReal7/Sketchfab_model/root/GLTF_SceneRootNode" index="0"]
 transform = Transform3D(0.241091, 0, 0.108708, 0, 1, 0, -0.140414, 0, 0.186651, -0.172607, -0.0919096, 0.172003)
@@ -2497,7 +2497,7 @@ transform = Transform3D(0.241091, 0, 0.108708, 0, 1, 0, -0.140414, 0, 0.186651, 
 transform = Transform3D(1, 0, 2.32831e-10, 0, 1, 0, -9.31323e-10, 0, 1, 0, 0.0614882, 0)
 
 [node name="paperReal8" parent="Assets" instance=ExtResource("24_nkf48")]
-transform = Transform3D(0.0936062, 0.427758, 0.241377, -0.431167, -0.0461172, 0.248935, 0.23523, -0.254751, 0.360236, -67.5097, -0.944658, -1.97185)
+transform = Transform3D(0.0936063, 0.427758, 0.241377, -0.431167, -0.0461173, 0.248935, 0.23523, -0.254751, 0.360236, -67.5097, -0.944658, -1.97185)
 
 [node name="Plane_0" parent="Assets/paperReal8/Sketchfab_model/root/GLTF_SceneRootNode" index="0"]
 transform = Transform3D(0.241091, 0, 0.108708, 0, 1, 0, -0.140414, 0, 0.186651, -0.172607, -0.0919096, 0.172003)
@@ -2506,7 +2506,7 @@ transform = Transform3D(0.241091, 0, 0.108708, 0, 1, 0, -0.140414, 0, 0.186651, 
 transform = Transform3D(1, 0, 2.32831e-10, 0, 1, 0, -9.31323e-10, 0, 1, 0, 0.0614882, 0)
 
 [node name="paperReal9" parent="Assets" instance=ExtResource("24_nkf48")]
-transform = Transform3D(-0.00527385, 0.493166, 0.0822283, -0.431167, -0.0461172, 0.248936, 0.253116, -0.0682825, 0.42576, -67.5947, -0.944658, -2.24728)
+transform = Transform3D(-0.00527385, 0.493166, 0.0822283, -0.431167, -0.0461173, 0.248936, 0.253116, -0.0682825, 0.42576, -67.5947, -0.944658, -2.24728)
 
 [node name="Plane_0" parent="Assets/paperReal9/Sketchfab_model/root/GLTF_SceneRootNode" index="0"]
 transform = Transform3D(0.241091, 0, 0.108708, 0, 1, 0, -0.140414, 0, 0.186651, -0.172607, -0.0919096, 0.172003)
@@ -2515,7 +2515,7 @@ transform = Transform3D(0.241091, 0, 0.108708, 0, 1, 0, -0.140414, 0, 0.186651, 
 transform = Transform3D(1, 0, 2.32831e-10, 0, 1, 0, -9.31323e-10, 0, 1, 0, 0.0614882, 0)
 
 [node name="paperReal10" parent="Assets" instance=ExtResource("24_nkf48")]
-transform = Transform3D(-0.140245, 0.452818, -0.159023, -0.431167, -0.0461172, 0.248936, 0.210777, 0.206954, 0.403417, -67.5261, -0.944658, -2.53881)
+transform = Transform3D(-0.140245, 0.452818, -0.159023, -0.431167, -0.0461171, 0.248936, 0.210777, 0.206954, 0.403417, -67.5261, -0.944658, -2.53881)
 
 [node name="Plane_0" parent="Assets/paperReal10/Sketchfab_model/root/GLTF_SceneRootNode" index="0"]
 transform = Transform3D(0.241091, 0, 0.108708, 0, 1, 0, -0.140414, 0, 0.186651, -0.172607, -0.0919096, 0.172003)
