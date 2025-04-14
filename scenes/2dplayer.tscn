@@ -54,7 +54,7 @@ size = Vector2(10, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g3d63"]
 size = Vector2(7, 18)
 
-[node name="CharacterBody2D" type="CharacterBody2D" groups=["interactable"]]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_hmyxt")
 
 [node name="Camera2D" type="Camera2D" parent="."]
