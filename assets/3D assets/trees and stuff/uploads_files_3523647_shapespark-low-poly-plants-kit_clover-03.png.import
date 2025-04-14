@@ -2,15 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfwtd1t328yae"
+uid="uid://tcoubkvolvmr"
 path.s3tc="res://.godot/imported/uploads_files_3523647_shapespark-low-poly-plants-kit_clover-03.png-ae51147ace90880d30c8dcd77d706e61.s3tc.ctex"
 path.etc2="res://.godot/imported/uploads_files_3523647_shapespark-low-poly-plants-kit_clover-03.png-ae51147ace90880d30c8dcd77d706e61.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "190340a672e05e86eece3c2da656b66c"
 }
 
 [deps]

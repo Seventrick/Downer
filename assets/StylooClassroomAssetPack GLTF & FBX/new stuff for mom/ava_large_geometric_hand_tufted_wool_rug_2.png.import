@@ -2,15 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi3inrfsrayhk"
+uid="uid://8dvetaj3e0i7"
 path.s3tc="res://.godot/imported/ava_large_geometric_hand_tufted_wool_rug_2.png-f64a1e389aafdb4e15ef584cfa58b659.s3tc.ctex"
 path.etc2="res://.godot/imported/ava_large_geometric_hand_tufted_wool_rug_2.png-f64a1e389aafdb4e15ef584cfa58b659.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "2cde8ccdafce0eccf9c9f31b498a1445"
 }
 
 [deps]

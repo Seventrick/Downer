@@ -2,15 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbmxuwbw4a0jq"
+uid="uid://cwxp6pyi7ahw"
 path.s3tc="res://.godot/imported/stylized_bed_3.jpg-ba9f7cf0010816e03bac5adaf5bde875.s3tc.ctex"
 path.etc2="res://.godot/imported/stylized_bed_3.jpg-ba9f7cf0010816e03bac5adaf5bde875.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "f2717e9ed6cf8c1bfdd4637db8bfdabb"
 }
 
 [deps]
