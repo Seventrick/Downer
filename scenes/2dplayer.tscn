@@ -148,7 +148,7 @@ position = Vector2(960, 540)
 scale = Vector2(5, 5.02326)
 sprite_frames = SubResource("SpriteFrames_40lxp")
 autoplay = "default"
-frame_progress = 0.405502
+frame_progress = 0.760339
 
 [node name="Camera2D" type="Camera2D" parent="."]
 process_callback = 0

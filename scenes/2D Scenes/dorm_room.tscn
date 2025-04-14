@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dqsop2r1al4cs"]
+[gd_scene load_steps=16 format=4 uid="uid://dqsop2r1al4cs"]
 
 [ext_resource type="Texture2D" uid="uid://4yveh77710g" path="res://assets/2D assets/tileset stuff/master tileset atlas.png" id="1_b87sv"]
 [ext_resource type="TileSet" uid="uid://pyklkyqqcsl8" path="res://assets/2D assets/tileset stuff/interior_dorm_collisions.tres" id="1_j4p17"]
@@ -17,9 +17,18 @@ sources/0 = SubResource("TileSetAtlasSource_j7n44")
 atlas = ExtResource("1_b87sv")
 region = Rect2(96, 208, 16, 32)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxcpc"]
+size = Vector2(16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wbkg"]
+size = Vector2(16, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_setk1"]
 atlas = ExtResource("1_b87sv")
 region = Rect2(147, 220, 26, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dkv3v"]
+size = Vector2(26, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x2yfh"]
 atlas = ExtResource("1_b87sv")
@@ -53,18 +62,41 @@ scale = Vector2(1, 1)
 tile_map_data = PackedByteArray("AAD///n/AAAFAAwAAAA=")
 tile_set = SubResource("TileSet_q1uy1")
 
-[node name="Bed" type="Sprite2D" parent="."]
-position = Vector2(19, -67.6)
-texture = SubResource("AtlasTexture_t06qx")
-
-[node name="Bed2" type="Sprite2D" parent="."]
-position = Vector2(-34.8, -68.8)
-texture = SubResource("AtlasTexture_t06qx")
-
-[node name="Cabinet" type="Sprite2D" parent="."]
-position = Vector2(-8, -77.8)
+[node name="Nick\'s Bed" type="StaticBody2D" parent="."]
 scale = Vector2(1, 1)
+
+[node name="Bed" type="Sprite2D" parent="Nick\'s Bed"]
+position = Vector2(19, -67.6)
+scale = Vector2(1, 1)
+texture = SubResource("AtlasTexture_t06qx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nick\'s Bed"]
+position = Vector2(19, -67.6)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_xxcpc")
+
+[node name="Downer\'s Bed" type="StaticBody2D" parent="."]
+scale = Vector2(1, 1)
+
+[node name="Bed2" type="Sprite2D" parent="Downer\'s Bed"]
+position = Vector2(-34.8, -68.8)
+scale = Vector2(1, 1)
+texture = SubResource("AtlasTexture_t06qx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Downer\'s Bed"]
+position = Vector2(-34.8, -68.8)
+shape = SubResource("RectangleShape2D_0wbkg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+scale = Vector2(1, 1)
+
+[node name="Cabinet" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-8, -77.8)
 texture = SubResource("AtlasTexture_setk1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-7.8, -77.6)
+shape = SubResource("RectangleShape2D_dkv3v")
 
 [node name="Door" type="Sprite2D" parent="."]
 position = Vector2(-8, 15.6)
