@@ -9,7 +9,7 @@ script = ExtResource("1_p2lpk")
 scene = ExtResource("1_ovukx")
 overrides = {
 "global_font": "\"res://assets/uni05_53.ttf\"",
-"global_font_size": "32.0"
+"global_font_size": "40.0"
 }
 
 [resource]
@@ -21,4 +21,4 @@ layer_info = {
 }
 base_overrides = {}
 layers = Array[ExtResource("1_p2lpk")]([])
-metadata/_latest_layer = "10"
+metadata/_latest_layer = ""

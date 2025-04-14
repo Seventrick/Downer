@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://b58loon18hqo3"]
+
+[ext_resource type="Shader" path="res://shaders2/2d character outline.gdshader" id="1_bdlpa"]
+[ext_resource type="Texture2D" uid="uid://cctybkwa0o3kg" path="res://characters/Character Sprites Megasheet.png" id="2_patof"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gm4u8"]
+shader = ExtResource("1_bdlpa")
+shader_parameter/width = 1
+shader_parameter/outline_color = Color(0.101961, 0.109804, 0.172549, 1)
+shader_parameter/flickering_speed = null
+shader_parameter/minimal_flickering_alpha = 0.9
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4uci"]
+atlas = ExtResource("2_patof")
+region = Rect2(51, 8, 10, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_svm35"]
+size = Vector2(9, 14)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qh2yo"]
+height = 44.0
+
+[node name="Ugly Bitch" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_gm4u8")
+texture = SubResource("AtlasTexture_a4uci")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, 10)
+shape = SubResource("RectangleShape2D_svm35")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_qh2yo")

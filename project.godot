@@ -23,17 +23,25 @@ Items="*res://singletons/Items.gd"
 PlayerState="*res://singletons/PlayerState.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+Crack="*res://singletons/crack.tscn"
 
 [dialogic]
 
 directories/dch_directory={
 "dialogueTestCharacter": "res://dialogic/characters/dialogueTestCharacter.dch",
+"downer": "res://dialogic/characters/downer.dch",
+"mom": "res://dialogic/characters/mom.dch",
+"nick": "res://dialogic/characters/nick.dch",
+"preDowner": "res://dialogic/characters/preDowner.dch",
 "testCharacter": "res://dialogic/testCharacter.dch"
 }
 directories/dtl_directory={
 "TestTimeline": "res://dialogic/TestTimeline.dtl",
 "daytimeTestTimeline": "res://dialogic/timelines/daytimeTestTimeline.dtl",
-"dialogueTestTimeline": "res://dialogic/timelines/dialogueTestTimeline.dtl"
+"dialogueTestTimeline": "res://dialogic/timelines/dialogueTestTimeline.dtl",
+"downerIntro": "res://dialogic/timelines/downerIntro.dtl",
+"nick_mom": "res://dialogic/timelines/nick_mom.dtl",
+"nightTime": "res://dialogic/timelines/nightTime.dtl"
 }
 glossary/default_case_sensitive=true
 extensions_folder="res://addons/dialogic"

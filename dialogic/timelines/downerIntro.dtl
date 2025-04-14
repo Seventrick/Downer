@@ -1,0 +1,11 @@
+nick (happy): Hey, new roommate, what's poppin'?
+preDowner (sideeye): . . .
+nick: My name’s Nick, pleasure to meet ya! And you are…?
+preDowner (neutral): . . .
+nick (neutral): . . .
+preDowner (sideeye): . . .
+[wait time="1.0"]
+[signal arg="turnover"]
+[wait time="2.0"]
+nick (distraut): . . . ooook. Cool.
+[signal arg="crip_walk"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfbkqewbi386d"]
+
+[ext_resource type="Shader" path="res://shaders2/2d character outline.gdshader" id="1_ln1fu"]
+[ext_resource type="Texture2D" uid="uid://cctybkwa0o3kg" path="res://characters/Character Sprites Megasheet.png" id="2_wu6bg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3b53v"]
+shader = ExtResource("1_ln1fu")
+shader_parameter/width = 1
+shader_parameter/outline_color = Color(0.101961, 0.109804, 0.172549, 1)
+shader_parameter/flickering_speed = null
+shader_parameter/minimal_flickering_alpha = 0.9
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2wtv"]
+atlas = ExtResource("2_wu6bg")
+region = Rect2(17, 7, 15, 12)
+
+[node name="downer" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_3b53v")
+texture = SubResource("AtlasTexture_r2wtv")

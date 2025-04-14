@@ -1,0 +1,32 @@
+preDowner (neutral): . . . hey . . . Nick?
+nick (neutral): . . .
+preDowner (neutral): Nick?
+[wait time="1.0"]
+[signal arg="stir"]
+[wait time="2.0"]
+nick (distraut): . . . Whaa? Who?
+nick (neutral): Oh… Hey. What’s up?
+preDowner (neutral): Hi Nick, it’s just that. . .
+preDowner (sideeye): I realized I never really introduced myself.
+preDowner (neutral): I’m. . . well, everyone calls me Downer.
+nick (distraut): [‘Downer’? What a wack-ass nickname to have]
+\downer (sideeye): So yeah. Uh. Where are you from?
+nick (neutral): Oh, I’m from deep in the country. It’s kinda exciting being out here.
+nick (neutral): I know Glass Lake University isn’t exactly ‘urban’, but it’s definitely quite a change for someone like me.
+nick (neutral): What about you?
+\downer (sideeye): I… live around here.
+nick (neutral): Ah, okay.
+\downer (sideeye): Yeah.
+[wait time="1.5"]
+[signal arg="doze"]
+[wait time="1.4"]
+nick: . . .
+nick: What school did you go to?
+\downer: Early on, I used to go to charter school. Maybe it was second grade? 
+[wait time="1.5"]
+[signal arg="doze"]
+[wait time="1.4"]
+\downer:  I can’t really remember. But anyway. . .
+[signal arg="eep"]
+[wait time="4.0"]
+[signal arg="next"]

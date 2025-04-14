@@ -1,10 +1,18 @@
-[gd_scene load_steps=16 format=4 uid="uid://dqsop2r1al4cs"]
+[gd_scene load_steps=30 format=4 uid="uid://dqsop2r1al4cs"]
 
 [ext_resource type="Texture2D" uid="uid://4yveh77710g" path="res://assets/2D assets/tileset stuff/master tileset atlas.png" id="1_b87sv"]
 [ext_resource type="TileSet" uid="uid://pyklkyqqcsl8" path="res://assets/2D assets/tileset stuff/interior_dorm_collisions.tres" id="1_j4p17"]
+[ext_resource type="Script" path="res://scripts/2D Scripts/dorm_room.gd" id="1_v6l3m"]
 [ext_resource type="PackedScene" uid="uid://c1oc3d1lr572o" path="res://scenes/2dplayer.tscn" id="2_fw1fv"]
+[ext_resource type="FontFile" uid="uid://dveyekrbb36kj" path="res://assets/uni05_53.ttf" id="2_inolh"]
 [ext_resource type="Script" path="res://scripts/2D Scene Transition Scripts/dorm_room_door.gd" id="3_dc68v"]
 [ext_resource type="AudioStream" uid="uid://bk6gstdvcgeue" path="res://sounds/door.sfxr" id="4_g8g20"]
+[ext_resource type="PackedScene" uid="uid://cfbkqewbi386d" path="res://scenes/2D Scenes/downer.tscn" id="7_7xmgq"]
+[ext_resource type="Texture2D" uid="uid://811d2fx08tqc" path="res://assets/orb.png" id="8_hpblw"]
+[ext_resource type="PackedScene" uid="uid://xw2vfq6fyt84" path="res://scenes/2D Scenes/nick_beddy_bye.tscn" id="10_xgwa3"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sisu8"]
+blend_mode = 3
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j7n44"]
 texture = ExtResource("1_b87sv")
@@ -39,10 +47,261 @@ atlas = SubResource("AtlasTexture_x2yfh")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pnd6s"]
 
+[sub_resource type="Animation" id="Animation_pi2q7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-5.8, -5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Label:theme_override_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CharacterBody2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qcymc"]
+resource_name = "doze"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.06667, 1.36667, 2.13333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.682353), Color(0, 0, 0, 0.682353), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mhlig"]
+resource_name = "eep"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fipej"]
+resource_name = "fade_in"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.53333, 2.93333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Label:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xg322"]
+resource_name = "fade_out"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333334, 1.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Label:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 3.53333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_r2mn1"]
+resource_name = "waltz"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.46667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-5.8, -5), Vector2(-6.4, -72.2)]
+}
+
+[sub_resource type="Animation" id="Animation_clqe1"]
+resource_name = "waltz_away"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-6.4, -72.2), Vector2(5.8, -72.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CharacterBody2D:scale")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(-1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fk3ca"]
+_data = {
+"RESET": SubResource("Animation_pi2q7"),
+"doze": SubResource("Animation_qcymc"),
+"eep": SubResource("Animation_mhlig"),
+"fade_in": SubResource("Animation_fipej"),
+"fade_out": SubResource("Animation_xg322"),
+"waltz": SubResource("Animation_r2mn1"),
+"waltz_away": SubResource("Animation_clqe1")
+}
+
 [node name="dorm_room" type="Node2D"]
 scale = Vector2(5, 5)
+script = ExtResource("1_v6l3m")
+dest_scene = "res://scenes/main.tscn"
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(5, 5)
+transform = Transform2D(5, 0, 0, 5, 0, 0)
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+visible = false
+material = SubResource("CanvasItemMaterial_sisu8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -675.0
+offset_right = -960.0
+offset_bottom = -675.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.498457, 0.390376, 0.785049, 1)
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -957.0
+offset_top = -669.8
+offset_right = -957.0
+offset_bottom = -669.8
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0, 0, 0, 0)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1536.0
+offset_bottom = -864.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0)
+theme_override_fonts/font = ExtResource("2_inolh")
+theme_override_font_sizes/font_size = 16
+text = "A few hours later..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(-8.4, -102)
+color = Color(0.405556, 0.250262, 0.430024, 1)
+energy = 2.0
+texture = ExtResource("8_hpblw")
+texture_scale = 1.45
+
+[node name="Bakckground color" type="ColorRect" parent="."]
 offset_left = -192.6
 offset_top = -138.6
 offset_right = 199.4
@@ -58,29 +317,23 @@ tile_set = ExtResource("1_j4p17")
 
 [node name="window" type="TileMapLayer" parent="."]
 position = Vector2(0, 4.54)
-scale = Vector2(1, 1)
 tile_map_data = PackedByteArray("AAD///n/AAAFAAwAAAA=")
 tile_set = SubResource("TileSet_q1uy1")
 
 [node name="Nick\'s Bed" type="StaticBody2D" parent="."]
-scale = Vector2(1, 1)
 
 [node name="Bed" type="Sprite2D" parent="Nick\'s Bed"]
 position = Vector2(19, -67.6)
-scale = Vector2(1, 1)
 texture = SubResource("AtlasTexture_t06qx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Nick\'s Bed"]
 position = Vector2(19, -67.6)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_xxcpc")
 
 [node name="Downer\'s Bed" type="StaticBody2D" parent="."]
-scale = Vector2(1, 1)
 
 [node name="Bed2" type="Sprite2D" parent="Downer\'s Bed"]
 position = Vector2(-34.8, -68.8)
-scale = Vector2(1, 1)
 texture = SubResource("AtlasTexture_t06qx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Downer\'s Bed"]
@@ -88,7 +341,6 @@ position = Vector2(-34.8, -68.8)
 shape = SubResource("RectangleShape2D_0wbkg")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-scale = Vector2(1, 1)
 
 [node name="Cabinet" type="Sprite2D" parent="StaticBody2D"]
 position = Vector2(-8, -77.8)
@@ -100,7 +352,6 @@ shape = SubResource("RectangleShape2D_dkv3v")
 
 [node name="Door" type="Sprite2D" parent="."]
 position = Vector2(-8, 15.6)
-scale = Vector2(1, 1)
 texture = SubResource("AtlasTexture_53q3f")
 
 [node name="Area2D" type="Area2D" parent="Door" groups=["interactable"]]
@@ -118,7 +369,26 @@ stream = ExtResource("4_g8g20")
 z_index = 1
 position = Vector2(-5.8, -5)
 
+[node name="downer" parent="." instance=ExtResource("7_7xmgq")]
+position = Vector2(-35.6, -68.2)
+
+[node name="Sprite2D" parent="downer" index="0"]
+material = null
+position = Vector2(0.8, -10.2)
+scale = Vector2(-1, 1)
+
+[node name="nick beddy bye" parent="." instance=ExtResource("10_xgwa3")]
+position = Vector2(18.8, -76.8)
+scale = Vector2(-1, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fk3ca")
+}
+
 [connection signal="body_entered" from="Door/Area2D" to="Door/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Door/Area2D" to="Door/Area2D" method="_on_body_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 
 [editable path="CharacterBody2D"]
+[editable path="downer"]

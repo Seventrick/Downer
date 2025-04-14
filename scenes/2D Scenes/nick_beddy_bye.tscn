@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://xw2vfq6fyt84"]
+
+[ext_resource type="Texture2D" uid="uid://cctybkwa0o3kg" path="res://characters/Character Sprites Megasheet.png" id="1_kx883"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_leblb"]
+atlas = ExtResource("1_kx883")
+region = Rect2(2, 4, 11, 12)
+
+[node name="nick beddy bye" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_leblb")

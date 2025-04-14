@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://cx70ykgns6b7y"]
+
+[ext_resource type="Shader" path="res://shaders2/2d character outline.gdshader" id="1_swafg"]
+[ext_resource type="Texture2D" uid="uid://cctybkwa0o3kg" path="res://characters/Character Sprites Megasheet.png" id="2_amo2g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8srsq"]
+shader = ExtResource("1_swafg")
+shader_parameter/width = 1
+shader_parameter/outline_color = Color(0.101961, 0.109804, 0.172549, 1)
+shader_parameter/flickering_speed = null
+shader_parameter/minimal_flickering_alpha = 0.9
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_346h3"]
+atlas = ExtResource("2_amo2g")
+region = Rect2(35, 8, 11, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ob3jf"]
+atlas = SubResource("AtlasTexture_346h3")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lqf76"]
+size = Vector2(10.5, 14)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_04sds"]
+radius = 13.0
+height = 44.0
+
+[node name="Athletic Dude" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_8srsq")
+texture = SubResource("AtlasTexture_ob3jf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.75, 10)
+shape = SubResource("RectangleShape2D_lqf76")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_04sds")

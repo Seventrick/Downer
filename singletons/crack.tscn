@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://x6s2xy81bo2x"]
+
+[ext_resource type="AudioStream" uid="uid://b5iqin22l0s34" path="res://sounds/Put_this_in_your_pp_2_crack.mp3" id="1_3it6r"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_3it6r")
+volume_db = -5.0
+autoplay = true

@@ -1,12 +1,96 @@
-[gd_scene load_steps=27 format=4 uid="uid://cm0p3lea6rd4n"]
+[gd_scene load_steps=33 format=4 uid="uid://cm0p3lea6rd4n"]
 
 [ext_resource type="Shader" path="res://shaders2/crt.gdshader" id="1_5u7nl"]
 [ext_resource type="PackedScene" uid="uid://c1oc3d1lr572o" path="res://scenes/2dplayer.tscn" id="1_6baw3"]
+[ext_resource type="Script" path="res://scripts/2D Scripts/2d_main.gd" id="1_8va2s"]
 [ext_resource type="Texture2D" uid="uid://d1effo5qt7y05" path="res://assets/2D assets/icon.svg" id="2_rknic"]
 [ext_resource type="Texture2D" uid="uid://4yveh77710g" path="res://assets/2D assets/tileset stuff/master tileset atlas.png" id="3_0q34f"]
 [ext_resource type="Texture2D" uid="uid://dol0tr4x4g78a" path="res://assets/2D assets/tileset stuff/grass texture 3.png" id="3_dvb75"]
 [ext_resource type="Shader" path="res://shaders2/texture overlay.gdshader" id="4_gaxmx"]
 [ext_resource type="Script" path="res://scripts/2D Scene Transition Scripts/drop_off.gd" id="5_t8kkf"]
+
+[sub_resource type="Animation" id="Animation_tklng"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Car:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(131.4, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CharacterBody2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-6.71, 42.41)]
+}
+
+[sub_resource type="Animation" id="Animation_43avl"]
+resource_name = "car"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Car:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(131.4, 21.4), Vector2(-6.8, 21.4)]
+}
+
+[sub_resource type="Animation" id="Animation_mmqgn"]
+resource_name = "car_go"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Car:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-6.8, 21.4), Vector2(-322.6, 21.4)]
+}
+
+[sub_resource type="Animation" id="Animation_sovyr"]
+resource_name = "nick_walk"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.33333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-6.71, 42.41), Vector2(-15.8, 57)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_khnv6"]
+_data = {
+"RESET": SubResource("Animation_tklng"),
+"car": SubResource("Animation_43avl"),
+"car_go": SubResource("Animation_mmqgn"),
+"nick_walk": SubResource("Animation_sovyr")
+}
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7bxwt"]
 shader = ExtResource("1_5u7nl")
@@ -411,6 +495,12 @@ size = Vector2(517.4, 122.4)
 
 [node name="2DMain" type="Node2D"]
 scale = Vector2(5, 5)
+script = ExtResource("1_8va2s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_khnv6")
+}
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
@@ -437,7 +527,6 @@ tile_map_data = PackedByteArray("AAAEAPz/AAACAAEAAAAEAPv/AAACAAEAAAAEAPr/AAACAAE
 tile_set = SubResource("TileSet_a5qc7")
 
 [node name="bushes" type="TileMapLayer" parent="."]
-scale = Vector2(1, 1)
 tile_map_data = PackedByteArray("AAD2/wUAAAAHAAAAAAAJAAkAAAAHAAAAAAAGAAoAAAAHAAAAAAAKAAYAAAAHAAAAAADy//v/AAAJAAAAAAAEAPn/AAAJAAAAAAABAAQAAAAJAAEAAAD7/wsAAAAHAAEAAAD2/wwAAAAHAAAAAAD1/wwAAAAHAAAAAAD4/w0AAAAHAAAAAAD5/w0AAAAHAAAAAAD0/woAAAAJAAAAAAAIAAcAAAAJAAAAAADz/wcAAAAHAAAAAAA=")
 tile_set = SubResource("TileSet_6alfp")
 
@@ -451,7 +540,6 @@ tile_set = SubResource("TileSet_d63jh")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, 216.075)
-scale = Vector2(1, 1)
 script = ExtResource("5_t8kkf")
 dest_scene = "res://scenes/2D Scenes/fork_outdoors.tscn"
 
@@ -472,7 +560,6 @@ editor_draw_limits = true
 
 [node name="CollisionShape2D" parent="CharacterBody2D/AnimatedSprite2D/Area2D" index="0"]
 position = Vector2(-4.5, 1)
-scale = Vector2(1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="." groups=["interactable"]]
 visible = false
@@ -489,15 +576,16 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_l01pb")
 
 [node name="Car" type="Sprite2D" parent="."]
+position = Vector2(131.4, 0)
 texture = SubResource("AtlasTexture_qyosb")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-1.50002, -19.4)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_lwlwu")
 
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
 

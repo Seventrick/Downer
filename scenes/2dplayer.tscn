@@ -1,10 +1,15 @@
-[gd_scene load_steps=25 format=3 uid="uid://c1oc3d1lr572o"]
+[gd_scene load_steps=31 format=3 uid="uid://c1oc3d1lr572o"]
 
 [ext_resource type="Script" path="res://scripts/2dplayer.gd" id="1_hmyxt"]
 [ext_resource type="Shader" path="res://shaders2/2d character outline.gdshader" id="2_p67b8"]
 [ext_resource type="Texture2D" uid="uid://c1e3uibj6kbjp" path="res://assets/2D assets/Nick Idle.png" id="2_xamkq"]
 [ext_resource type="Texture2D" uid="uid://o0bdtlopjnou" path="res://assets/2D assets/2d_interact_symbol.png" id="2_xnqf5"]
 [ext_resource type="Texture2D" uid="uid://ckny8aoulugb7" path="res://assets/2D assets/Nick Spritesheet.png" id="4_fom5w"]
+[ext_resource type="AudioStream" uid="uid://de1niv782n0fl" path="res://sounds/step1.sfxr" id="6_oito5"]
+[ext_resource type="AudioStream" uid="uid://cr2r4y7iii0wn" path="res://sounds/step2.sfxr" id="7_qdl3k"]
+[ext_resource type="AudioStream" uid="uid://dhptrk5fnub2u" path="res://sounds/step3.sfxr" id="8_od81w"]
+[ext_resource type="AudioStream" uid="uid://dhdve5sdt6ibr" path="res://sounds/step4.sfxr" id="9_lgxjn"]
+[ext_resource type="AudioStream" uid="uid://0u2u2p2w26h1" path="res://sounds/step5.sfxr" id="10_b67n2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x0m0d"]
 atlas = ExtResource("2_xnqf5")
@@ -137,6 +142,14 @@ size = Vector2(7, 5)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gngst"]
 polygon = PackedVector2Array(-4, -18, 3, -18, 3, -17, 4, -17, 4, -16, 5, -16, 5, -15, 6, -15, 6, -9, 5, -9, 5, -3, 6, -3, 6, 4, 5, 4, 5, 5, 4, 5, 4, 20, -5, 20, -5, 17, -4, 17, -4, 9, -6, 9, -6, 2, -5, 2, -5, -4, -4, -4, -4, -5, -5, -5, -5, -7, -6, -7, -6, -8, -7, -8, -7, -15, -6, -15, -6, -16, -5, -16, -5, -17, -4, -17)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_n5dxe"]
+streams_count = 5
+stream_0/stream = ExtResource("6_oito5")
+stream_1/stream = ExtResource("7_qdl3k")
+stream_2/stream = ExtResource("8_od81w")
+stream_3/stream = ExtResource("9_lgxjn")
+stream_4/stream = ExtResource("10_b67n2")
+
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_hmyxt")
 
@@ -158,7 +171,7 @@ position_smoothing_speed = 6.555
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_ovvsg")
 sprite_frames = SubResource("SpriteFrames_j780u")
-animation = &"run"
+animation = &"idle"
 
 [node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
 collision_mask = 2
@@ -175,5 +188,13 @@ shape = SubResource("RectangleShape2D_g3d63")
 visible = false
 occluder = SubResource("OccluderPolygon2D_gngst")
 
+[node name="footsteps" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_n5dxe")
+
+[node name="walk" type="Timer" parent="."]
+wait_time = 0.55
+autostart = true
+
 [connection signal="area_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="walk" to="." method="_on_walk_timeout"]
