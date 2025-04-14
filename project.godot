@@ -27,14 +27,16 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
+"dialogueTestCharacter": "res://dialogic/characters/dialogueTestCharacter.dch",
 "testCharacter": "res://dialogic/testCharacter.dch"
 }
 directories/dtl_directory={
 "TestTimeline": "res://dialogic/TestTimeline.dtl",
-"daytimeTestTimeline": "res://dialogic/timelines/daytimeTestTimeline.dtl"
+"daytimeTestTimeline": "res://dialogic/timelines/daytimeTestTimeline.dtl",
+"dialogueTestTimeline": "res://dialogic/timelines/dialogueTestTimeline.dtl"
 }
 glossary/default_case_sensitive=true
-extensions_folder="res://addons/dialogic_additions"
+extensions_folder="res://addons/dialogic"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
 text/text_reveal_skip_delay=0.1
@@ -58,6 +60,7 @@ layout/style_list=["res://dialogic/premadeStyle.tres", "res://dialogic/betterDay
 layout/default_style="res://dialogic/premadeStyle.tres"
 portraits/default_portrait=""
 variables={}
+text/input_action="interact"
 
 [dialogue_manager]
 
@@ -72,7 +75,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/TileMapDual/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/gdfxr/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/gdfxr/plugin.cfg")
 
 [filesystem]
 

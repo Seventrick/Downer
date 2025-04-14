@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bn662hivfrpwv"]
+
+[ext_resource type="Texture2D" uid="uid://barw8lbnliaxc" path="res://assets/2D assets/nick olsen standing sprite.png" id="1_0tbso"]
+[ext_resource type="Script" path="res://scripts/test_person.gd" id="1_mgte4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m7rrd"]
+radius = 16.2788
+
+[node name="test_person" type="Node2D"]
+script = ExtResource("1_mgte4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0tbso")
+
+[node name="Area2D" type="Area2D" parent="." groups=["interactable"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_m7rrd")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

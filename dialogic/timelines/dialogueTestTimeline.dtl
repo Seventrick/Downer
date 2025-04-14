@@ -1,0 +1,5 @@
+[style name="dayStyleCustom"]
+testCharacter: hi
+testCharacter: I need extensive help
+[signal arg="dialogicTimer"]
+[end_timeline]

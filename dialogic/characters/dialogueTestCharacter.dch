@@ -8,26 +8,16 @@
 "sound_moods": {},
 "style": "dayStyleCustom"
 },
-"default_portrait": "meh",
+"default_portrait": "normal",
 "description": "",
-"display_name": "testCharacter",
+"display_name": "Chartest",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),
 "portraits": {
-"happy": {
+"normal": {
 "export_overrides": {
-"image": "\"res://characters/mom portrait.png\""
-},
-"ignore_char_scale": false,
-"mirror": false,
-"offset": Vector2(0, 0),
-"scale": 1.0,
-"scene": ""
-},
-"meh": {
-"export_overrides": {
-"image": "\"res://characters/mom portrait 2.png\""
+"image": "\"res://assets/nick olsen cycle-Sheet.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),
