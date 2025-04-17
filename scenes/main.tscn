@@ -48,7 +48,7 @@ shader_parameter/pixel_strength = -2.0
 
 [sub_resource type="Resource" id="Resource_ita56"]
 script = ExtResource("17_g0m0k")
-current_level = ""
+current_level = "forest_test"
 mainTheme = ""
 levelsSetup = false
 levelThemes = {}

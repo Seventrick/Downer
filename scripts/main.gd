@@ -89,9 +89,9 @@ func _unhandled_input(_event: InputEvent) -> void:
 	
 	
 	#meant for testing
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("dud"):
 		save_game()
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("dud"):
 		load_game()
 	if Input.is_action_pressed("debug"):
 		debug()
@@ -153,10 +153,12 @@ func toggle_inventory_interface() -> void:
 	if inventory_interface.visible:
 		PlayerState.controlLock = true
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		$UI/InventoryInterface.grab_focus()
 		%SubViewportContainer.set_mouse_filter(Control.MOUSE_FILTER_IGNORE)
 	else:
 		PlayerState.controlLock =  false
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		$UI/InventoryInterface.grab_focus()
 		%SubViewportContainer.set_mouse_filter(Control.MOUSE_FILTER_PASS)
 
 func _on_items_pressed() -> void:
@@ -182,11 +184,13 @@ func toggle_pause_menu() -> void:
 		%PauseMenu.visible = true
 		get_tree().paused = true
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		$UI/PauseMenu/NinePatchRect/VBoxContainer/Continue.grab_focus()
 		%SubViewportContainer.set_mouse_filter(Control.MOUSE_FILTER_IGNORE)
 	else:
 		%PauseMenu.visible = false
 		get_tree().paused = false
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		$UI/PauseMenu/NinePatchRect/VBoxContainer/Continue.release_focus()
 		%SubViewportContainer.set_mouse_filter(Control.MOUSE_FILTER_PASS)
 
 func _on_continue_pressed() -> void:

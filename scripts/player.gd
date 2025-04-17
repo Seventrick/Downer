@@ -17,6 +17,10 @@ var gravity = 9.8
 
 var grounded = false
 
+
+var look_dir: Vector2
+
+
 #bob variables
 const BOB_FREQ = 3.4
 const BOB_AMP = 0.02
@@ -241,8 +245,29 @@ func _physics_process(delta):
 		SPEED = 7
 	
 	
+	
+	_handle_joypad_camera_rotation(delta, 2)
+	
+	
 	move_and_slide()
 	#move(delta);
+
+
+
+
+func _handle_joypad_camera_rotation(delta: float, sens_mod: float = 1.0) -> void:
+	var joypad_dir: Vector2 = Input.get_vector(&"look_left", &"look_right", &"look_up", &"look_down")
+	if joypad_dir.length() > 0:
+		look_dir += joypad_dir * delta
+		_rotate_camera(sens_mod)
+		look_dir = Vector2.ZERO
+
+
+func _rotate_camera(sens_mod: float = 1.0) -> void:
+	head.rotation.y -= look_dir.x * sens_mod
+	camera.rotation.x -= look_dir.y * sens_mod
+	camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
+
 
 #region new
 
