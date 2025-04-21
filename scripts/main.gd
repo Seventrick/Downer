@@ -37,16 +37,29 @@ extends Node3D
 
 @onready var color_rect_2: ColorRect = $UI/ColorRect2
 
+@onready var cursor = load("res://assets/2D assets/ccursor1.png")
+@onready var cursorPoint = load("res://assets/2D assets/ccursor2.png")
+
+@onready var curMouse = false
 
 func _ready():
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
+	
 	player.toggle_inventory.connect(toggle_inventory_interface)
+	
+	Input.set_custom_mouse_cursor(cursor, 0, Vector2(40, 40))
+	Input.set_custom_mouse_cursor(cursorPoint, Input.CURSOR_POINTING_HAND, Vector2(40, 40))
+	Input.set_custom_mouse_cursor(cursor, Input.CURSOR_CROSS, Vector2(40, 40))
 	
 	#demoIntro()
 	#print(color_rect_2.material.shader.shader_parameter)
 	#color_rect_2.set("shader_paramater/interference_amount", 1.0)
 	load_game()
+	#changeThing()
 
-func _process(_delta):
+func _process(delta):
 	
 	if PlayerState.dead == true:
 		#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -65,6 +78,14 @@ func _process(_delta):
 	else:
 		rechargeBar.hide()
 	
+	
+	if InputEventJoypadMotion and curMouse:
+		if abs(x_axis) > 0.09 or abs(y_axis) > 0.09:
+			var mouse_pos = get_viewport().get_mouse_position()
+			var new_mouse_pos = mouse_pos + Vector2(x_axis, y_axis) * conCursorSens * delta
+			Input.warp_mouse(new_mouse_pos)
+	
+	
 
 func _physics_process(_delta: float) -> void:
 	
@@ -76,7 +97,9 @@ func _physics_process(_delta: float) -> void:
 	elif reticleCheck:
 		red_reticle.hide()
 		reticle.show()
-		
+	print(x_axis)
+	print(y_axis)
+	
 
 func _unhandled_input(_event: InputEvent) -> void:
 	
@@ -87,6 +110,8 @@ func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("pause") and !inventory_interface.visible:
 		toggle_pause_menu()
 	
+	if Input.is_action_just_pressed("interact") and curMouse:
+		click()
 	
 	#meant for testing
 	if Input.is_action_pressed("dud"):
@@ -95,6 +120,28 @@ func _unhandled_input(_event: InputEvent) -> void:
 		load_game()
 	if Input.is_action_pressed("debug"):
 		debug()
+
+
+var conCursorSens: float = 700.0
+var x_axis: float = 0.0
+var y_axis: float = 0.0
+
+func _input(event: InputEvent) -> void:
+		if event is InputEventJoypadMotion and curMouse:
+			if event.axis == 0:
+				x_axis = event.axis_value
+			if event.axis == 1:
+				y_axis = event.axis_value
+
+func click():
+	var a = InputEventMouseButton.new()
+	a.position = get_viewport().get_mouse_position()
+	a.button_index = MOUSE_BUTTON_LEFT
+	a.pressed = true
+	Input.parse_input_event(a)
+	await get_tree().process_frame
+	a.pressed = false
+	Input.parse_input_event(a)
 
 
 func debug() -> void:
@@ -153,12 +200,17 @@ func toggle_inventory_interface() -> void:
 	if inventory_interface.visible:
 		PlayerState.controlLock = true
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		$UI/InventoryInterface.grab_focus()
+		curMouse = true
+		x_axis = 0.0
+		y_axis = 0.0
+		#$UI/InventoryInterface/NinePatchRect/VBoxContainer/Control/PlayerInventory/VBoxContainer/MarginContainer/ItemGrid/Slot/Button.grab_focus()
 		%SubViewportContainer.set_mouse_filter(Control.MOUSE_FILTER_IGNORE)
 	else:
 		PlayerState.controlLock =  false
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		$UI/InventoryInterface.grab_focus()
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		curMouse = false
+		#$UI/InventoryInterface/NinePatchRect/VBoxContainer/Control/PlayerInventory/VBoxContainer/MarginContainer/ItemGrid/Slot/Button.release_focus()
 		%SubViewportContainer.set_mouse_filter(Control.MOUSE_FILTER_PASS)
 
 func _on_items_pressed() -> void:
@@ -183,7 +235,7 @@ func toggle_pause_menu() -> void:
 	if !%PauseMenu.visible:
 		%PauseMenu.visible = true
 		get_tree().paused = true
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		$UI/PauseMenu/NinePatchRect/VBoxContainer/Continue.grab_focus()
 		%SubViewportContainer.set_mouse_filter(Control.MOUSE_FILTER_IGNORE)
 	else:
@@ -197,13 +249,19 @@ func _on_continue_pressed() -> void:
 	toggle_pause_menu()
 
 func _on_quit_to_desktop_pressed() -> void:
-	get_tree().quit()
+	pass
+	#change for demo
+	#get_tree().quit()
 
 func _on_reset_pressed() -> void:
 	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	%SubViewportContainer.set_mouse_filter(Control.MOUSE_FILTER_PASS)
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	
+	#change for demo
+	#get_tree().change_scene_to_file("res://scenes/main.tscn")
+	get_tree().change_scene_to_file("res://scenes/main_title.tscn")
+	
 #endregion
 
 

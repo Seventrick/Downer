@@ -61,7 +61,7 @@ left_to_right = 0.0
 size = Vector3(2, 1, 2)
 
 [node name="MothersHouse" type="Node3D"]
-transform = Transform3D(1.695, 0.00161985, -0.00177988, -0.00161953, 1.695, 0.000305377, 0.00178017, -0.000303676, 1.695, 0, 0, 0)
+transform = Transform3D(1.695, 0.00161985, -0.00177988, -0.00161953, 1.695, 0.000305377, 0.00178017, -0.000303676, 1.695, 0, -0.97571, 0)
 script = ExtResource("1_u0mtb")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

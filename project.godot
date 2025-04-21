@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="DownerDreamV4"
-run/main_scene="res://scenes/2d_main.tscn"
+run/main_scene="res://scenes/main_title.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="DownerRest"
 config/features=PackedStringArray("4.3", "Forward Plus")
@@ -28,15 +28,19 @@ Crack="*res://singletons/crack.tscn"
 [dialogic]
 
 directories/dch_directory={
+"athletic_dude": "res://dialogic/characters/athletic_dude.dch",
 "dialogueTestCharacter": "res://dialogic/characters/dialogueTestCharacter.dch",
 "downer": "res://dialogic/characters/downer.dch",
 "mom": "res://dialogic/characters/mom.dch",
 "nick": "res://dialogic/characters/nick.dch",
 "preDowner": "res://dialogic/characters/preDowner.dch",
+"skinny_girl": "res://dialogic/characters/skinny_girl.dch",
 "testCharacter": "res://dialogic/testCharacter.dch"
 }
 directories/dtl_directory={
+"Skinny_Girl": "res://dialogic/timelines/Skinny_Girl.dtl",
 "TestTimeline": "res://dialogic/TestTimeline.dtl",
+"athletic_dude": "res://dialogic/timelines/athletic_dude.dtl",
 "daytimeTestTimeline": "res://dialogic/timelines/daytimeTestTimeline.dtl",
 "dialogueTestTimeline": "res://dialogic/timelines/dialogueTestTimeline.dtl",
 "downerIntro": "res://dialogic/timelines/downerIntro.dtl",
@@ -117,7 +121,6 @@ ui_accept={
 ui_select={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":32,"physical_keycode":0,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
-, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":3,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
 ui_focus_next={

@@ -1,0 +1,8 @@
+[style name="dayStyleCustom"]
+athletic_dude: Hey bro, what’s good!
+nick (neutral): Hi! I’m moving in today, do you know where the dorms are?
+athletic_dude: Oh yeah, just keep followin’ the path down, you’ll see the building eventually.
+nick (happy): Thanks!
+athletic_dude: Welcome to Glass Lake University, man!
+[signal arg="dialogicTimer"]
+[end_timeline]

@@ -97,7 +97,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("UI/Line5:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -125,6 +125,7 @@ balloon = ExtResource("2_nvh7m")
 layer = 0
 
 [node name="ColorRect2" type="ColorRect" parent="UI"]
+visible = false
 material = SubResource("ShaderMaterial_0dx70")
 offset_right = 1920.0
 offset_bottom = 1078.0
@@ -158,7 +159,7 @@ text = "[p align=center]
 
 Thanks for playing! 
 
-This is an early build to showcase in the Art and Tech show.
+This is an early build to showcase in the Urban Arts Space.
 
 To follow our game subscribe to our YouTube channel Ponyboy Studios, where we post dev logs and updates!"
 
@@ -269,6 +270,7 @@ text = "
  Stay in the light"
 
 [node name="EyeUI" parent="UI" instance=ExtResource("3_yspg7")]
+visible = false
 z_index = 2
 
 [node name="rechargeBar" type="TextureProgressBar" parent="UI"]
@@ -449,9 +451,10 @@ text = "Continue"
 layout_mode = 2
 theme_override_fonts/font = ExtResource("14_a5g1p")
 theme_override_font_sizes/font_size = 68
-text = "Reset"
+text = "Restart Demo"
 
 [node name="Quit to Desktop" type="Button" parent="UI/PauseMenu/NinePatchRect/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("14_a5g1p")
 theme_override_font_sizes/font_size = 68

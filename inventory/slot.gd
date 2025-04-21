@@ -14,6 +14,7 @@ func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 		slot_clicked.emit(get_index(), event.button_index)
 	
+	
 func _on_mouse_entered() -> void:
 	modulate = Color(1,1,1,0.5)
 	#item_highlight.show()

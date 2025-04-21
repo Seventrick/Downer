@@ -11,7 +11,7 @@ extends Node3D
 
 @onready var distanceFromDowner
 @onready var audio_stream_player: AudioStreamPlayer = $"../AudioStreamPlayer"
-
+@onready var done = false
 
 func _process(_delta: float) -> void:
 	sprite.look_at(player.global_position, Vector3.UP)
@@ -21,15 +21,20 @@ func _process(_delta: float) -> void:
 	distanceFromDowner = player.global_position.distance_to(global_position)
 	
 	if innittowinit:
+		filter.show()
 		noise = remap(distanceFromDowner, 15, 0, 0.025, 2)
 		interference = remap(distanceFromDowner, 15, 0, 0.037, 2)
 		filter.material.set_shader_parameter("interference_amount", interference)
 		filter.material.set_shader_parameter("noise_amount", noise)
 		
-	if distanceFromDowner <= 7:
+	if distanceFromDowner <= 7 and !done:
 		print("bae")
-		get_tree().paused = true
-		pass
+		done = true
+		PlayerState.movementLock = true
+		PlayerState.safe = true
+		get_parent().get_parent().get_parent().get_parent().get_parent().get_node("AnimationPlayer").play("end")
+		await get_tree().create_timer(15).timeout
+		get_tree().change_scene_to_file("res://scenes/main_title.tscn")
 
 
 

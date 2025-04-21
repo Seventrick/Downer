@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://bgok87vyvl5eo"]
+[gd_scene load_steps=71 format=3 uid="uid://bgok87vyvl5eo"]
 
 [ext_resource type="Script" path="res://scripts/forest_test.gd" id="1_11lva"]
 [ext_resource type="Texture2D" uid="uid://c0gcqkuibmnsc" path="res://assets/textures/ground.png" id="1_63gj1"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://scripts/downerSprite.gd" id="15_bnfr6"]
 [ext_resource type="PackedScene" uid="uid://3eo01fe0htgj" path="res://scenes/light wisp.tscn" id="15_s8y8l"]
 [ext_resource type="Texture2D" uid="uid://bksc0lag26kiv" path="res://assets/2D assets/Downer Hunched.png" id="15_tcqeh"]
+[ext_resource type="PackedScene" uid="uid://bhmxohy5kpk3h" path="res://scenes/safe zone.tscn" id="18_au7ia"]
 [ext_resource type="AudioStream" uid="uid://d2qytxmqfigeg" path="res://sounds/downer death.sfxr" id="20_okbwi"]
 [ext_resource type="PackedScene" uid="uid://dybhqxdne5v30" path="res://scenes/large_tree_superposition.tscn" id="21_mpl0b"]
 [ext_resource type="PackedScene" uid="uid://dh5rq7fi4d2hd" path="res://assets/3D assets/trees and stuff/treeIndividuals/large_tree_2.tscn" id="22_a5d85"]
@@ -170,6 +171,9 @@ shader_parameter/roughness = 0.2
 size = Vector2(40, 40)
 subdivide_width = 40
 subdivide_depth = 40
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yld6x"]
+size = Vector3(17, 5, 10)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dnjo4"]
 radius = 13.1517
@@ -676,7 +680,7 @@ _data = {
 }
 
 [node name="ForestTest" type="Node3D"]
-transform = Transform3D(-1.73205, 0, 1, 0, 2, 0, -1, 0, -1.73205, -152.613, -2, -16.4219)
+transform = Transform3D(-1.73205, 0, 1, 0, 2, 0, -1, 0, -1.73205, -149.55, -2, -16.723)
 script = ExtResource("1_11lva")
 
 [node name="SpawnMarker" type="Marker3D" parent="."]
@@ -686,7 +690,7 @@ transform = Transform3D(0.737159, 0, -0.675719, 0, 1, 0, 0.675719, 0, 0.737159, 
 environment = SubResource("Environment_jgmd8")
 
 [node name="foliage" type="GridMap" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2, -2.395, 8.259)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2, -43.6832, 8.259)
 visible = false
 mesh_library = ExtResource("2_stwdv")
 cell_size = Vector3(0.5, 2, 0.5)
@@ -696,7 +700,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="foliage2" type="GridMap" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2, -1.465, 8.259)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2, -42.7532, 8.259)
 visible = false
 mesh_library = ExtResource("2_t2ity")
 cell_size = Vector3(0.5, 0.5, 0.5)
@@ -1029,54 +1033,6 @@ transform = Transform3D(0.586413, 0, 0, 0, 0.65, 0, 0, 0, 0.586413, -66.9988, -0
 [node name="lights" type="Node3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.56876, 0, 0, 0, 0.5, -37.687, -0.901027, -19.5299)
 
-[node name="bearLight1" parent="lights" instance=ExtResource("15_s8y8l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.693717, -2.26253)
-visible = false
-
-[node name="bearLight2" parent="lights" instance=ExtResource("15_s8y8l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3107, 0.693717, -2.26253)
-visible = false
-
-[node name="reportLight" parent="lights" instance=ExtResource("15_s8y8l")]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 5.57946, 2.00375, 1.63155)
-visible = false
-
-[node name="orbLight" parent="lights" instance=ExtResource("15_s8y8l")]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 15.7535, 1.03363, 1.03488)
-visible = false
-
-[node name="orbLight3" parent="lights" instance=ExtResource("15_s8y8l")]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -52.3883, 1.03363, 99.8329)
-visible = false
-
-[node name="orbLight4" parent="lights" instance=ExtResource("15_s8y8l")]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -41.2538, 1.03363, 102.829)
-visible = false
-
-[node name="orbLight5" parent="lights" instance=ExtResource("15_s8y8l")]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -31.6902, 1.03363, 112.943)
-visible = false
-
-[node name="orbLight6" parent="lights" instance=ExtResource("15_s8y8l")]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -37.1161, 9.80362, 121.232)
-visible = false
-
-[node name="orbLight7" parent="lights" instance=ExtResource("15_s8y8l")]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -41.7441, 1.19081, 123.904)
-visible = false
-
-[node name="orbLight8" parent="lights" instance=ExtResource("15_s8y8l")]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -43.1272, 1.19081, 117.678)
-visible = false
-
-[node name="orbLight2" parent="lights" instance=ExtResource("15_s8y8l")]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 22.0475, 1.03363, -5.96185)
-visible = false
-
-[node name="boatLight" parent="lights" instance=ExtResource("15_s8y8l")]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 35.5424, 3.31683, -0.0217466)
-visible = false
-
 [node name="startLight" parent="lights" instance=ExtResource("15_s8y8l")]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -15.3068, 1.49916, -6.06509)
 
@@ -1141,7 +1097,7 @@ transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 51.1973,
 light_energy = 4.0
 
 [node name="startLight21" parent="lights" instance=ExtResource("15_s8y8l")]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 71.2271, 4.98994, 37.5145)
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 69.9263, 1.04945, 37.1091)
 
 [node name="OmniLight3D" parent="lights/startLight21" index="0"]
 light_energy = 6.0
@@ -1178,6 +1134,13 @@ transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 83.7352,
 
 [node name="startLight7" parent="lights" instance=ExtResource("15_s8y8l")]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -69.1397, 0.566757, 43.9965)
+
+[node name="safe zone" parent="lights" instance=ExtResource("18_au7ia")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 70.5222, 3.33786e-06, 36.2526)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lights/safe zone"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0.303843, 2, 3.16987)
+shape = SubResource("BoxShape3D_yld6x")
 
 [node name="Downer" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01765, 0, 1.3558)
@@ -2728,18 +2691,6 @@ autoplay = true
 [connection signal="body_entered" from="Triggers/bear trigger3" to="Triggers/bear trigger3" method="_on_body_entered"]
 
 [editable path="OrbPickup"]
-[editable path="lights/bearLight1"]
-[editable path="lights/bearLight2"]
-[editable path="lights/reportLight"]
-[editable path="lights/orbLight"]
-[editable path="lights/orbLight3"]
-[editable path="lights/orbLight4"]
-[editable path="lights/orbLight5"]
-[editable path="lights/orbLight6"]
-[editable path="lights/orbLight7"]
-[editable path="lights/orbLight8"]
-[editable path="lights/orbLight2"]
-[editable path="lights/boatLight"]
 [editable path="lights/startLight"]
 [editable path="lights/startLight2"]
 [editable path="lights/startLight10"]
@@ -2764,6 +2715,7 @@ autoplay = true
 [editable path="lights/startLight18"]
 [editable path="lights/startLight19"]
 [editable path="lights/startLight7"]
+[editable path="lights/safe zone"]
 [editable path="Assets/paperReal"]
 [editable path="Assets/paperReal2"]
 [editable path="Assets/paperReal3"]

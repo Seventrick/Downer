@@ -1,10 +1,10 @@
 preDowner (neutral): . . . hey . . . Nick?
-nick (neutral): . . .
+nick (eepy): . . .
 preDowner (neutral): Nick?
 [wait time="1.0"]
 [signal arg="stir"]
 [wait time="2.0"]
-nick (distraut): . . . Whaa? Who?
+nick (eepy): . . . Whaa? Who?
 nick (neutral): Oh… Hey. What’s up?
 preDowner (neutral): Hi Nick, it’s just that. . .
 preDowner (sideeye): I realized I never really introduced myself.
@@ -20,13 +20,13 @@ nick (neutral): Ah, okay.
 [wait time="1.5"]
 [signal arg="doze"]
 [wait time="1.4"]
-nick: . . .
+nick (eepy): . . .
 nick: What school did you go to?
-\downer: Early on, I used to go to charter school. Maybe it was second grade? 
+\downer: Early on, I used to go to charter school. Maybe it was second grade?
 [wait time="1.5"]
 [signal arg="doze"]
 [wait time="1.4"]
-\downer:  I can’t really remember. But anyway. . .
+\downer: I can’t really remember. But anyway. . .
 [signal arg="eep"]
 [wait time="4.0"]
 [signal arg="next"]

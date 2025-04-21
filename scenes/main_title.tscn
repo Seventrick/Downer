@@ -1,0 +1,205 @@
+[gd_scene load_steps=12 format=3 uid="uid://d1x2ajrj876sd"]
+
+[ext_resource type="Script" path="res://scripts/main_title.gd" id="1_2hojv"]
+[ext_resource type="Texture2D" uid="uid://dry4waeclw1a4" path="res://assets/2D assets/Main-CapsuleMain-Capsule-1232-x-706px.png" id="1_qe8fs"]
+[ext_resource type="Texture2D" uid="uid://chidyo1maffh1" path="res://assets/basic nine-patch 3.png" id="2_iwyjc"]
+[ext_resource type="FontFile" uid="uid://b5lxqj02wygdp" path="res://assets/monogram.ttf" id="3_vyoup"]
+[ext_resource type="VideoStream" path="res://cutscenes/Opening-cutscene.ogv" id="5_jo3q0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ym8a5"]
+texture = ExtResource("1_qe8fs")
+
+[sub_resource type="Animation" id="Animation_a7tj8"]
+resource_name = "start_pressed"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("titleImage:theme_override_styles/panel:modulate_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NinePatchRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.16667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NinePatchRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.16667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_4gtx2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("titleImage:theme_override_styles/panel:modulate_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NinePatchRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NinePatchRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VideoStreamPlayer:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gxk6v"]
+resource_name = "cutscene"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VideoStreamPlayer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_y71of"]
+resource_name = "fade"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VideoStreamPlayer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_422cy"]
+_data = {
+"RESET": SubResource("Animation_4gtx2"),
+"cutscene": SubResource("Animation_gxk6v"),
+"fade": SubResource("Animation_y71of"),
+"start_pressed": SubResource("Animation_a7tj8")
+}
+
+[node name="main_title" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_2hojv")
+
+[node name="black" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -74.0
+offset_top = -42.0
+offset_right = 2004.0
+offset_bottom = 1187.0
+color = Color(0, 0, 0, 1)
+
+[node name="titleImage" type="PanelContainer" parent="."]
+layout_mode = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ym8a5")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1100.0
+offset_top = 831.0
+offset_right = 1585.0
+offset_bottom = 971.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_iwyjc")
+region_rect = Rect2(0, 0, 132, 132)
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="Start" type="Button" parent="NinePatchRect"]
+layout_mode = 2
+offset_left = 53.0
+offset_top = 14.0
+offset_right = 432.0
+offset_bottom = 127.0
+theme_override_fonts/font = ExtResource("3_vyoup")
+theme_override_font_sizes/font_size = 68
+text = "Start Demo"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_422cy")
+}
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("5_jo3q0")
+
+[connection signal="pressed" from="NinePatchRect/Start" to="." method="_on_start_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

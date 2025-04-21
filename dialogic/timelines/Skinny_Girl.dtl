@@ -1,0 +1,9 @@
+[style name="dayStyleCustom"]
+nick (happy): Yo!
+skinny_girl: Hey, do I know you?
+nick: Wouldn’t think so. I’m a first year moving in today.
+skinny_girl: I see. Well, hopefully you like this place more than I do. Can’t wait to get out of here. . .
+nick (distraut): Uh huh. . .
+nick (neutral): Thanks for the warm welcome, see ya around!
+[signal arg="dialogicTimer"]
+[end_timeline]
