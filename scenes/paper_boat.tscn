@@ -1,12 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://cy1lkhbs8iet0"]
+[gd_scene load_steps=7 format=3 uid="uid://cy1lkhbs8iet0"]
 
 [ext_resource type="Script" path="res://scripts/paper_boat.gd" id="1_fc7na"]
 [ext_resource type="PackedScene" uid="uid://drqppayjxns6b" path="res://assets/3D assets/paper boat.glb" id="2_1ca72"]
+[ext_resource type="Texture2D" uid="uid://b30xg1xp8t2w4" path="res://assets/2D assets/item icons/paper boat.png" id="2_rkdun"]
+[ext_resource type="Script" path="res://item/item_data.gd" id="3_70qdr"]
+
+[sub_resource type="Resource" id="Resource_l4yge"]
+script = ExtResource("3_70qdr")
+name = "Paper Boat"
+description = "A paper boat that was part of a pair floating downstream."
+consumable = false
+icon = ExtResource("2_rkdun")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5diwb"]
 
 [node name="Paper Boat" type="StaticBody3D" groups=["interactable", "items"]]
 script = ExtResource("1_fc7na")
+item_data = SubResource("Resource_l4yge")
 
 [node name="paper boat" parent="." instance=ExtResource("2_1ca72")]
 transform = Transform3D(0.135, 0, 0, 0, 0.135, 0, 0, 0, 0.135, 0, 0, 0)

@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bvm06wyu7nyxe"]
 
 [ext_resource type="Script" path="res://scripts/theater_script.gd" id="1_18mbv"]
-[ext_resource type="Texture2D" uid="uid://c5530mwcgi53m" path="res://assets/Screenshot 2024-09-03 200605.png" id="2_iet0v"]
 [ext_resource type="Script" path="res://item/item_data.gd" id="2_qmpww"]
+[ext_resource type="Texture2D" uid="uid://cchdyi170tv70" path="res://assets/2D assets/item icons/script.png" id="2_xlmqc"]
 [ext_resource type="PackedScene" uid="uid://cqhul5uu1wxvy" path="res://assets/StylooClassroomAssetPack GLTF & FBX/classroom/GLTF/book.glb" id="4_0guf3"]
 
 [sub_resource type="Resource" id="Resource_3xtmr"]
@@ -10,7 +10,7 @@ script = ExtResource("2_qmpww")
 name = "Theater Script"
 description = "A worn script for a musical, it seems to be marked up with highlights and stage directions."
 consumable = false
-icon = ExtResource("2_iet0v")
+icon = ExtResource("2_xlmqc")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_so4mf"]
 size = Vector3(0.157471, 0.810059, 0.208755)

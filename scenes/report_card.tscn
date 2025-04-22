@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://rbypnugsyv74"]
 
 [ext_resource type="Script" path="res://scripts/report_card.gd" id="1_7fj0v"]
-[ext_resource type="Texture2D" uid="uid://c5530mwcgi53m" path="res://assets/Screenshot 2024-09-03 200605.png" id="2_0clfp"]
+[ext_resource type="Texture2D" uid="uid://vm03oyb2gqh2" path="res://assets/2D assets/item icons/report card.png" id="2_j3h71"]
 [ext_resource type="Script" path="res://item/item_data.gd" id="2_syvky"]
 [ext_resource type="Texture2D" uid="uid://dhqcdudmebdio" path="res://assets/textures/report card real.jpeg" id="4_agstj"]
 
@@ -10,7 +10,7 @@ script = ExtResource("2_syvky")
 name = "Report Card"
 description = "Looks like someone hasn't been doing too well in classes..."
 consumable = false
-icon = ExtResource("2_0clfp")
+icon = ExtResource("2_j3h71")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_lx7k4"]
 

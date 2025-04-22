@@ -22,3 +22,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 func _on_video_stream_player_finished() -> void:
 	$AnimationPlayer.play("fade")
+
+
+func _on_audio_stream_player_finished() -> void:
+	$AudioStreamPlayer.play()

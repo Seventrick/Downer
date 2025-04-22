@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://d1x2ajrj876sd"]
+[gd_scene load_steps=13 format=3 uid="uid://d1x2ajrj876sd"]
 
 [ext_resource type="Script" path="res://scripts/main_title.gd" id="1_2hojv"]
 [ext_resource type="Texture2D" uid="uid://dry4waeclw1a4" path="res://assets/2D assets/Main-CapsuleMain-Capsule-1232-x-706px.png" id="1_qe8fs"]
 [ext_resource type="Texture2D" uid="uid://chidyo1maffh1" path="res://assets/basic nine-patch 3.png" id="2_iwyjc"]
 [ext_resource type="FontFile" uid="uid://b5lxqj02wygdp" path="res://assets/monogram.ttf" id="3_vyoup"]
 [ext_resource type="VideoStream" path="res://cutscenes/Opening-cutscene.ogv" id="5_jo3q0"]
+[ext_resource type="AudioStream" uid="uid://i204h3poro5v" path="res://audio/Its_Mom Wav.wav" id="6_y06hs"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ym8a5"]
 texture = ExtResource("1_qe8fs")
@@ -200,6 +201,11 @@ offset_right = 40.0
 offset_bottom = 40.0
 stream = ExtResource("5_jo3q0")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_y06hs")
+autoplay = true
+
 [connection signal="pressed" from="NinePatchRect/Start" to="." method="_on_start_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
