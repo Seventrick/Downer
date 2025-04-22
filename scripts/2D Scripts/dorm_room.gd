@@ -2,6 +2,8 @@ extends Node2D
 
 var style: DialogicStyle = load("res://dialogic/styles/dayStyleCustom.tres")
 
+@onready var nextLevel = preload("res://scenes/main_title.tscn")
+
 @export_file var dest_scene
 
 @onready var player: CharacterBody2D = $CharacterBody2D
@@ -56,7 +58,7 @@ func _on_reset_pressed() -> void:
 	Crack.stop()
 	#change for demo
 	#get_tree().change_scene_to_file("res://scenes/main.tscn")
-	get_tree().change_scene_to_file("res://scenes/main_title.tscn")
+	get_tree().change_scene_to_file(nextLevel)
 
 
 

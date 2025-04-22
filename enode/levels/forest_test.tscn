@@ -680,7 +680,7 @@ _data = {
 }
 
 [node name="ForestTest" type="Node3D"]
-transform = Transform3D(-1.73205, 0, 1, 0, 2, 0, -1, 0, -1.73205, -149.55, -2, -16.723)
+transform = Transform3D(-1.73205, 0, 1, 0, 2, 0, -1, 0, -1.73205, -149.55, 0.846382, -16.723)
 script = ExtResource("1_11lva")
 
 [node name="SpawnMarker" type="Marker3D" parent="."]
