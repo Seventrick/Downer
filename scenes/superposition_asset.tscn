@@ -30,6 +30,7 @@ shape = SubResource("SphereShape3D_mtd6l")
 shape = SubResource("SphereShape3D_40f2b")
 
 [node name="SuperpositionTimer" type="Timer" parent="."]
+autostart = true
 
 [connection signal="area_entered" from="ChangeArea" to="." method="change_entered"]
 [connection signal="area_exited" from="ChangeArea" to="." method="change_exited"]

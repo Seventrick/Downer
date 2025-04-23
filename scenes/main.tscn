@@ -489,11 +489,16 @@ libraries = {
 "": SubResource("AnimationLibrary_snojh")
 }
 
+[node name="invCooldown" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [connection signal="pressed" from="UI/InventoryInterface/NinePatchRect/VBoxContainer/HBoxContainer/Items" to="." method="_on_items_pressed"]
 [connection signal="pressed" from="UI/InventoryInterface/NinePatchRect/VBoxContainer/HBoxContainer/Collectibles" to="." method="_on_collectibles_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/NinePatchRect/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/NinePatchRect/VBoxContainer/Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/NinePatchRect/VBoxContainer/Quit to Desktop" to="." method="_on_quit_to_desktop_pressed"]
+[connection signal="timeout" from="invCooldown" to="." method="_on_inv_cooldown_timeout"]
 
 [editable path="UI/EyeUI"]
 [editable path="UI/InventoryInterface/NinePatchRect/VBoxContainer/Control/PlayerInventory"]

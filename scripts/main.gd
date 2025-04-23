@@ -97,14 +97,18 @@ func _physics_process(_delta: float) -> void:
 	elif reticleCheck:
 		red_reticle.hide()
 		reticle.show()
-	print(x_axis)
-	print(y_axis)
-	
+	#print(x_axis)
+	#print(y_axis)
+
+
+@onready var inv = true
 
 func _unhandled_input(_event: InputEvent) -> void:
 	
-	if Input.is_action_just_pressed("inventory") and !%PauseMenu.visible:
+	if Input.is_action_just_pressed("inventory") and !%PauseMenu.visible and inv:
 		toggle_inventory_interface()
+		inv = false
+		$invCooldown.start()
 	
 	#I want this button to work while paused :(
 	if Input.is_action_just_pressed("pause") and !inventory_interface.visible:
@@ -199,8 +203,9 @@ func toggle_inventory_interface() -> void:
 	
 	if inventory_interface.visible:
 		PlayerState.controlLock = true
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		curMouse = true
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		
 		x_axis = 0.0
 		y_axis = 0.0
 		#$UI/InventoryInterface/NinePatchRect/VBoxContainer/Control/PlayerInventory/VBoxContainer/MarginContainer/ItemGrid/Slot/Button.grab_focus()
@@ -306,3 +311,7 @@ func updateData() -> void:
 	#whichever func I use to update enode (likely summon_level)
 
 #endregion
+
+
+func _on_inv_cooldown_timeout() -> void:
+	inv = true
