@@ -9,7 +9,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	
 	
 	# death
@@ -27,9 +27,9 @@ func _process(_delta: float) -> void:
 	# progress bar increasing
 		
 	if PlayerState.safe == true:
-		safeBar.value += 0.50
+		safeBar.value += 0.50 * delta
 	else:
-		safeBar.value -= 0.25
+		safeBar.value -= 0.25 * delta
 
 	
 	# eye UI
