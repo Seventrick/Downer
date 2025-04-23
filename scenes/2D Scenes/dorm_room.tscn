@@ -246,7 +246,7 @@ _data = {
 [node name="dorm_room" type="Node2D"]
 scale = Vector2(5, 5)
 script = ExtResource("1_v6l3m")
-dest_scene = "res://scenes/main.tscn"
+dest_scene = "res://scenes/loading_screen.tscn"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 scale = Vector2(5, 5)

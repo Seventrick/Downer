@@ -2,7 +2,7 @@ extends Node2D
 
 var style: DialogicStyle = load("res://dialogic/styles/dayStyleCustom.tres")
 
-@onready var nextLevel = preload("res://scenes/main_title.tscn")
+@onready var nextLevel = load("res://scenes/main_title.tscn")
 
 @export_file var dest_scene
 
