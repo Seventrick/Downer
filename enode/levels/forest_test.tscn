@@ -1046,7 +1046,7 @@ transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -52.4237
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -62.6013, 0.660994, 99.0224)
 
 [node name="startLight3" parent="lights" instance=ExtResource("15_s8y8l")]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -37.9349, 2.75759, 118.615)
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -37.9349, 1.93594, 118.615)
 
 [node name="startLight5" parent="lights" instance=ExtResource("15_s8y8l")]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -65.3564, 0.850783, 52.4442)
@@ -1065,6 +1065,9 @@ light_energy = 5.0
 
 [node name="startLight4" parent="lights" instance=ExtResource("15_s8y8l")]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -42.2579, 1.55837, 102.325)
+
+[node name="startLight25" parent="lights" instance=ExtResource("15_s8y8l")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -40.6621, 1.55837, 110.559)
 
 [node name="startLight6" parent="lights" instance=ExtResource("15_s8y8l")]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -61.3084, 1.55838, 33.9052)
@@ -2700,6 +2703,7 @@ autoplay = true
 [editable path="lights/startLight8"]
 [editable path="lights/startLight20"]
 [editable path="lights/startLight4"]
+[editable path="lights/startLight25"]
 [editable path="lights/startLight6"]
 [editable path="lights/startLight11"]
 [editable path="lights/startLight12"]
